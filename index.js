@@ -5,8 +5,8 @@ const fx = require("mz/fs");
 
 
 const client = "images";
-const production = "https://www.esterigen.com";
-const staging = "https://esterigendev.200response.mx";
+const production = "https://stlfoodbank.org";
+const staging = "https://xslfbstage.wpengine.com";
 const pages = require("./pages.json");
 
 
@@ -25,7 +25,8 @@ function getName(arreglo) {
 
 async function captureMultipleScreenshots(phase, device) {
     var phase_url = phase == "production" ? production : staging;
-    var fullpath = client + "/" + phase;
+    //var fullpath = client + "/" + phase;
+    var fullpath = client;
     let browser = null;
 
     if (!fs.existsSync(fullpath)) {
@@ -51,8 +52,10 @@ async function captureMultipleScreenshots(phase, device) {
             var arreglo = url.split("/");
             var name = getName(arreglo);
             await page.goto(phase_url + url);
-            await page.screenshot({ path: `${fullpath}/${id}-${device}-${name}.png`, fullPage: true });
-            console.log(`${fullpath}/${id}-${device}-${name}.png`);
+            //await page.screenshot({ path: `${fullpath}/${id}-${device}-${name}.png`, fullPage: true });
+            await page.screenshot({ path: `${fullpath}/${id}-${phase}-${device}-${name}.png`, fullPage: true });
+            //console.log(`${fullpath}/${id}-${device}-${name}.png`);
+            console.log(`${fullpath}/${id}-${phase}-${device}-${name}.png`);
         }
     } catch (err) {
         console.log(`❌ Error: ${err.message}`);
@@ -65,8 +68,10 @@ async function captureMultipleScreenshots(phase, device) {
 }
 
 async function getDiff(device) {
-    var path_prod = client + "/production";
-    var path_stag = client + "/staging";
+    var path_prod = client + "production";
+    var path_stag = client + "staging";
+    //var path_prod = client + "/production";
+    //var path_stag = client + "/staging";
     var output = client + "/compare";
 
     if (!fs.existsSync(output)) {
@@ -90,11 +95,15 @@ async function getDiff(device) {
         of pages) {
         var arreglo = url.split("/");
         var name = getName(arreglo)
-        console.log(path_prod + "/" + id + "-" + device + "-" + name + ".png")
-        console.log(path_stag + "/" + id + "-" + device + "-" + name + ".png")
+        //console.log(path_prod + "/" + id + "-" + device + "-" + name + ".png")
+        console.log( id +"_" +path_prod + "_" + device + "_" + name + ".png")
+        //console.log(path_stag + "/" + id + "-" + device + "-" + name + ".png")
+        console.log( id +"_" + path_stag + "_" + device + "_" + name + ".png")
         const data = await compareImages(
-            await fx.readFile(path_prod + "/" + id + "-" + device + "-" + name + ".png"),
-            await fx.readFile(path_stag + "/" + id + "-" + device + "-" + name + ".png"),
+            //await fx.readFile(path_prod + "/" + id + "-" + device + "-" + name + ".png"),
+            await fx.readFile( id +"_" +path_prod + "_" + device + "_" + name + ".png" ),
+            //await fx.readFile(path_stag + "/" + id + "-" + device + "-" + name + ".png"),
+            await fx.readFile( id +"_" + path_stag + "_" + device + "_" + name + ".png" ),
             options
         );
         await fx.writeFile(`${output}/${id}-${device}-${name}.png`, data.getBuffer());
@@ -104,9 +113,9 @@ async function getDiff(device) {
 async function init() {
     await captureMultipleScreenshots("production", "desktop");
     await captureMultipleScreenshots("staging", "desktop");
-    await getDiff("desktop");
-    await captureMultipleScreenshots("production", "mobile");
-    await captureMultipleScreenshots("staging", "mobile");
-    await getDiff("mobile");
+    //await getDiff("desktop");
+    //await captureMultipleScreenshots("production", "mobile");
+    //await captureMultipleScreenshots("staging", "mobile");
+    //await getDiff("mobile");
 }
 init();
