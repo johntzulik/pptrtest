@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <style>
+        .compare {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+        }
+        .images{
+            max-width: 100%;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            text-align: center;
+        }
+        .production,
+        .staging{
+            max-width: 50%;
+        }
+        img{
+            width: 95%;
+        }
+        h1 {
+            font-family: 'Tahoma';
+        }
+    </style>
+</head>
+<body>
+    <div class="compare">
+        <h1>IMAGE COMPARISON</h1>
+        <img src="{{comparison}}" alt="">
+    </div>
+    <div class="images">
+        <div class="production">
+            <h1>IMAGE PRODUCTION</h1>
+            <img src="{{production}}" alt="">
+        </div>
+        <div class="staging">
+            <h1>IMAGE STAGING</h1>
+            <img src="{{staging}}" alt="">
+        </div>
+    </div>
+</body>
+</html>

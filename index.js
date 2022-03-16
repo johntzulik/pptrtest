@@ -2,11 +2,14 @@ const fs = require("fs");
 const puppeteer = require("puppeteer");
 const compareImages = require("resemblejs/compareImages");
 const fx = require("mz/fs");
+const gm = require('gm');
+const pdf = require('html-pdf');
+var path = require('path')
 
 
 const client = "images";
-const production = "https://stlfoodbank.org";
-const staging = "https://xslfbstage.wpengine.com";
+const production = "";
+const staging = "";
 const pages = require("./pages.json");
 
 
@@ -25,6 +28,7 @@ function getName(arreglo) {
 
 async function captureMultipleScreenshots(phase, device) {
     var phase_url = phase == "production" ? production : staging;
+    var cookie = phase == "production" ? 'yourspca.org' : 'bufny19.wpengine.com';
     //var fullpath = client + "/" + phase;
     var fullpath = client;
     let browser = null;
@@ -34,10 +38,17 @@ async function captureMultipleScreenshots(phase, device) {
     }
     
     try {
+        const cookies = [{
+            'name': 'lb_2112_sustainer_monthly_shelter_guardians',
+            'value': 'true',
+            'domain': cookie
+          }];
         // launch headless Chromium browser
         browser = await puppeteer.launch({headless: true,});
         // create new page object
         const page = await browser.newPage();
+        await page.setCookie(...cookies);
+        page.waitForTimeout(1000)
         // set viewport width and height
         if (device == "desktop") {
             var w = 1440,h = 1080;
@@ -68,11 +79,11 @@ async function captureMultipleScreenshots(phase, device) {
 }
 
 async function getDiff(device) {
-    var path_prod = client + "production";
-    var path_stag = client + "staging";
+    var path_prod = "production";
+    var path_stag = "staging";
     //var path_prod = client + "/production";
     //var path_stag = client + "/staging";
-    var output = client + "/compare";
+    var output = client;
 
     if (!fs.existsSync(output)) {
         fs.mkdirSync(output, { recursive: true });
@@ -85,35 +96,60 @@ async function getDiff(device) {
             transparency: 1,
             largeImageThreshold: 1200,
             useCrossOrigin: false,
-            outputDiff: true
+            outputDiff: true,
         },
         scaleToSameSize: true,
-        ignore: "antialiasing"
+        ignore: "less"
     };
 
-    for (const { id, url }
-        of pages) {
+    for (const { id, url } of pages) {
         var arreglo = url.split("/");
         var name = getName(arreglo)
-        //console.log(path_prod + "/" + id + "-" + device + "-" + name + ".png")
-        console.log( id +"_" +path_prod + "_" + device + "_" + name + ".png")
-        //console.log(path_stag + "/" + id + "-" + device + "-" + name + ".png")
-        console.log( id +"_" + path_stag + "_" + device + "_" + name + ".png")
+        var comparison =  id + '-compare-' + device + '-' + name + ".png"
+        var production =  id + '-' +path_prod + '-' + device + '-' + name + ".png"
+        var staging = id + '-' + path_stag + '-' + device + '-' + name + ".png"
+
         const data = await compareImages(
-            //await fx.readFile(path_prod + "/" + id + "-" + device + "-" + name + ".png"),
-            await fx.readFile( id +"_" +path_prod + "_" + device + "_" + name + ".png" ),
-            //await fx.readFile(path_stag + "/" + id + "-" + device + "-" + name + ".png"),
-            await fx.readFile( id +"_" + path_stag + "_" + device + "_" + name + ".png" ),
+            await fx.readFile( client + '/'+ production ),
+            await fx.readFile( client + '/'+ staging ),
             options
         );
-        await fx.writeFile(`${output}/${id}-${device}-${name}.png`, data.getBuffer());
+        await fx.writeFile(`${client}/${id}-compare-${device}-${name}.png`, data.getBuffer());
+        console.log(`${client}/${id}-compare-${device}-${name}.png`);
+        
+        generarHTML(comparison, production,staging)
     }
+}
+async function getSize(image){
+    gm(image).size(function (err, value) {
+        return value
+        if (err) {
+            console.log(err);
+        }
+    });
+}
+async function generarHTML(comparison, production,staging){
+
+    var template = path.join(__dirname, 'templatehtml.html')
+    var prefilename = path.join(__dirname, 'html/' + comparison)
+    var filename =  prefilename.replace('.png', '.html')
+    var templateHtml = fs.readFileSync(template, 'utf8')
+
+    var title = comparison.replace('.png', '')
+    var _comparison = path.join('../images/', comparison)
+    var _production = path.join( '../images/', production)
+    var _staging = path.join('../images/', staging)
+    templateHtml = templateHtml.replace('{{title}}', title)
+    templateHtml = templateHtml.replace('{{comparison}}', _comparison)
+    templateHtml = templateHtml.replace('{{production}}', _production)
+    templateHtml = templateHtml.replace('{{staging}}', _staging)
+    await fx.writeFile(`${filename}`, templateHtml);
 }
 
 async function init() {
     await captureMultipleScreenshots("production", "desktop");
     await captureMultipleScreenshots("staging", "desktop");
-    //await getDiff("desktop");
+    await getDiff("desktop");
     //await captureMultipleScreenshots("production", "mobile");
     //await captureMultipleScreenshots("staging", "mobile");
     //await getDiff("mobile");

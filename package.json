@@ -10,6 +10,8 @@
     "license": "ISC",
     "dependencies": {
         "fs": "^0.0.1-security",
+        "gm": "^1.23.1",
+        "html-pdf": "^3.0.1",
         "mz": "^2.7.0",
         "pdfkit": "^0.12.1",
         "puppeteer": "^10.0.0",
