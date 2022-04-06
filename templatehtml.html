@@ -5,35 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
-    <style>
-        .compare {
-            max-width: 1400px;
-            width: 100%;
-            margin: 0 auto;
-            display: block;
-            text-align: center;
-        }
-        .images{
-            max-width: 100%;
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-            text-align: center;
-        }
-        .production,
-        .staging{
-            max-width: 50%;
-        }
-        img{
-            width: 95%;
-        }
-        h1 {
-            font-family: 'Tahoma';
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
-    <div class="compare">
+    <div class="compare {{device}}">
         <h1>IMAGE COMPARISON</h1>
         <img src="{{comparison}}" alt="">
     </div>

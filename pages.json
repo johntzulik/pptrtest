@@ -1,102 +1,62 @@
 [
-    {
-      "id": "01",
-      "url": "/how-you-can-help/adopt/adoptable-animals/"
-    },
-    {
-      "id": "02",
-      "url": "/"
-    },
-    {
-      "id": "03",
-      "url": "/adoptable-dogs/"
-    },
-    {
-      "id": "04",
-      "url": "/how-you-can-help/adopt/adoption-information/"
-    },
-    {
-      "id": "05",
-      "url": "/how-you-can-help/volunteer/"
-    },
-    {
-      "id": "06",
-      "url": "/adoptable-cats/"
-    },
-    {
-      "id": "07",
-      "url": "/newsevents/spca-employment-opportunities/"
-    },
-    {
-      "id": "08",
-      "url": "/donatenow/"
-    },
-    {
-      "id": "09",
-      "url": "/what-we-do/euthanasia-services/"
-    },
-    {
-      "id": 10,
-      "url": "/who-we-are/hours-locations/"
-    },
-    {
-      "id": 11,
-      "url": "/what-we-do/animal-admissions/"
-    },
-    {
-      "id": 12,
-      "url": "/how-you-can-help/adopt/off-site-adoptions-foster/"
-    },
-    {
-      "id": 13,
-      "url": "/rehome/"
-    },
-    {
-      "id": 14,
-      "url": "/what-we-do/lipsey-clinic/"
-    },
-    {
-      "id": 15,
-      "url": "/what-we-do/lost-foundstray-animals/"
-    },
-    {
-      "id": 16,
-      "url": "/how-you-can-help/volunteer/foster-care/"
-    },
-    {
-      "id": 17,
-      "url": "/DogAdoptionAppointments/"
-    },
-    {
-      "id": 18,
-      "url": "/bettywhitechallenge/"
-    },
-    {
-      "id": 19,
-      "url": "/donate/our-wish-list/"
-    },
-    {
-      "id": 20,
-      "url": "/who-we-are/our-mission/"
-    },
-    {
-      "id": 21,
-      "url": "/Jobs/"
-    },
-    {
-      "id": 22,
-      "url": "/what-we-do/paws-for-love/"
-    },
-    {
-      "id": 23,
-      "url": "/who-we-are/board-members-staff/"
-    },
-    {
-      "id": 24,
-      "url": "/tributegift-m/"
-    },
-    {
-      "id": 25,
-      "url": "/how-you-can-help/adopt/new-leash-on-life/"
-    }
-  ]
+  {
+    "id": "01",
+    "url": "/"
+  },
+  {
+    "id": "02",
+    "url": "/quiltraffle/"
+  },
+  {
+    "id": "03",
+    "url": "/payitforward"
+  },
+  {
+    "id": "04",
+    "url": "/nativeamericanactivitybook/"
+  },
+  {
+    "id": "05",
+    "url": "/yearend/"
+  },
+  {
+    "id": "06",
+    "url": "/contact-us/"
+  },
+  {
+    "id": "07",
+    "url": "/give/"
+  },
+  {
+    "id": "08",
+    "url": "/about-us/career-opportunities/"
+  },
+  {
+    "id": "09",
+    "url": "/brighterfutures/"
+  },
+  {
+    "id": 10,
+    "url": "/about-us/"
+  },
+  {
+    "id": 11,
+    "url": "/about-us/our-schools/"
+  },
+  {
+    "id": 12,
+    "url": "/thankyou2022/"
+  },
+  {
+    "id": 13,
+    "url": "/evergreenqr/"
+  },
+  {
+    "id": 14,
+    "url": "/about-us/museum/"
+  },
+  {
+    "id": 15,
+    "url": "/ways-to-give-copy/faq/"
+  }
+]
