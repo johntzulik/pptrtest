@@ -1,62 +1,62 @@
 [
   {
     "id": "01",
-    "url": "/"
+    "url": "/adopt"
   },
   {
     "id": "02",
-    "url": "/quiltraffle/"
+    "url": "/clinic-locations/murray-clinic"
   },
   {
     "id": "03",
-    "url": "/payitforward"
+    "url": "/clinic-locations"
   },
   {
     "id": "04",
-    "url": "/nativeamericanactivitybook/"
+    "url": "/programs-services/list"
   },
   {
     "id": "05",
-    "url": "/yearend/"
+    "url": "/adopt/how-to-adopt"
   },
   {
     "id": "06",
-    "url": "/contact-us/"
+    "url": "/about-us/contact-us"
   },
   {
     "id": "07",
-    "url": "/give/"
+    "url": "/clinic-locations/st-george-clinic"
   },
   {
     "id": "08",
-    "url": "/about-us/career-opportunities/"
+    "url": "/how-to-help/foster-pet"
   },
   {
     "id": "09",
-    "url": "/brighterfutures/"
+    "url": "/how-to-help/volunteer"
   },
   {
-    "id": 10,
-    "url": "/about-us/"
+    "id": "10",
+    "url": "/programs-services/end-of-life-euthanasia"
   },
   {
-    "id": 11,
-    "url": "/about-us/our-schools/"
+    "id": "11",
+    "url": "/programs-services"
   },
   {
-    "id": 12,
-    "url": "/thankyou2022/"
+    "id": "12",
+    "url": "/about-us/careers"
   },
   {
-    "id": 13,
-    "url": "/evergreenqr/"
+    "id": "13",
+    "url": "/adopt/adoption-fees"
   },
   {
-    "id": 14,
-    "url": "/about-us/museum/"
+    "id": "14",
+    "url": "/programs-services/behavior"
   },
   {
-    "id": 15,
-    "url": "/ways-to-give-copy/faq/"
+    "id": "15",
+    "url": "/about-us/holidays"
   }
 ]

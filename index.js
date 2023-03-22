@@ -53,7 +53,7 @@ async function captureMultipleScreenshots(phase, device) {
     
     try {
         // launch headless Chromium browser
-        browser = await puppeteer.launch({headless: true,});
+        browser = await puppeteer.launch({headless: true,LANGUAGE: "EN-us"});
         // create new page object
         const page = await browser.newPage();
         if(process.env.ISCOOKIESET){
@@ -78,15 +78,15 @@ async function captureMultipleScreenshots(phase, device) {
             var name = getName(arreglo);
             await page.goto(phase_url + url);
             await page.screenshot({ path: `${fullpath}/${id}-${phase}-${device}-${name}.png`, fullPage: true });
-            console.log(`${fullpath}/${id}-${phase}-${device}-${name}.png`);
+            console.log(`CMSS: ${fullpath}/${id}-${phase}-${device}-${name}.png`);
         }
     } catch (err) {
-        console.log(`❌ Error: ${err.message}`);
+        console.log(`❌ CMSS Error: ${err.message}`);
     } finally {
         if (browser) {
             await browser.close();
         }
-        console.log(`\n🎉 ${pages.length} screenshots captured.`);
+        console.log(`\n🎉 ${pages.length} screenshots captured.\n`);
     }
 }
 
@@ -124,7 +124,7 @@ async function getDiff(device) {
             options
         );
         await fx.writeFile(`${process.env.IMAGES_FOLDER}/${id}-compare-${device}-${name}.png`, data.getBuffer());
-        console.log(`${process.env.IMAGES_FOLDER}/${id}-compare-${device}-${name}.png`);
+        console.log(`getDiff: ${process.env.IMAGES_FOLDER}/${id}-compare-${device}-${name}.png`);
         generarHTML(comparison, production,staging,device)
     }
 }
@@ -160,15 +160,16 @@ async function ssHtml(){
             if (!fs.existsSync(process.env.SS_FOLDER)) {
                 fs.mkdirSync(process.env.SS_FOLDER, { recursive: true });
             }
-            browser = await puppeteer.launch({headless: true,});
+            browser = await puppeteer.launch({headless: true,LANGUAGE: "EN-us"});
             // create new page object
             const page = await browser.newPage();
             await page.setDefaultNavigationTimeout(0);
-            
+
             // set viewport width and height
             var w = 1440,h = 1080;
 
             // list all files in the directory
+            await page.setViewport({width: w,height: h,deviceScaleFactor: 1});
 
             let htmlFiles = glob.sync(`html/*.html`);
             for (let i = 0; i < htmlFiles.length; i++) {
@@ -181,20 +182,20 @@ async function ssHtml(){
                 let fullPNGPath =`${process.env.SS_FOLDER}/${namePGN}`
                 let fullPDFPath = `${process.env.PDF_FOLDER}/${namePDF}`
                 await page.screenshot({ path: `${process.env.SS_FOLDER}/${namePGN}`, fullPage: true });
-                console.log(`${process.env.SS_FOLDER}/${namePGN}`);
+                console.log(`ssHtml: ${process.env.SS_FOLDER}/${namePGN}`);
             
                 exec(`magick convert ${fullPNGPath} ${fullPDFPath}`, (err, stderr, stdout) => {
                     if (err) throw err;
                 });
             }
         } catch (err) {
-            console.log(`❌ Error: ${err.message}`);
+            console.log(`❌ ssHtml Error: ${err.message}`);
         } finally {
             if (browser) {
                 await browser.close();
             }
             let htmlFiles = glob.sync(`html/*.html`);
-            console.log(`\n🎉 ${htmlFiles.length} PDFs captured.`);
+            console.log(`\n🎉 ${htmlFiles.length} PDFs captured.\n`);
         }
     }
 

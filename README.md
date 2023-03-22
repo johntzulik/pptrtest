@@ -20,6 +20,8 @@ npm run dev
 
 en la consola aparecera algo como esto:
 
+#USAR node 17
+
 ```sh
  % npm run dev
 > pptrtest@1.0.0 dev /Users/tuuser/tufolder/pptrtest

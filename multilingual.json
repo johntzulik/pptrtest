@@ -1,0 +1,112 @@
+[
+  {
+    "id": "01",
+    "es": "/",
+    "en": "/"
+  },
+  {
+    "id": "02",
+    "es": "/sobre-nosotros/",
+    "en": "/about-us/"
+  },
+  {
+    "id": "03",
+    "es": "/upcycling/",
+    "en": "/our-impact/"
+  },
+  {
+    "id": "04",
+    "es": "/comprar/",
+    "en": "/shop/"
+  },
+  {
+    "id": "05",
+    "es": "/categoria/trajes-de-bano/",
+    "en": "/category/swimming-trunks/"
+  },
+  {
+    "id": "06",
+    "es": "/categoria/playeras/",
+    "en": "/category/t-shirts/"
+  },
+  {
+    "id": "07",
+    "es": "/categoria/camp/",
+    "en": "/category/camp-en/"
+  },
+  {
+    "id": "08",
+    "es": "/categoria/camisas/",
+    "en": "/category/shirts/"
+  },
+  {
+    "id": "09",
+    "es": "/categoria/maxi-camisas/",
+    "en": "/category/maxi-shirts/"
+  },
+  {
+    "id": 10,
+    "es": "/categoria/accesorios/",
+    "en": "/category/accesories/"
+  },
+  {
+    "id": 11,
+    "es": "/categoria/mix-and-match/",
+    "en": "/category/mix-and-match-en/"
+  },
+  {
+    "id": 12,
+    "es": "/categoria/ultimas-piezas/",
+    "en": "/category/last-pieces/"
+  },
+  {
+    "id": 13,
+    "es": "/camp/",
+    "en": "/camp/"
+  },
+  {
+    "id": 14,
+    "es": "/showroom/",
+    "en": "/showroom/"
+  },
+  {
+    "id": 15,
+    "es": "/terminos-y-condiciones/",
+    "en": "/terms-and-conditions/"
+  },
+  {
+    "id": 16,
+    "es": "/politica-de-privacidad/",
+    "en": "/privacy-policy/"
+  },
+  {
+    "id": 17,
+    "es": "/politicas-de-envio/",
+    "en": "/shipping-policies/"
+  },
+  {
+    "id": 18,
+    "es": "/politicas-de-cambios-y-devoluciones/",
+    "en": "/return-and-exchange-policies/"
+  },
+  {
+    "id": 19,
+    "es": "/preguntas-frecuentes/",
+    "en": "/frequently-asked-questions/"
+  },
+  {
+    "id": 20,
+    "es": "/mi-cuenta/",
+    "en": "/my-account/"
+  },
+  {
+    "id": 21,
+    "es": "/register/",
+    "en": "/register/"
+  },
+  {
+    "id": 22,
+    "es": "/mi-cuenta/contrasena-perdida/",
+    "en": "/my-account/lost-password/"
+  }
+]

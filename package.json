@@ -4,8 +4,13 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "node index.js"
+        "dev": "node index.js",
+        "mul": "node multilingual.js"
     },
+    "engines": {
+        "node": "17.0.0",
+        "npm": "8.1.0"
+      },
     "author": "",
     "license": "ISC",
     "dependencies": {
