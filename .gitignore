@@ -1,8 +1,8 @@
-images
-html
-pdf
+src
+pdf_comparative_files
 ss
 node_modules
 .DS_Store
 .idea
+.vscode
 package-lock.json

@@ -7,20 +7,20 @@ pptrtest unicamente pretende apoyar en comparar dos sitios de una manera rapida 
 Utilizando herramientas como node y puppeteer
 
 unicamente debes descargar y en linea de consola poner:
-
+#USAR node 18
 ```sh
+nvm use 18
 npm install
 ```
 
 y para correr simplemente:
 
 ```sh
-npm run dev
+node index.js
 ```
 
 en la consola aparecera algo como esto:
 
-#USAR node 17
 
 ```sh
  % npm run dev

@@ -1,62 +1,6 @@
 [
   {
     "id": "01",
-    "url": "/adopt"
-  },
-  {
-    "id": "02",
-    "url": "/clinic-locations/murray-clinic"
-  },
-  {
-    "id": "03",
-    "url": "/clinic-locations"
-  },
-  {
-    "id": "04",
-    "url": "/programs-services/list"
-  },
-  {
-    "id": "05",
-    "url": "/adopt/how-to-adopt"
-  },
-  {
-    "id": "06",
-    "url": "/about-us/contact-us"
-  },
-  {
-    "id": "07",
-    "url": "/clinic-locations/st-george-clinic"
-  },
-  {
-    "id": "08",
-    "url": "/how-to-help/foster-pet"
-  },
-  {
-    "id": "09",
-    "url": "/how-to-help/volunteer"
-  },
-  {
-    "id": "10",
-    "url": "/programs-services/end-of-life-euthanasia"
-  },
-  {
-    "id": "11",
-    "url": "/programs-services"
-  },
-  {
-    "id": "12",
-    "url": "/about-us/careers"
-  },
-  {
-    "id": "13",
-    "url": "/adopt/adoption-fees"
-  },
-  {
-    "id": "14",
-    "url": "/programs-services/behavior"
-  },
-  {
-    "id": "15",
-    "url": "/about-us/holidays"
+    "url": "/inspirational/"
   }
 ]

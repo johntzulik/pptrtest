@@ -1,15 +1,15 @@
 {
-    "name": "pptrtest",
-    "version": "1.0.0",
-    "description": "",
+    "name": "Puppenpare",
+    "version": "1.0.1",
+    "description": "Allow to compare 2 sites, for example, your site in production vs staging, if see if something visualy changes.",
     "main": "index.js",
     "scripts": {
         "dev": "node index.js",
         "mul": "node multilingual.js"
     },
     "engines": {
-        "node": "17.0.0",
-        "npm": "8.1.0"
+        "node": "^18.0.0",
+        "npm": "^9.0.0"
       },
     "author": "",
     "license": "ISC",
@@ -19,7 +19,7 @@
         "glob": "^7.2.0",
         "gm": "^1.23.1",
         "mz": "^2.7.0",
-        "puppeteer": "^13.0.0",
+        "puppeteer": "^19.8.0",
         "resemblejs": "^4.0.0"
     }
 }
