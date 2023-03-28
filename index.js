@@ -173,7 +173,7 @@ async function ssHtml(){
             browser = await puppeteer.launch({headless: true,LANGUAGE: "EN-us"});
             // create new page object
             const page = await browser.newPage();
-            await page.setDefaultNavigationTimeout(0);
+            await page.setDefaultNavigationTimeout(5000);
 
             // set viewport width and height
             var w = 1440,h = 1080;
