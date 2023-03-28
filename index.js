@@ -25,6 +25,7 @@ async function deleteOldFiles(){
     if (fs.existsSync(process.env.PDF_FOLDER)) {
         fs.rmSync(process.env.PDF_FOLDER, { recursive: true });
     }
+
 }
 
 function getName(arreglo) {
@@ -64,7 +65,7 @@ async function captureMultipleScreenshots(phase, device) {
             }];
             await page.setCookie(...cookies);
         }
-        await page.setDefaultNavigationTimeout(0);
+        await page.setDefaultNavigationTimeout(5000);
         // set viewport width and height
         if (device == "desktop") {
             var w = 1440,h = 1080;
@@ -134,15 +135,23 @@ async function generarHTML(comparison, production,staging, device){
     if (!fs.existsSync(process.env.HTML_FOLDER)) {
         fs.mkdirSync(process.env.HTML_FOLDER, { recursive: true });
     }
+    if (!fs.existsSync(process.env.CSS_FOLDER)) {
+        fs.mkdirSync(process.env.CSS_FOLDER, { recursive: true });
+        // File destination.txt will be created or overwritten by default.
+        fs.copyFile('style.css', process.env.CSS_FOLDER+'/style.css', (err) => {
+            if (err) throw err;
+            console.log('style.css was copied');
+        });
+    }
     var template = path.join(__dirname, 'templatehtml.html')
-    var prefilename = path.join(__dirname, 'html/' + comparison)
+    var prefilename = path.join(__dirname, 'src/' + comparison)
     var filename =  prefilename.replace('.png', '.html')
     var templateHtml = fs.readFileSync(template, 'utf8')
 
     var title = comparison.replace('.png', '')
-    var _comparison = path.join('../images/', comparison)
-    var _production = path.join( '../images/', production)
-    var _staging = path.join('../images/', staging)
+    var _comparison = path.join('images/', comparison)
+    var _production = path.join( 'images/', production)
+    var _staging = path.join('images/', staging)
     templateHtml = templateHtml.replace('{{title}}', title)
     templateHtml = templateHtml.replace('{{comparison}}', _comparison)
     templateHtml = templateHtml.replace('{{production}}', _production)
@@ -150,6 +159,7 @@ async function generarHTML(comparison, production,staging, device){
     templateHtml = templateHtml.replace('{{device}}', device)
 
     await fx.writeFile(`${filename}`, templateHtml);
+
 }
 async function ssHtml(){
     if (fs.existsSync(process.env.HTML_FOLDER)) {
@@ -171,10 +181,10 @@ async function ssHtml(){
             // list all files in the directory
             await page.setViewport({width: w,height: h,deviceScaleFactor: 1});
 
-            let htmlFiles = glob.sync(`html/*.html`);
+            let htmlFiles = glob.sync(`src/*.html`);
             for (let i = 0; i < htmlFiles.length; i++) {
                 var file = htmlFiles[i];
-                file = file.replace('html/','')
+                file = file.replace('src/','')
                 await page.goto(process.env.LOCALHOST_URL + "/" + process.env.HTML_FOLDER + "/"+ file);
  
                 let namePGN = file.replace('.html', '.png')
@@ -194,7 +204,7 @@ async function ssHtml(){
             if (browser) {
                 await browser.close();
             }
-            let htmlFiles = glob.sync(`html/*.html`);
+            let htmlFiles = glob.sync(`src/*.html`);
             console.log(`\n🎉 ${htmlFiles.length} PDFs captured.\n`);
         }
     }
