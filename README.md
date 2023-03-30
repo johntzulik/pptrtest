@@ -5,11 +5,18 @@
 
 Puppenpare tries to compare 2 sites easily, using puppeteer and node
 
-You must have node 18 at least
 
-## Use node ^18
+You need to [install canvas](https://github.com/Automattic/node-canvas#installation)
+| OS | Command |
+|-----:|-----------|
+|OSX|```shbrew install pkg-config cairo pango libpng jpeg giflib librsvg pixman```|
+
+
+You must use node 19
+
+## Use node ^19
 ```sh
-nvm use 18
+nvm use 19
 npm install
 ```
 
