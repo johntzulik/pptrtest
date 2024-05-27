@@ -1,66 +1,138 @@
 [
   {
-    "id": "001",
+    "id": 1,
     "url": "/"
   },
   {
-    "id": "002",
-    "url": "/about/careers/"
+    "id": 2,
+    "url": "/about-us/"
   },
   {
-    "id": "003",
-    "url": "/about/"
+    "id": 3,
+    "url": "/about-us/our-schools/"
   },
   {
-    "id": "004",
-    "url": "/about/leadership/"
+    "id": 4,
+    "url": "/about-us/programs-and-services/"
   },
   {
-    "id": "005",
-    "url": "/lets-chat/"
+    "id": 5,
+    "url": "/about-us/museum/"
   },
   {
-    "id": "006",
-    "url": "/services/"
+    "id": 6,
+    "url": "/about-us/news-publications/"
   },
   {
-    "id": "007",
-    "url": "/causes/"
+    "id": 7,
+    "url": "/ways-to-give-copy/faq/"
   },
   {
-    "id": "008",
-    "url": "/results/"
+    "id": 8,
+    "url": "/employment-opportunities/"
   },
   {
-    "id": "009",
-    "url": "/causes/animal-welfare/"
+    "id": 9,
+    "url": "/about-us/privacy-statement/"
   },
   {
-    "id": "010",
-    "url": "/insights/"
+    "id": 10,
+    "url": "/discover/"
   },
   {
-    "id": "011",
-    "url": "/causes/faith-based/"
+    "id": 11,
+    "url": "/discover/about-curtis/"
   },
   {
-    "id": "012",
-    "url": "/services/marketing-fundraising/"
+    "id": 12,
+    "url": "/discover/history/"
   },
   {
-    "id": "013",
-    "url": "/causes/food-banks/"
+    "id": 13,
+    "url": "/discover/culture/"
   },
   {
-    "id": "014",
-    "url": "/causes/rescue-missions/"
+    "id": 14,
+    "url": "/discover/community-impact/"
   },
   {
-    "id": "015",
-    "url": "/causes/human-social-services/"
+    "id": 15,
+    "url": "/experience/"
   },
   {
-    "id": "016",
-    "url": "/causes/the-salvation-army/"
+    "id": 16,
+    "url": "/alumni/"
+  },
+  {
+    "id": 17,
+    "url": "/discover/visitors-center/"
+  },
+  {
+    "id": 18,
+    "url": "/ways-to-give/"
+  },
+  {
+    "id": 19,
+    "url": "/ways-to-give/sacred-circle/"
+  },
+  {
+    "id": 20,
+    "url": "/ways-to-give/matching-gifts/"
+  },
+  {
+    "id": 21,
+    "url": "/plannedgiving/"
+  },
+  {
+    "id": 22,
+    "url": "/ways-to-give/scholarship-fund/"
+  },
+  {
+    "id": 23,
+    "url": "/givingaccount/"
+  },
+  {
+    "id": 24,
+    "url": "/cryptocurrency/"
+  },
+  {
+    "id": 25,
+    "url": "/stocktransfers/"
+  },
+  {
+    "id": 26,
+    "url": "/ways-to-give/other-ways-to-give/"
+  },
+  {
+    "id": 27,
+    "url": "/experience/welcome-message/"
+  },
+  {
+    "id": 28,
+    "url": "/about-us/news/"
+  },
+  {
+    "id": 29,
+    "url": "/about-us/publications-menu/"
+  },
+  {
+    "id": 30,
+    "url": "/about-us/privacy-statement/"
+  },
+  {
+    "id": 31,
+    "url": "/about-us/museum/"
+  },
+  {
+    "id": 32,
+    "url": "/about-us/career-opportunities/"
+  },
+  {
+    "id": 33,
+    "url": "/contact-us/"
+  },
+  {
+    "id": 34,
+    "url": "/teaching-opportunities"
   }
 ]

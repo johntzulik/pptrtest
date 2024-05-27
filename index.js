@@ -64,6 +64,7 @@ async function captureMultipleScreenshots(phase, device) {
     browser = await puppeteer.launch({
       headless: true,
       LANGUAGE: process.env.LANGUAGE,
+      slowMo: 200,
     });
     // create new page object
     const page = await browser.newPage();
@@ -365,10 +366,18 @@ async function buildMenu() {
     var arreglo = url.split("/");
     var name = getName(arreglo);
     if (process.env.DESKTOP) {
-      desktopList += `<li><a class="menulink" href='html/${id}-compare-desktop-${name}.html'>${name}</a></li>`;
+      desktopList += `<li><a class="menulink" href='html/${id}-compare-desktop-${name}.html' 
+      data-productionlink="${process.env.PRODUCTION_URL}${url}"
+      data-staginglink="${process.env.STAGING_URL}${url}"
+      data-page="${url}"
+      >${name}</a></li>`;
     }
     if (process.env.MOBILE) {
-      mobileList += `<li><a class="menulink" href='html/${id}-compare-mobile-${name}.html'>${name}</a></li>`;
+      mobileList += `<li><a class="menulink" href='html/${id}-compare-mobile-${name}.html' 
+      data-productionlink="${process.env.PRODUCTION_URL}${url}"
+      data-staginglink="${process.env.STAGING_URL}${url}"
+      data-page="${url}"
+      >${name}</a></li>`;
     }
   }
 
