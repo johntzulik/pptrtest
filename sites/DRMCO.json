@@ -1,0 +1,130 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://denverrescuemission.org",
+      "STAGING_URL": "http://denverrescustg.wpengine.com",
+      "COOKIE_PRODUCTION": "denverrescuemission.org",
+      "COOKIE_STAGING": "denverrescustg.wpengine.com",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false"
+    },
+    "pages": [
+      {
+        "id": "001",
+        "url": "/"
+      },
+      {
+        "id": "002",
+        "url": "/what-we-do/our-impact/"
+      },
+      {
+        "id": "003",
+        "url": "/volunteer/"
+      },
+      {
+        "id": "004",
+        "url": "/volunteers/s/meals"
+      },
+      {
+        "id": "005",
+        "url": "/ways-to-give/give-items/"
+      },
+      {
+        "id": "006",
+        "url": "/get-help/"
+      },
+      {
+        "id": "007",
+        "url": "/who-we-are/locations/donation-drop-off/"
+      },
+      {
+        "id": "008",
+        "url": "/who-we-are/locations/the-crossing/"
+      },
+      {
+        "id": "009",
+        "url": "/who-we-are/locations/ministry-outreach-center/"
+      },
+      {
+        "id": "010",
+        "url": "/what-we-do/how-we-help/"
+      },
+      {
+        "id": "011",
+        "url": "/who-we-are/locations/lawrence-street-shelter/"
+      },
+      {
+        "id": "012",
+        "url": "/volunteers/s/kiosk"
+      },
+      {
+        "id": "013",
+        "url": "/careers/"
+      },
+      {
+        "id": "014",
+        "url": "/who-we-are/locations/"
+      },
+      {
+        "id": "015",
+        "url": "/who-we-are/contact-us/"
+      },
+      {
+        "id": "016",
+        "url": "/volunteers/s/shiftregistration"
+      },
+      {
+        "id": "017",
+        "url": "/what-we-do/homelessness-in-denver/"
+      },
+      {
+        "id": "018",
+        "url": "/who-we-are/our-mission/"
+      },
+      {
+        "id": "019",
+        "url": "/homelessness-and-substance-abuse/"
+      },
+      {
+        "id": "020",
+        "url": "/volunteers/s/warehouse-support"
+      },
+      {
+        "id": "021",
+        "url": "/who-we-are/locations/48th-avenue-center/"
+      },
+      {
+        "id": "022",
+        "url": "/who-we-are/leadership-team/"
+      },
+      {
+        "id": "023",
+        "url": "/Volunteer/"
+      },
+      {
+        "id": "024",
+        "url": "/volunteers/s/fcrm-meals"
+      },
+      {
+        "id": "025",
+        "url": "/get-help/inquiry/"
+      },
+      {
+        "id": "026",
+        "url": "/ways-to-give/"
+      },
+      {
+        "id": "027",
+        "url": "/who-we-are/locations/lawrence-street-community-center/"
+      },
+      {
+        "id": "028",
+        "url": "/volunteers/s/groups"
+      },
+      {
+        "id": "029",
+        "url": "/who-we-are/faq/"
+      }
+    ]
+  }
+]

@@ -10,7 +10,15 @@ const dotenv = require("dotenv");
 const compress_images = require("compress-images");
 
 dotenv.config({ path: path.join(__dirname, ".env") });
-const pages = require("./pages.json");
+
+const templatex = require("./sites/" + process.env.TEMPLATE + ".json");
+const PRODUCTION_URL = templatex[0].config.PRODUCTION_URL,
+  STAGING_URL = templatex[0].config.STAGING_URL,
+  COOKIE_PRODUCTION = templatex[0].config.COOKIE_PRODUCTION,
+  COOKIE_STAGING = templatex[0].config.COOKIE_STAGING,
+  COOKIE_ONE = templatex[0].config.COOKIE_ONE,
+  ISCOOKIESET = templatex[0].config.ISCOOKIESET,
+  pages = templatex[0].pages;
 
 async function deleteOldFiles() {
   if (fs.existsSync(process.env.IMAGES_FOLDER)) {
@@ -41,14 +49,8 @@ function getName(arreglo) {
 }
 
 async function captureMultipleScreenshots(phase, device) {
-  var phase_url =
-    phase == "production"
-      ? process.env.PRODUCTION_URL
-      : process.env.STAGING_URL;
-  var cookie =
-    phase == "production"
-      ? process.env.COOKIE_PRODUCTION
-      : process.env.COOKIE_STAGING;
+  var phase_url = phase == "production" ? PRODUCTION_URL : STAGING_URL;
+  var cookie = phase == "production" ? COOKIE_PRODUCTION : COOKIE_STAGING;
 
   var fullpath = process.env.IMAGES_FOLDER;
   let browser = null;
@@ -68,10 +70,10 @@ async function captureMultipleScreenshots(phase, device) {
     });
     // create new page object
     const page = await browser.newPage();
-    if (process.env.ISCOOKIESET) {
+    if (ISCOOKIESET) {
       const cookies = [
         {
-          name: process.env.COOKIE_NAME,
+          name: COOKIE_ONE,
           value: "rendered",
           domain: cookie,
         },
@@ -262,69 +264,6 @@ async function generarHTML(comparison, production, staging, device) {
   await fx.writeFile(`${filename}`, templateHtml);
 }
 
-async function ssHtml() {
-  if (fs.existsSync(process.env.COMPFILE)) {
-    try {
-      if (!fs.existsSync(process.env.PDF_FOLDER)) {
-        fs.mkdirSync(process.env.PDF_FOLDER, { recursive: true });
-      }
-      if (!fs.existsSync(process.env.SS_FOLDER)) {
-        fs.mkdirSync(process.env.SS_FOLDER, { recursive: true });
-      }
-      browser = await puppeteer.launch({
-        headless: true,
-        LANGUAGE: process.env.LANGUAGE,
-      });
-      // create new page object
-      const page = await browser.newPage();
-      await page.setDefaultNavigationTimeout(process.env.TIMEOUT);
-
-      // set viewport width and height
-      var w = 1440,
-        h = 1080;
-
-      // list all files in the directory
-      await page.setViewport({ width: w, height: h, deviceScaleFactor: 1 });
-
-      let htmlFiles = glob.sync(`${process.env.HTML_FOLDER}/*.html`);
-      for (let i = 0; i < htmlFiles.length; i++) {
-        var file = htmlFiles[i];
-        file = file.replace(process.env.HTML_FOLDER + "/", "");
-        //console.log("file: ", file);
-        await page.goto(
-          process.env.LOCALHOST_URL + "/" + process.env.HTML_FOLDER + "/" + file
-        );
-
-        let nameIMG = file.replace(".html", "." + process.env.IMAGE_EXT);
-        let namePDF = file.replace(".html", ".pdf");
-        let fullIMGPath = `${process.env.SS_FOLDER}/${nameIMG}`;
-        let fullPDFPath = `${process.env.PDF_FOLDER}/${namePDF}`;
-        await page.screenshot({
-          path: `${process.env.SS_FOLDER}/${nameIMG}`,
-          fullPage: true,
-        });
-        console.log(`ssHtml: ${process.env.SS_FOLDER}/${nameIMG}`);
-
-        exec(
-          `magick convert ${fullIMGPath} ${fullPDFPath}`,
-          (err, stderr, stdout) => {
-            if (err) throw err;
-          }
-        );
-        console.log(`PDF generating: ${process.env.SS_FOLDER}/${nameIMG}`);
-      }
-    } catch (err) {
-      console.log(`❌ ssHtml Error: ${err.message}`);
-    } finally {
-      if (browser) {
-        await browser.close();
-      }
-      let htmlFiles = glob.sync(`${process.env.COMPFILE}/*.html`);
-      console.log(`\n🎉 ${htmlFiles.length} PDFs captured.\n`);
-    }
-  }
-}
-
 async function comprimirComparison(inputPath, ouputPath) {
   (INPUT_path_to_your_images =
     inputPath + "/**/!(*-compress)." + process.env.IMAGE_EXT),
@@ -367,15 +306,15 @@ async function buildMenu() {
     var name = getName(arreglo);
     if (process.env.DESKTOP) {
       desktopList += `<li><a class="menulink" href='html/${id}-compare-desktop-${name}.html' 
-      data-productionlink="${process.env.PRODUCTION_URL}${url}"
-      data-staginglink="${process.env.STAGING_URL}${url}"
+      data-productionlink="${PRODUCTION_URL}${url}"
+      data-staginglink="${STAGING_URL}${url}"
       data-page="${url}"
       >${name}</a></li>`;
     }
     if (process.env.MOBILE) {
       mobileList += `<li><a class="menulink" href='html/${id}-compare-mobile-${name}.html' 
-      data-productionlink="${process.env.PRODUCTION_URL}${url}"
-      data-staginglink="${process.env.STAGING_URL}${url}"
+      data-productionlink="${PRODUCTION_URL}${url}"
+      data-staginglink="${STAGING_URL}${url}"
       data-page="${url}"
       >${name}</a></li>`;
     }
@@ -401,13 +340,10 @@ async function init() {
     await captureMultipleScreenshots("staging", "mobile");
     await getDiff("mobile");
   }
-
   await buildMenu();
   comprimirComparison(
     process.env.COMPFILE + "/images",
     process.env.COMPFILE + "/images"
   );
-  //make the PDF
-  //await ssHtml();
 }
 init();

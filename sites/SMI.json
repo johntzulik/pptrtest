@@ -1,0 +1,94 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://salesianmissions.org",
+      "STAGING_URL": "https://salesiandev.wpengine.com",
+      "COOKIE_PRODUCTION": "salesianmissions.org",
+      "COOKIE_STAGING": "salesiandev.wpengine.com",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false"
+    },
+    "pages": [
+      {
+        "id": "01",
+        "url": "/"
+      },
+      {
+        "id": "02",
+        "url": "/year-end/"
+      },
+      {
+        "id": "03",
+        "url": "/christmasmessage/"
+      },
+      {
+        "id": "04",
+        "url": "/about-us/who-we-are/"
+      },
+      {
+        "id": "05",
+        "url": "/merry-christmas/"
+      },
+      {
+        "id": "06",
+        "url": "/inspirational/"
+      },
+      {
+        "id": "07",
+        "url": "/prayer_poems/the-greatest-gift-of-all/"
+      },
+      {
+        "id": "08",
+        "url": "/prayer_poems/the-loving-hand-of-god/"
+      },
+      {
+        "id": "09",
+        "url": "/act-now/contact-us/"
+      },
+      {
+        "id": "10",
+        "url": "/prayer-intention/"
+      },
+      {
+        "id": "11",
+        "url": "/about-us/who-we-are/about-st-john-bosco/sweepstakes-winners/"
+      },
+      {
+        "id": "12",
+        "url": "/prayer-intention-thanks/"
+      },
+      {
+        "id": "13",
+        "url": "/lp/relief/"
+      },
+      {
+        "id": "14",
+        "url": "/act-now/give/current-projects-funding-opportunities-2/"
+      },
+      {
+        "id": "15",
+        "url": "/act-now/give/give-now/"
+      },
+      {
+        "id": "16",
+        "url": "/about-us/who-we-are/about-st-john-bosco/"
+      },
+      {
+        "id": "17",
+        "url": "/prayer-post/inspiration/"
+      },
+      {
+        "id": "18",
+        "url": "/lp/20times/"
+      },
+      {
+        "id": "19",
+        "url": "/advent/"
+      },
+      {
+        "id": "20",
+        "url": "/turkey-syria-earthquake/"
+      }
+    ]
+  }
+]

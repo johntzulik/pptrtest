@@ -1,0 +1,86 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://salesianmissions.org",
+      "STAGING_URL": "https://salesiandev.wpengine.com",
+      "COOKIE_PRODUCTION": "salesianmissions.org",
+      "COOKIE_STAGING": "salesiandev.wpengine.com",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false"
+    },
+    "pages": [
+      {
+        "id": "001",
+        "url": "/"
+      },
+      {
+        "id": "002",
+        "url": "/act-now/give/corporate-giving/"
+      },
+      {
+        "id": "003",
+        "url": "/act-now/give/gift-matching/"
+      },
+      {
+        "id": "004",
+        "url": "/about-us/who-we-are/about-st-john-bosco/our-history/"
+      },
+      {
+        "id": "005",
+        "url": "/about-us/who-we-are/mission-statement/"
+      },
+      {
+        "id": "006",
+        "url": "/about-us/who-we-are/about-st-john-bosco/pope-francis-and-the-salesians/"
+      },
+      {
+        "id": "007",
+        "url": "/about-us/who-we-are/about-st-john-bosco/pope-francis-and-the-salesians/papal-letter/"
+      },
+      {
+        "id": "008",
+        "url": "/about-us/news-publications/salesian-magazine/"
+      },
+      {
+        "id": "009",
+        "url": "/about-us/news-publications/world-bulletin/"
+      },
+      {
+        "id": "010",
+        "url": "/about-us/news-publications/annual-reports/"
+      },
+      {
+        "id": "011",
+        "url": "/about-us/who-we-are/about-st-john-bosco/sweepstakes-winners/"
+      },
+      {
+        "id": "012",
+        "url": "/our-work/what-we-do/"
+      },
+      {
+        "id": "013",
+        "url": "/act-now/give/monthly-giving-programs/"
+      },
+      {
+        "id": "014",
+        "url": "/act-now/volunteer/"
+      },
+      {
+        "id": "015",
+        "url": "/about-us/privacy-policy/"
+      },
+      {
+        "id": "016",
+        "url": "/lp/content-faith/"
+      },
+      {
+        "id": "017",
+        "url": "/missionary-cooperative-program/"
+      },
+      {
+        "id": "018",
+        "url": "/our-work/where-we-work/"
+      }
+    ]
+  }
+]

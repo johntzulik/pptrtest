@@ -1,0 +1,50 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://pathways.denverrescuemission.org",
+      "STAGING_URL": "http://pathwaysdenstg.wpenginepowered.com",
+      "COOKIE_PRODUCTION": "pathways.denverrescuemission.org",
+      "COOKIE_STAGING": "pathwaysdenstg.wpenginepowered.com",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false"
+    },
+    "pages": [
+      {
+        "id": "01",
+        "url": "/"
+      },
+      {
+        "id": "02",
+        "url": "/get-involved/"
+      },
+      {
+        "id": "03",
+        "url": "/volunteer/"
+      },
+      {
+        "id": "04",
+        "url": "/ways-to-give/"
+      },
+      {
+        "id": "05",
+        "url": "/manage-your-account/"
+      },
+      {
+        "id": "06",
+        "url": "/contact/"
+      },
+      {
+        "id": "07",
+        "url": "/manage-your-account/"
+      },
+      {
+        "id": "08",
+        "url": "/classy-account/"
+      },
+      {
+        "id": "09",
+        "url": "/upgrade/"
+      }
+    ]
+  }
+]

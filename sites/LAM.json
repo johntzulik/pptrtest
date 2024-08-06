@@ -1,0 +1,134 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://losangelesmission.org",
+      "STAGING_URL": "https://lamweb19.wpengine.com",
+      "COOKIE_PRODUCTION": "losangelesmission.org",
+      "COOKIE_STAGING": "lamweb19.wpengine.com",
+      "COOKIE_ONE": "lb_lam_2407_2024_back_to_school",
+      "ISCOOKIESET": "true"
+    },
+    "pages": [
+      {
+        "id": "01",
+        "url": "/"
+      },
+      {
+        "id": "02",
+        "url": "/ways-to-give/donate-food-clothing-goods/"
+      },
+      {
+        "id": "03",
+        "url": "/experience-the-mission/"
+      },
+      {
+        "id": "04",
+        "url": "/newsroom/monthly-newsletter/"
+      },
+      {
+        "id": "05",
+        "url": "/get-involved/volunteer-opportunity/"
+      },
+      {
+        "id": "06",
+        "url": "/embed-survey-thank-you-page/"
+      },
+      {
+        "id": "07",
+        "url": "/bridge-housing/"
+      },
+      {
+        "id": "08",
+        "url": "/get-involved/job-opportunities/"
+      },
+      {
+        "id": "09",
+        "url": "/ways-to-give/donor-privacy-policy/"
+      },
+      {
+        "id": "10",
+        "url": "/free-legal-clinic/"
+      },
+      {
+        "id": "11",
+        "url": "/who-we-are/mission-statement/"
+      },
+      {
+        "id": "12",
+        "url": "/emergency-services/"
+      },
+      {
+        "id": "13",
+        "url": "/contact-us/"
+      },
+      {
+        "id": "14",
+        "url": "/services-programs/"
+      },
+      {
+        "id": "15",
+        "url": "/anne-douglas-center-for-women/"
+      },
+      {
+        "id": "16",
+        "url": "/ways-to-give/"
+      },
+      {
+        "id": "17",
+        "url": "/get-involved/"
+      },
+      {
+        "id": "18",
+        "url": "/who-we-are/staff-board/"
+      },
+      {
+        "id": "19",
+        "url": "/who-we-are/"
+      },
+      {
+        "id": "20",
+        "url": "/facts-about-homelessness/"
+      },
+      {
+        "id": "21",
+        "url": "/homelessness-facts/"
+      },
+      {
+        "id": "22",
+        "url": "/the-state-of-homelessness/"
+      },
+      {
+        "id": "23",
+        "url": "/food-boxes/"
+      },
+      {
+        "id": "24",
+        "url": "/events/"
+      },
+      {
+        "id": "25",
+        "url": "/need-help/"
+      },
+      {
+        "id": "26",
+        "url": "/events/street-events/"
+      },
+      {
+        "id": "27",
+        "url": "/who-we-are/about-troy-president-ceo/"
+      },
+      {
+        "id": "28",
+        "url": "/embed-survey-thank-you-ty/"
+      },
+      {
+        "id": "29",
+        "url": "/who-we-are/history/"
+      },
+      {
+        "id": "30",
+        "url": "/give/donate-now/"
+      }
+    ]
+  }
+]

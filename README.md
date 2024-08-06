@@ -9,7 +9,7 @@ PuppyCompare tries to compare 2 sites easily, using puppeteer and node
 You need to [install canvas](https://github.com/Automattic/node-canvas#installation)
 | OS | Command |
 |-----:|-----------|
-|OSX|`shbrew install pkg-config cairo pango libpng jpeg giflib librsvg pixman`|
+|OSX|`brew install pkg-config cairo pango libpng jpeg giflib librsvg pixman`|
 
 You must use node 20
 
@@ -20,60 +20,42 @@ nvm use 20
 npm install
 ```
 
-This project run with
-[vscode](https://code.visualstudio.com/)
-and a plugin called [LiveServer](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+Before you start, you need to set the client on .env
 
-Please turn on the plugin clicking on Go Live button at the bottom of your VS code
-
-![N|Solid](https://i.stack.imgur.com/7HTSE.png)
-
-## The URL that give you the LiveServer copy and paste into .env file mostly is http://127.0.0.1:5500
+```sh
+TEMPLATE=CLIENT
+```
 
 You need to load as json format the different url's that you want to compare into file
 
 ```sh
-pages.json
+sites/CLIENT.json
 ```
+
+This "client" is "example"
+We need to configure some variables
 
 ```sh
 [
   {
-    "id": "01",
-    "url": "/inspirational/"
+    "config": {
+      "PRODUCTION_URL": "https://example.org",
+      "STAGING_URL": "http://example.wpengine.com",
+      "COOKIE_PRODUCTION": "example.org",
+      "COOKIE_STAGING": "example.wpengine.com",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false"
+    },
+    "pages": [
+      {
+        "id": "001",
+        "url": "/"
+      },
   }
 ]
 ```
 
-For the .env file you can customize all the parameters
-
 Try to DON'T touch the folders
-
-You can change the PRODUCTION_URL and STAGING_URL
-
-You can set true or false the ISCOOKIESET, this allow to set a cookie for a LB
-
-To set
-
-```sh
-HTML_FOLDER= "src"
-CSS_FOLDER = "src/css"
-IMAGES_FOLDER = "src/images"
-SS_FOLDER = "ss"
-PDF_FOLDER = "pdf_comparative_files"
-
-PRODUCTION_URL = "https://production.com/"
-STAGING_URL = "https://staging.production.com/"
-
-COOKIE_PRODUCTION = 'production.com'
-COOKIE_STAGING = 'staging.production.com'
-COOKIE_NAME = ""
-ISCOOKIESET = false
-
-LOCALHOST_URL = "http://127.0.0.1:5500"
-```
-
-After all this configurations you can run the project
 
 Open a terminal and you can run as:
 
