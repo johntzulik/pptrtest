@@ -1,0 +1,12 @@
+## IMPORTANT:
+
+Please be sure to read the README.md before you update:
+
+---
+
+## Version 0.1.0 - August 06th, 2024
+
+- NEW: Sites folder added to keep all your sites on a json format
+- NEW: html_comparative_files this folder was added to create a full offline site with the compative files
+- NEW: compress feature on all the images.
+- REMOVED: PDF feature were removed and html support was added
