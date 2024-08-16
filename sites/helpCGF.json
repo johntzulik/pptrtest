@@ -1,0 +1,46 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://help.coastguardfoundation.org",
+      "STAGING_URL": "http://cgf19.wpengine.com",
+      "COOKIE_PRODUCTION": "help.coastguardfoundation.org",
+      "COOKIE_STAGING": "cgf19.wpengine.com",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false"
+    },
+    "pages": [
+      {
+        "id": "001",
+        "url": "/boatingsafety/"
+      },
+      {
+        "id": "002",
+        "url": "/boating-safety-donate/"
+      },
+      {
+        "id": "003",
+        "url": "/boating-safety-download/"
+      },
+      {
+        "id": "004",
+        "url": "/thank-you-for-registering-2022-heroes-of-the-coast-guard/"
+      },
+      {
+        "id": "005",
+        "url": "/support/"
+      },
+      {
+        "id": "006",
+        "url": "/valentinesday/"
+      },
+      {
+        "id": "007",
+        "url": "/support-ty-page/"
+      },
+      {
+        "id": "008",
+        "url": "/thanks/"
+      }
+    ]
+  }
+]
