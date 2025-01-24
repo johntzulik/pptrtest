@@ -1,0 +1,78 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://www.msfoodnet.org",
+      "STAGING_URL": "https://msfoodnet19.wpengine.com",
+      "COOKIE_PRODUCTION": "www.msfoodnet.org",
+      "COOKIE_STAGING": "msfoodnet19.wpengine.com",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false"
+    },
+    "pages": [
+      {
+        "id": "01",
+        "url": "/"
+      },
+      {
+        "id": "02",
+        "url": "/about-us/hunger/"
+      },
+      {
+        "id": "03",
+        "url": "/about-us/history/"
+      },
+      {
+        "id": "04",
+        "url": "/about-us/staff/"
+      },
+      {
+        "id": "05",
+        "url": "/careers/"
+      },
+      {
+        "id": "06",
+        "url": "/about-us/financials/"
+      },
+      {
+        "id": "07",
+        "url": "/programs/"
+      },
+      {
+        "id": "08",
+        "url": "/partners/"
+      },
+      {
+        "id": "09",
+        "url": "/2024/06/events/"
+      },
+      {
+        "id": "10",
+        "url": "/get-involved/"
+      },
+      {
+        "id": "11",
+        "url": "/help/"
+      },
+      {
+        "id": "12",
+        "url": "/terms/"
+      },
+      {
+        "id": "13",
+        "url": "/contact/"
+      },
+      {
+        "id": "14",
+        "url": "/donate-now/"
+      },
+      {
+        "id": "15",
+        "url": "/news/"
+      },
+      {
+        "id": "16",
+        "url": "/2024/01/we-couldnt-do-this-without-you/"
+      }
+    ]
+  }
+]

@@ -1,0 +1,126 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://fortcollinsrescuemission.org",
+      "STAGING_URL": "https://fortcollinsstg.wpengine.com",
+      "COOKIE_PRODUCTION": "fortcollinsrescuemission.org",
+      "COOKIE_STAGING": "fortcollinsstg.wpengine.com",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false"
+    },
+    "pages": [
+      {
+        "id": "01",
+        "url": "/who-we-are/our-mission/"
+      },
+      {
+        "id": "02",
+        "url": "/who-we-are/our-history/"
+      },
+      {
+        "id": "03",
+        "url": "/who-we-are/financial-accountability/"
+      },
+      {
+        "id": "04",
+        "url": "/who-we-are/leadership/"
+      },
+      {
+        "id": "05",
+        "url": "/who-we-are/faqs-and-facts/"
+      },
+      {
+        "id": "06",
+        "url": "/who-we-are/locations/"
+      },
+      {
+        "id": "07",
+        "url": "/who-we-are/contact-us"
+      },
+      {
+        "id": "08",
+        "url": "/what-we-do/homelessness-in-our-city/"
+      },
+      {
+        "id": "09",
+        "url": "/what-we-do/how-we-help/"
+      },
+      {
+        "id": "10",
+        "url": "/what-we-do/our-impact/"
+      },
+      {
+        "id": "11",
+        "url": "/category/stories-of-changed-lives/"
+      },
+      {
+        "id": "12",
+        "url": "/get-involved/"
+      },
+      {
+        "id": "13",
+        "url": "/category/events/"
+      },
+      {
+        "id": "14",
+        "url": "/volunteer"
+      },
+      {
+        "id": "15",
+        "url": "/internships"
+      },
+      {
+        "id": "16",
+        "url": "/mentor"
+      },
+      {
+        "id": "17",
+        "url": "/careers/"
+      },
+      {
+        "id": "18",
+        "url": "/ways-to-give/"
+      },
+      {
+        "id": "19",
+        "url": "/ways-to-give/give-monthly/"
+      },
+      {
+        "id": "20",
+        "url": "/fundraise"
+      },
+      {
+        "id": "21",
+        "url": "/ways-to-give/give-items/"
+      },
+      {
+        "id": "22",
+        "url": "/ways-to-give/give-a-vehicle/"
+      },
+      {
+        "id": "23",
+        "url": "/legacy-giving"
+      },
+      {
+        "id": "24",
+        "url": "/ways-to-give/homeless-contribution-tax-credit/"
+      },
+      {
+        "id": "25",
+        "url": "/ways-to-give/other-ways-to-give/"
+      },
+      {
+        "id": "26",
+        "url": "/ways-to-give/cryptocurrency/"
+      },
+      {
+        "id": "27",
+        "url": "/who-we-are/faqs-and-facts/#donating"
+      },
+      {
+        "id": "28",
+        "url": "/ways-to-give/give-monthly/poh-member-resources/"
+      }
+    ]
+  }
+]

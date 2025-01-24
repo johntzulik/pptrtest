@@ -1,0 +1,222 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://havenofrest.org",
+      "STAGING_URL": "https://havrmstg.wpenginepowered.com",
+      "COOKIE_PRODUCTION": "havenofrest.org",
+      "COOKIE_STAGING": "havrmstg.wpenginepowered.com",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false"
+    },
+    "pages": [
+      {
+        "id": "001",
+        "url": "/who-we-are/about-the-mission/"
+      },
+      {
+        "id": "002",
+        "url": "/who-we-are/history/"
+      },
+      {
+        "id": "003",
+        "url": "/who-we-are/staff-and-board/"
+      },
+      {
+        "id": "004",
+        "url": "/who-we-are/womens-auxiliary/"
+      },
+      {
+        "id": "005",
+        "url": "/who-we-are/endowment-foundation/"
+      },
+      {
+        "id": "006",
+        "url": "/who-we-are/annual-report/"
+      },
+      {
+        "id": "007",
+        "url": "/who-we-are/contact-us/"
+      },
+      {
+        "id": "008",
+        "url": "/what-we-do/emergency-services/"
+      },
+      {
+        "id": "009",
+        "url": "/what-we-do/womens-ministry/"
+      },
+      {
+        "id": "010",
+        "url": "/what-we-do/future-story/"
+      },
+      {
+        "id": "011",
+        "url": "/what-we-do/mens-ministry/"
+      },
+      {
+        "id": "012",
+        "url": "/what-we-do/education-and-career-development/"
+      },
+      {
+        "id": "013",
+        "url": "/what-we-do/community-outreach/"
+      },
+      {
+        "id": "014",
+        "url": "/what-we-do/aftercare-and-alumni-programs/"
+      },
+      {
+        "id": "015",
+        "url": "/learn/newsletters/"
+      },
+      {
+        "id": "016",
+        "url": "/learn/radio-broadcasts/"
+      },
+      {
+        "id": "017",
+        "url": "/learn/state-of-homelessness/"
+      },
+      {
+        "id": "018",
+        "url": "/learn/additional-resources/"
+      },
+      {
+        "id": "019",
+        "url": "/our-impact/impact-statistics/"
+      },
+      {
+        "id": "020",
+        "url": "/our-impact/stories-of-change/"
+      },
+      {
+        "id": "021",
+        "url": "/get-involved/volunteer/"
+      },
+      {
+        "id": "022",
+        "url": "/get-involved/donate-items/"
+      },
+      {
+        "id": "023",
+        "url": "/get-involved/events/"
+      },
+      {
+        "id": "024",
+        "url": "/get-involved/host-an-event/"
+      },
+      {
+        "id": "025",
+        "url": "/get-involved/wills-trusts/"
+      },
+      {
+        "id": "026",
+        "url": "/get-involved/pray/"
+      },
+      {
+        "id": "027",
+        "url": "/who-we-are/about-the-mission/"
+      },
+      {
+        "id": "028",
+        "url": "/who-we-are/history/"
+      },
+      {
+        "id": "029",
+        "url": "/who-we-are/staff-and-board/"
+      },
+      {
+        "id": "030",
+        "url": "/who-we-are/womens-auxiliary/"
+      },
+      {
+        "id": "031",
+        "url": "/who-we-are/endowment-foundation/"
+      },
+      {
+        "id": "032",
+        "url": "/who-we-are/annual-report/"
+      },
+      {
+        "id": "033",
+        "url": "/who-we-are/contact-us/"
+      },
+      {
+        "id": "034",
+        "url": "/what-we-do/emergency-services/"
+      },
+      {
+        "id": "035",
+        "url": "/what-we-do/womens-ministry/"
+      },
+      {
+        "id": "036",
+        "url": "/what-we-do/future-story/"
+      },
+      {
+        "id": "037",
+        "url": "/what-we-do/mens-ministry/"
+      },
+      {
+        "id": "038",
+        "url": "/what-we-do/education-and-career-development/"
+      },
+      {
+        "id": "039",
+        "url": "/what-we-do/community-outreach/"
+      },
+      {
+        "id": "040",
+        "url": "/what-we-do/aftercare-and-alumni-programs/"
+      },
+      {
+        "id": "041",
+        "url": "/learn/newsletters/"
+      },
+      {
+        "id": "042",
+        "url": "/learn/radio-broadcasts/"
+      },
+      {
+        "id": "043",
+        "url": "/learn/state-of-homelessness/"
+      },
+      {
+        "id": "044",
+        "url": "/learn/additional-resources/"
+      },
+      {
+        "id": "045",
+        "url": "/our-impact/impact-statistics/"
+      },
+      {
+        "id": "046",
+        "url": "/our-impact/stories-of-change/"
+      },
+      {
+        "id": "047",
+        "url": "/get-involved/volunteer/"
+      },
+      {
+        "id": "048",
+        "url": "/get-involved/donate-items/"
+      },
+      {
+        "id": "049",
+        "url": "/get-involved/events/"
+      },
+      {
+        "id": "050",
+        "url": "/get-involved/host-an-event/"
+      },
+      {
+        "id": "051",
+        "url": "/get-involved/wills-trusts/"
+      },
+      {
+        "id": "052",
+        "url": "/get-involved/pray/"
+      }
+    ]
+  }
+]
