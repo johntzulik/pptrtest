@@ -30,9 +30,6 @@ async function deleteOldFiles() {
   if (fs.existsSync(process.env.SS_FOLDER)) {
     fs.rmSync(process.env.SS_FOLDER, { recursive: true });
   }
-  if (fs.existsSync(process.env.PDF_FOLDER)) {
-    fs.rmSync(process.env.PDF_FOLDER, { recursive: true });
-  }
 }
 
 function getName(arreglo) {
@@ -49,8 +46,8 @@ function getName(arreglo) {
 }
 
 async function captureMultipleScreenshots(phase, device) {
-  var phase_url = phase == "production" ? PRODUCTION_URL : STAGING_URL;
-  var cookie = phase == "production" ? COOKIE_PRODUCTION : COOKIE_STAGING;
+  var phase_url = phase == "pr" ? PRODUCTION_URL : STAGING_URL;
+  var cookie = phase == "pr" ? COOKIE_PRODUCTION : COOKIE_STAGING;
 
   var fullpath = process.env.IMAGES_FOLDER;
   let browser = null;
@@ -133,79 +130,84 @@ async function getDiff(device) {
     scaleToSameSize: true,
     ignore: "less",
   };
+  try {
+    for (const { id, url } of pages) {
+      var arreglo = url.split("/");
+      var name = getName(arreglo);
+      var comparison =
+        id + "-compare-" + device + "-" + name + "." + process.env.IMAGE_EXT;
+      var comparison_compress =
+        id +
+        "-compare-" +
+        device +
+        "-" +
+        name +
+        "-compress." +
+        process.env.IMAGE_EXT;
+      var production =
+        id +
+        "-" +
+        path_prod +
+        "-" +
+        device +
+        "-" +
+        name +
+        "." +
+        process.env.IMAGE_EXT;
+      var staging =
+        id +
+        "-" +
+        path_stag +
+        "-" +
+        device +
+        "-" +
+        name +
+        "." +
+        process.env.IMAGE_EXT;
 
-  for (const { id, url } of pages) {
-    var arreglo = url.split("/");
-    var name = getName(arreglo);
-    var comparison =
-      id + "-compare-" + device + "-" + name + "." + process.env.IMAGE_EXT;
-    var comparison_compress =
-      id +
-      "-compare-" +
-      device +
-      "-" +
-      name +
-      "-compress." +
-      process.env.IMAGE_EXT;
-    var production =
-      id +
-      "-" +
-      path_prod +
-      "-" +
-      device +
-      "-" +
-      name +
-      "." +
-      process.env.IMAGE_EXT;
-    var staging =
-      id +
-      "-" +
-      path_stag +
-      "-" +
-      device +
-      "-" +
-      name +
-      "." +
-      process.env.IMAGE_EXT;
+      var production_compress =
+        id +
+        "-" +
+        path_prod +
+        "-" +
+        device +
+        "-" +
+        name +
+        "-compress." +
+        process.env.IMAGE_EXT;
+      var staging_compress =
+        id +
+        "-" +
+        path_stag +
+        "-" +
+        device +
+        "-" +
+        name +
+        "-compress." +
+        process.env.IMAGE_EXT;
 
-    var production_compress =
-      id +
-      "-" +
-      path_prod +
-      "-" +
-      device +
-      "-" +
-      name +
-      "-compress." +
-      process.env.IMAGE_EXT;
-    var staging_compress =
-      id +
-      "-" +
-      path_stag +
-      "-" +
-      device +
-      "-" +
-      name +
-      "-compress." +
-      process.env.IMAGE_EXT;
-
-    const data = await compareImages(
-      await fx.readFile(process.env.IMAGES_FOLDER + "/" + production),
-      await fx.readFile(process.env.IMAGES_FOLDER + "/" + staging),
-      options
-    );
-    await fx.writeFile(
-      `${process.env.IMAGES_FOLDER}/${id}-compare-${device}-${name}.${process.env.IMAGE_EXT}`,
-      data.getBuffer()
-    );
-    console.log(
-      `getDiff: ${process.env.IMAGES_FOLDER}/${id}-compare-${device}-${name}.${process.env.IMAGE_EXT}`
-    );
-    generarHTML(
-      comparison_compress,
-      production_compress,
-      staging_compress,
-      device
+      const data = await compareImages(
+        await fx.readFile(process.env.IMAGES_FOLDER + "/" + production),
+        await fx.readFile(process.env.IMAGES_FOLDER + "/" + staging),
+        options
+      );
+      await fx.writeFile(
+        `${process.env.IMAGES_FOLDER}/${id}-compare-${device}-${name}.${process.env.IMAGE_EXT}`,
+        data.getBuffer()
+      );
+      console.log(
+        `getDiff: ${process.env.IMAGES_FOLDER}/${id}-compare-${device}-${name}.${process.env.IMAGE_EXT}`
+      );
+      generarHTML(
+        comparison_compress,
+        production_compress,
+        staging_compress,
+        device
+      );
+    }
+  } catch (err) {
+    console.error(
+      `❌ Error haciendo las diferencias getDiff: ${err.message} o error ${err}`
     );
   }
 }
@@ -222,46 +224,55 @@ async function generarHTML(comparison, production, staging, device) {
   }
   if (!fs.existsSync(process.env.CSS_FOLDER)) {
     fs.mkdirSync(process.env.CSS_FOLDER, { recursive: true });
-    // File destination.txt will be created or overwritten by default.
     fs.copyFile(
       "templates/style.css",
       process.env.CSS_FOLDER + "/style.css",
       (err) => {
-        if (err) throw err;
-        console.log("style.css was copied");
+        if (err) {
+          console.error(`❌ Error al copiar style.css: ${err.message}`);
+        } else {
+          console.log("style.css fue copiado");
+        }
       }
     );
     fs.copyFile(
       "templates/app.js",
       process.env.JS_FOLDER + "/app.js",
       (err) => {
-        if (err) throw err;
-        console.log("style.css was copied");
+        if (err) {
+          console.error(`❌ Error al copiar app.js: ${err.message}`);
+        } else {
+          console.log("app.js fue copiado");
+        }
       }
     );
   }
-  var template = path.join(__dirname, "templates/templatehtml.html");
+  try {
+    var template = path.join(__dirname, "templates/templatehtml.html");
 
-  var prefilename = path.join(
-    __dirname,
-    process.env.HTML_FOLDER + "/" + comparison
-  );
-  var filename = prefilename.replace(
-    "-compress." + process.env.IMAGE_EXT,
-    ".html"
-  );
-  var templateHtml = fs.readFileSync(template, "utf8");
+    var prefilename = path.join(
+      __dirname,
+      process.env.HTML_FOLDER + "/" + comparison
+    );
+    var filename = prefilename.replace(
+      "-compress." + process.env.IMAGE_EXT,
+      ".html"
+    );
+    var templateHtml = fs.readFileSync(template, "utf8");
 
-  var title = comparison.replace("." + process.env.IMAGE_EXT, "");
-  var _comparison = path.join("../images/", comparison);
-  var _production = path.join("../images/", production);
-  var _staging = path.join("../images/", staging);
-  templateHtml = templateHtml.replace("{{title}}", title);
-  templateHtml = templateHtml.replace("{{comparison}}", _comparison);
-  templateHtml = templateHtml.replace("{{production}}", _production);
-  templateHtml = templateHtml.replace("{{staging}}", _staging);
-  templateHtml = templateHtml.replace("{{device}}", device);
-  await fx.writeFile(`${filename}`, templateHtml);
+    var title = comparison.replace("." + process.env.IMAGE_EXT, "");
+    var _comparison = path.join("../images/", comparison);
+    var _production = path.join("../images/", production);
+    var _staging = path.join("../images/", staging);
+    templateHtml = templateHtml.replace("{{title}}", title);
+    templateHtml = templateHtml.replace("{{comparison}}", _comparison);
+    templateHtml = templateHtml.replace("{{production}}", _production);
+    templateHtml = templateHtml.replace("{{staging}}", _staging);
+    templateHtml = templateHtml.replace("{{device}}", device);
+    await fx.writeFile(`${filename}`, templateHtml);
+  } catch (err) {
+    console.error(`❌ Error en la generación del HTML: ${err.message}`);
+  }
 }
 
 async function comprimirComparison(inputPath, ouputPath) {
@@ -288,56 +299,63 @@ async function comprimirComparison(inputPath, ouputPath) {
     { svg: { engine: false, command: false } },
     { gif: { engine: false, command: false } },
     function (err, completed, statistic) {
-      if (err === null) {
+      try {
+        if (err) throw err;
         fs.unlink(statistic.input, (err) => {
           if (err) throw err;
           console.log("successfully compressed and deleted " + statistic.input);
         });
+      } catch (err) {
+        console.error(`❌ Error en la compresión de imágenes: ${err.message}`);
       }
     }
   );
 }
 
 async function buildMenu() {
-  var desktopList = "";
-  var mobileList = "";
-  for (const { id, url } of pages) {
-    var arreglo = url.split("/");
-    var name = getName(arreglo);
-    if (process.env.DESKTOP) {
-      desktopList += `<li><a class="menulink" href='html/${id}-compare-desktop-${name}.html' 
-      data-productionlink="${PRODUCTION_URL}${url}"
-      data-staginglink="${STAGING_URL}${url}"
-      data-page="${url}"
-      >${name}</a></li>`;
+  try {
+    var desktopList = "";
+    var mobileList = "";
+    for (const { id, url } of pages) {
+      var arreglo = url.split("/");
+      var name = getName(arreglo);
+      if (process.env.DESKTOP) {
+        desktopList += `<li><a class="menulink" href='html/${id}-compare-desktop-${name}.html' 
+        data-productionlink="${PRODUCTION_URL}${url}"
+        data-staginglink="${STAGING_URL}${url}"
+        data-page="${url}"
+        >${name}</a></li>`;
+      }
+      if (process.env.MOBILE) {
+        mobileList += `<li><a class="menulink" href='html/${id}-compare-mobile-${name}.html' 
+        data-productionlink="${PRODUCTION_URL}${url}"
+        data-staginglink="${STAGING_URL}${url}"
+        data-page="${url}"
+        >${name}</a></li>`;
+      }
     }
-    if (process.env.MOBILE) {
-      mobileList += `<li><a class="menulink" href='html/${id}-compare-mobile-${name}.html' 
-      data-productionlink="${PRODUCTION_URL}${url}"
-      data-staginglink="${STAGING_URL}${url}"
-      data-page="${url}"
-      >${name}</a></li>`;
-    }
+
+    var indexFile = path.join(__dirname, "templates/index.html");
+    var indexHtml = fs.readFileSync(indexFile, "utf8");
+    indexHtml = indexHtml.replace("{{MENUDESKTOP}}", desktopList);
+    indexHtml = indexHtml.replace("{{MENUMOBILE}}", mobileList);
+
+    await fx.writeFile(process.env.COMPFILE + "/index.html", indexHtml);
+  } catch (err) {
+    console.error(`❌ Error creando el menu buildMenu: ${err.message}`);
   }
-
-  var indexFile = path.join(__dirname, "templates/index.html");
-  var indexHtml = fs.readFileSync(indexFile, "utf8");
-  indexHtml = indexHtml.replace("{{MENUDESKTOP}}", desktopList);
-  indexHtml = indexHtml.replace("{{MENUMOBILE}}", mobileList);
-
-  await fx.writeFile(process.env.COMPFILE + "/index.html", indexHtml);
 }
 
 async function init() {
   await deleteOldFiles();
   if (process.env.DESKTOP) {
-    await captureMultipleScreenshots("production", "desktop");
-    await captureMultipleScreenshots("staging", "desktop");
+    await captureMultipleScreenshots("pr", "desktop");
+    await captureMultipleScreenshots("st", "desktop");
     await getDiff("desktop");
   }
   if (process.env.MOBILE) {
-    await captureMultipleScreenshots("production", "mobile");
-    await captureMultipleScreenshots("staging", "mobile");
+    await captureMultipleScreenshots("pr", "mobile");
+    await captureMultipleScreenshots("st", "mobile");
     await getDiff("mobile");
   }
   await buildMenu();
@@ -346,4 +364,9 @@ async function init() {
     process.env.COMPFILE + "/images"
   );
 }
-init();
+//init();
+init().catch((err) => {
+  console.error(
+    `❌ Error en la inicialización: ${err.message} o error: ${err}`
+  );
+});

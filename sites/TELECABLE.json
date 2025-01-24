@@ -1,0 +1,114 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://telecablecr.com",
+      "STAGING_URL": "http://env-ryenuevotelecable-e4524.kinsta.cloud",
+      "COOKIE_PRODUCTION": "telecablecr.com",
+      "COOKIE_STAGING": "env-ryenuevotelecable-e4524.kinsta.cloud",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false"
+    },
+    "pages": [
+      {
+        "id": "01",
+        "url": "/"
+      },
+      {
+        "id": "02",
+        "url": "/residencial/combos/"
+      },
+      {
+        "id": "03",
+        "url": "/residencial/internet/"
+      },
+      {
+        "id": "04",
+        "url": "/residencial/mastele/"
+      },
+      {
+        "id": "05",
+        "url": "/residencial/television/"
+      },
+      {
+        "id": "06",
+        "url": "/residencial/telefonia/"
+      },
+      {
+        "id": "07",
+        "url": "/residencial/masnegocios/"
+      },
+      {
+        "id": "08",
+        "url": "/todotelecable/"
+      },
+      {
+        "id": "09",
+        "url": "/sostenibilidad/"
+      },
+      {
+        "id": "10",
+        "url": "/residencial/cobertura/"
+      },
+      {
+        "id": "11",
+        "url": "/residencial/consulta-de-servicios/"
+      },
+      {
+        "id": "12",
+        "url": "/residencial/sucursales/"
+      },
+      {
+        "id": "13",
+        "url": "/residencial/etica-y-cumplimiento-telecable-residencial/"
+      },
+      {
+        "id": "14",
+        "url": "/residencial/reglamentos-telecable-residencial/"
+      },
+      {
+        "id": "15",
+        "url": "/empresarial/conectividad/"
+      },
+      {
+        "id": "16",
+        "url": "/empresarial/maspymes/"
+      },
+      {
+        "id": "17",
+        "url": "/empresarial/networking/"
+      },
+      {
+        "id": "18",
+        "url": "/empresarial/ciberseguridad/"
+      },
+      {
+        "id": "19",
+        "url": "/empresarial/voz/"
+      },
+      {
+        "id": "20",
+        "url": "/empresarial/television/"
+      },
+      {
+        "id": "21",
+        "url": "/empresarial/servicios-de-valor/"
+      },
+      {
+        "id": "22",
+        "url": "/en/empresarial/"
+      },
+      {
+        "id": "23",
+        "url": "/residencial/sucursales/"
+      },
+      {
+        "id": "24",
+        "url": "/empresarial/etica-y-cumplimiento-telecable-empresarial/"
+      },
+      {
+        "id": "25",
+        "url": "/empresarial/reglamentos-telecable-empresarial/"
+      }
+    ]
+  }
+]

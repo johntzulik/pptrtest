@@ -1,0 +1,210 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://lcifpride.org",
+      "STAGING_URL": "https://lcifstage.wpengine.com",
+      "COOKIE_PRODUCTION": "lcifpride.org",
+      "COOKIE_STAGING": "lcifstage.wpengine.com",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false"
+    },
+    "pages": [
+      {
+        "id": "001",
+        "url": "/video/fun-time-in-artheraphy-with-cancer-warriors/"
+      },
+      {
+        "id": "002",
+        "url": "/video/grow-a-life/"
+      },
+      {
+        "id": "003",
+        "url": "/video/hunger-grant-project-school-kitchen-renovation/"
+      },
+      {
+        "id": "004",
+        "url": "/video/cataract-screen-and-operation/"
+      },
+      {
+        "id": "005",
+        "url": "/video/disaster-relief-for-the-victims-of-typhoon-carina/"
+      },
+      {
+        "id": "006",
+        "url": "/video/vision-screening-and-feeding-program/"
+      },
+      {
+        "id": "007",
+        "url": "/video/lions-bcvi-eye-clinic-and-rehabilitation-project/"
+      },
+      {
+        "id": "008",
+        "url": "/video/expanding-lions-quest-transforming-alabamas-juvenile-justice-system/"
+      },
+      {
+        "id": "009",
+        "url": "/video/lions-quest-book-distribution/"
+      },
+      {
+        "id": "010",
+        "url": "/video/new-washing-machine/"
+      },
+      {
+        "id": "011",
+        "url": "/video/recycled-eyeglasses-distribution-and-screening/"
+      },
+      {
+        "id": "012",
+        "url": "/video/inclusive-playgrounds-in-district-12/"
+      },
+      {
+        "id": "013",
+        "url": "/video/tornado-relief/"
+      },
+      {
+        "id": "014",
+        "url": "/video/quick-club-fundraiser-for-lcif/"
+      },
+      {
+        "id": "015",
+        "url": "/video/backpacks-for-students-in-need/"
+      },
+      {
+        "id": "016",
+        "url": "/video/hurricane-debbie-support/"
+      },
+      {
+        "id": "017",
+        "url": "/video/%e5%96%84%e7%9a%84%e5%8b%95%e5%8a%9b%e7%94%b1%e5%b0%8f%e9%96%8b%e5%a7%8b/"
+      },
+      {
+        "id": "018",
+        "url": "/video/international-lions-convention-in-melbourne/"
+      },
+      {
+        "id": "019",
+        "url": "/video/%e6%84%9b%e5%bf%83%e7%89%bd%e6%89%8b%e6%ba%ab%e6%9a%96%e5%82%b3%e9%81%9e%e7%a4%be%e6%9c%83%e6%9c%8d%e5%8b%99/"
+      },
+      {
+        "id": "020",
+        "url": "/video/earthquakes-in-turkiye-and-syria/"
+      },
+      {
+        "id": "021",
+        "url": "/video/feed-the-hungry/"
+      },
+      {
+        "id": "022",
+        "url": "/video/leo-service-grant-goes-to-sounds-of-anatolia/"
+      },
+      {
+        "id": "023",
+        "url": "/video/child-patients-travel-first-class-in-istanbul/"
+      },
+      {
+        "id": "024",
+        "url": "/video/saude-mental-para-todos/"
+      },
+      {
+        "id": "025",
+        "url": "/video/leones-apoyando-a-damnificados-por-tormenta-julia/"
+      },
+      {
+        "id": "026",
+        "url": "/video/turkish-lions-stand-with-ukraine/"
+      },
+      {
+        "id": "027",
+        "url": "/video/diabetes-vehicle-roams-the-streets-of-istanbul/"
+      },
+      {
+        "id": "028",
+        "url": "/video/lions-leos-and-special-youth-hit-the-court/"
+      },
+      {
+        "id": "029",
+        "url": "/video/tree-plantation-for-ever-our-city-is-green/"
+      },
+      {
+        "id": "030",
+        "url": "/video/dist-3232f1-project-save-environment-save-earth/"
+      },
+      {
+        "id": "031",
+        "url": "/video/pediatric-cancer-patient-get-well-soon/"
+      },
+      {
+        "id": "032",
+        "url": "/video/indiana-lions-return-to-eastern-kentucky/"
+      },
+      {
+        "id": "033",
+        "url": "/video/sports-event-for-intellectual-disabled-childrens/"
+      },
+      {
+        "id": "034",
+        "url": "/video/comunidad-de-caicemapa/"
+      },
+      {
+        "id": "035",
+        "url": "/video/flood-communities-lions-present-relief-materials/"
+      },
+      {
+        "id": "036",
+        "url": "/video/district-322c5-orissa-india-flood-relief/"
+      },
+      {
+        "id": "037",
+        "url": "/video/sewing-machine-distribution/"
+      },
+      {
+        "id": "038",
+        "url": "/video/district-3233c-organised-flood-relief-camp/"
+      },
+      {
+        "id": "039",
+        "url": "/video/escuchar-la-experiencias-de-los-envejecientes/"
+      },
+      {
+        "id": "040",
+        "url": "/video/vision-diabetes-health-check-up-blood-donation/"
+      },
+      {
+        "id": "041",
+        "url": "/video/proud-leo/"
+      },
+      {
+        "id": "042",
+        "url": "/video/tree-plantation-challenge/"
+      },
+      {
+        "id": "043",
+        "url": "/video/300-c1%e5%8d%80-%e8%87%aa%e6%b2%bb%e7%8d%85%e5%ad%90%e6%9c%83%e6%8d%90%e5%8a%a9%e6%83%a0%e6%98%8e%e7%9b%b2%e6%a0%a1%e5%a4%a7%e7%a6%ae%e5%a0%82%e5%9c%b0%e7%a3%9a%e7%a4%be%e6%9c%83%e6%9c%8d%e5%8b%99/"
+      },
+      {
+        "id": "044",
+        "url": "/video/awareness-to-win-fight-against-diabetes/"
+      },
+      {
+        "id": "045",
+        "url": "/video/aarogya-move-for-health-mobile-health-clinic-2/"
+      },
+      {
+        "id": "046",
+        "url": "/video/vision-diabetes-childhood-cancer-hunger-service-day/"
+      },
+      {
+        "id": "047",
+        "url": "/video/paint-with-love-and-care/"
+      },
+      {
+        "id": "048",
+        "url": "/video/diabetes-awareness-and-screening-campaign/"
+      },
+      {
+        "id": "049",
+        "url": "/"
+      }
+    ]
+  }
+]
