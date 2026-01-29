@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrowserCompare</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body>
+  <!-- Top nav -->
+  <header class="topbar">
+    <div class="topbar-brand">BrowserCompare</div>
+    <nav class="topbar-nav">
+      <button class="nav-btn active" data-tab="dashboard">Dashboard</button>
+      <button class="nav-btn" data-tab="sites">Sites</button>
+      <button class="nav-btn" data-tab="settings">Settings</button>
+      <button class="nav-btn" data-tab="reports">Reports</button>
+    </nav>
+  </header>
+
+  <!-- Dashboard tab -->
+  <section id="tab-dashboard" class="tab-content active">
+    <div class="panel">
+      <h2>Run Comparison</h2>
+      <div class="form-row">
+        <label for="run-site">Site template</label>
+        <select id="run-site"></select>
+      </div>
+      <div class="form-row">
+        <button id="btn-run" class="btn btn-primary">Run Comparison</button>
+        <span id="run-status" class="status-badge"></span>
+      </div>
+    </div>
+    <div class="panel" id="panel-log" style="display:none">
+      <h2>Progress</h2>
+      <div id="log-output" class="log-output"></div>
+    </div>
+    <div class="panel" id="panel-summary" style="display:none">
+      <h2>Summary</h2>
+      <div id="summary-content" class="summary-grid"></div>
+      <div class="form-row" style="margin-top:1rem">
+        <a id="link-report" href="#" target="_blank" class="btn btn-primary">Open Report</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sites tab -->
+  <section id="tab-sites" class="tab-content">
+    <div class="split-layout">
+      <div class="split-sidebar">
+        <div class="sidebar-header">
+          <h2>Sites</h2>
+          <button id="btn-new-site" class="btn btn-sm">+ New</button>
+        </div>
+        <ul id="sites-list" class="site-list"></ul>
+        <div class="sidebar-footer">
+          <button id="btn-import-site" class="btn btn-sm btn-outline">Import JSON</button>
+          <input type="file" id="import-file" accept=".json" style="display:none">
+        </div>
+      </div>
+      <div class="split-main" id="site-editor">
+        <div class="empty-state">Select a site or create a new one</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Settings tab -->
+  <section id="tab-settings" class="tab-content">
+    <div class="panel" style="max-width:600px">
+      <h2>Default Settings</h2>
+      <p class="text-muted">These values are stored in the <code>.env</code> file.</p>
+      <form id="settings-form">
+        <div class="form-group">
+          <label>Active Template</label>
+          <select id="set-template" name="TEMPLATE"></select>
+        </div>
+        <div class="form-divider">Viewport Sizes</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Desktop Width</label>
+            <input type="number" name="DESKTOP_WIDTH" value="1440">
+          </div>
+          <div class="form-group">
+            <label>Desktop Height</label>
+            <input type="number" name="DESKTOP_HEIGHT" value="1080">
+          </div>
+          <div class="form-group">
+            <label>Mobile Width</label>
+            <input type="number" name="MOBILE_WIDTH" value="360">
+          </div>
+          <div class="form-group">
+            <label>Mobile Height</label>
+            <input type="number" name="MOBILE_HEIGHT" value="640">
+          </div>
+        </div>
+        <div class="form-divider">Options</div>
+        <div class="form-group">
+          <label>Navigation Timeout (ms)</label>
+          <input type="number" name="TIMEOUT" value="100000">
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="toggle-label">
+              <input type="checkbox" name="DESKTOP" checked> Desktop captures
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="toggle-label">
+              <input type="checkbox" name="MOBILE" checked> Mobile captures
+            </label>
+          </div>
+        </div>
+        <div class="form-row">
+          <button type="submit" class="btn btn-primary">Save Settings</button>
+          <span id="settings-status"></span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Reports tab -->
+  <section id="tab-reports" class="tab-content">
+    <div class="panel">
+      <h2>Generated Reports</h2>
+      <p class="text-muted">Reports are generated in the output folder after each comparison run.</p>
+      <div id="reports-content">
+        <a href="/output/report.html" target="_blank" class="btn btn-primary" id="btn-open-report">Open Latest Report</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="ui.js"></script>
+</body>
+</html>

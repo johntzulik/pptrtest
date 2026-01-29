@@ -1,0 +1,27 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://salesianmissions.org",
+      "STAGING_URL": "https://salesiandev.wpengine.com",
+      "COOKIE_PRODUCTION": "salesianmissions.org",
+      "COOKIE_STAGING": "salesiandev.wpengine.com",
+      "COOKIE_ONE": "lb_smi_251222_don_bosco",
+      "ISCOOKIESET": "true",
+      "COOKIEVALUE": "displayed"
+    },
+    "pages": [
+      {
+        "id": "01",
+        "url": "/"
+      },
+      {
+        "id": "02",
+        "url": "/year-end/"
+      },
+      {
+        "id": "04",
+        "url": "/about-us/who-we-are/"
+      }
+    ]
+  }
+]

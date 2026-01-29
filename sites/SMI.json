@@ -5,8 +5,9 @@
       "STAGING_URL": "https://salesiandev.wpengine.com",
       "COOKIE_PRODUCTION": "salesianmissions.org",
       "COOKIE_STAGING": "salesiandev.wpengine.com",
-      "COOKIE_ONE": "",
-      "ISCOOKIESET": "false"
+      "COOKIE_ONE": "lb_smi_251222_don_bosco",
+      "ISCOOKIESET": "true",
+      "COOKIEVALUE": "displayed"
     },
     "pages": [
       {
