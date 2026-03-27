@@ -2,7 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.1.0] - 2026-03-26
+## [3.0.0] - 2026-03-25
+
+### Changed
+
+- **Playwright migration** — Screenshot capture (`core/capture.js`) rewritten with Playwright (`chromium`). Replaced `puppeteer.launch()` with `chromium.launch()`, `browser.newPage()` with `browser.newContext() + context.newPage()`, `page.setCookie()` with `context.addCookies([])`, and `waitUntil: "networkidle2"` with `waitUntil: "networkidle"`. Viewport is now set at context level.
+- **Audit module removed** — Audit and Deep Dive features extracted into the independent [BrowserAudit](../BrowserAudit) project. Tab "Audit" removed from the UI.
+- **server.js** — Removed `/api/audit` and `/api/deepdive` route mounts.
+
+### Removed
+
+- `puppeteer` dependency (replaced by `playwright`)
+- Tab "Audit" and all related UI/API code (moved to BrowserAudit project)
+
+## [2.1.0] - 2026-03-25
 
 ### Added
 

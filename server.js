@@ -33,12 +33,7 @@ app.use("/output", express.static(path.join(__dirname, process.env.COMPFILE || "
 app.use("/api/config",  require("./routes/config"));
 app.use("/api/sites",   require("./routes/sites"));
 app.use("/api/jobs",    require("./routes/jobs"));
-app.use("/api/audit",    require("./routes/audit"));
-app.use("/api/crawler",  require("./routes/crawler"));
-app.use("/api/deepdive", require("./routes/deepdive"));
-
-// Serve audit reports
-app.use("/audit", express.static(path.join(__dirname, "audit")));
+app.use("/api/crawler", require("./routes/crawler"));
 
 // Start server
 app.listen(PORT, () => {

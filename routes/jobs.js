@@ -8,7 +8,7 @@ const express = require("express");
 const fs = require("fs");
 const fsp = fs.promises;
 const path = require("path");
-const puppeteer = require("puppeteer");
+const { chromium } = require("playwright");
 
 const { buildRuntimeConfig } = require("../core/config");
 const { captureScreenshots } = require("../core/capture");
@@ -99,7 +99,7 @@ async function runJob(job, config, log) {
 
   // Launch browser
   log("info", "Launching browser...");
-  const browser = await puppeteer.launch({
+  const browser = await chromium.launch({
     headless: true,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });

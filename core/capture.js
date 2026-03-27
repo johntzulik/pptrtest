@@ -32,7 +32,7 @@ function buildFileName(id, phase, device, name) {
 /**
  * Captures screenshots of all pages for a given environment and device.
  *
- * @param {import('puppeteer').Browser} browser - Puppeteer browser instance
+ * @param {import('playwright').Browser} browser - Playwright browser instance
  * @param {"prod"|"staging"} phase - Environment to capture
  * @param {"desktop"|"mobile"} device - Device type
  * @param {Object} config - Runtime config from buildRuntimeConfig()
@@ -46,20 +46,23 @@ async function captureScreenshots(browser, phase, device, config, onProgress) {
   const viewport = config.viewports[device];
   const capturedFiles = [];
 
-  const page = await browser.newPage();
+  // Create a context with viewport (Playwright sets viewport at context level)
+  const context = await browser.newContext({
+    viewport: { width: viewport.width, height: viewport.height },
+  });
 
   // Set cookie if configured
   if (config.isCookieSet && config.cookieName) {
-    log("success ", `Setting cookie ${config.cookieName}=${config.cookieValue} for domain ${cookieDomain}`);
-    await page.setCookie({
+    log("warn", `Setting cookie ${config.cookieName}=${config.cookieValue} for domain ${cookieDomain}`);
+    await context.addCookies([{
       name: config.cookieName,
       value: config.cookieValue,
       domain: cookieDomain,
-    });
+      path: "/",
+    }]);
   }
 
-  await page.setDefaultNavigationTimeout(config.timeout);
-  await page.setViewport({ width: viewport.width, height: viewport.height });
+  const page = await context.newPage();
 
   for (const { id, url } of config.pages) {
     const name = getPageName(url);
@@ -67,7 +70,7 @@ async function captureScreenshots(browser, phase, device, config, onProgress) {
     const filePath = path.join(config.imagesDir, fileName);
 
     try {
-      await page.goto(`${baseUrl}${url}`, { waitUntil: "networkidle2" });
+      await page.goto(`${baseUrl}${url}`, { waitUntil: "networkidle", timeout: config.timeout });
 
       // Wait for animations and lazy-loaded content to settle
       await new Promise((r) => setTimeout(r, 1500));
@@ -80,7 +83,7 @@ async function captureScreenshots(browser, phase, device, config, onProgress) {
     }
   }
 
-  await page.close();
+  await context.close();
   return capturedFiles;
 }
 

@@ -13,7 +13,6 @@
     <nav class="topbar-nav">
       <button class="nav-btn active" data-tab="sites">Sites</button>
       <button class="nav-btn" data-tab="comparison">Comparison</button>
-      <button class="nav-btn" data-tab="audit">Audit</button>
       <button class="nav-btn" data-tab="reports">Reports</button>
     </nav>
   </header>
@@ -61,88 +60,6 @@
       <div class="form-row" style="margin-top:1rem">
         <a id="link-report" href="#" target="_blank" class="btn btn-primary">Open Report</a>
       </div>
-    </div>
-  </section>
-
-  <!-- Audit tab -->
-  <section id="tab-audit" class="tab-content">
-    <div class="audit-layout">
-
-      <!-- Left: config + run -->
-      <div class="audit-sidebar">
-        <div class="panel">
-          <h2>Run Audit</h2>
-          <div class="form-group">
-            <label>Site template</label>
-            <select id="audit-site"></select>
-          </div>
-          <div class="form-group">
-            <label>Max pages</label>
-            <input type="number" id="audit-max-pages" value="30" min="1" max="200">
-          </div>
-          <div class="form-row" style="margin-top:0.5rem">
-            <button id="btn-load-audit-pages" class="btn btn-outline btn-sm">Load Pages</button>
-          </div>
-
-          <!-- Page selection list -->
-          <div id="audit-pages-wrap" style="display:none;margin-top:1rem">
-            <div class="audit-pages-header">
-              <span class="text-muted" style="font-size:0.8rem">Select pages to audit</span>
-              <div style="display:flex;gap:0.5rem">
-                <button id="btn-audit-all" class="btn btn-sm btn-outline" style="font-size:0.72rem;padding:2px 8px">All</button>
-                <button id="btn-audit-none" class="btn btn-sm btn-outline" style="font-size:0.72rem;padding:2px 8px">None</button>
-              </div>
-            </div>
-            <div id="audit-pages-list" class="audit-pages-list"></div>
-          </div>
-
-          <div class="form-row" style="margin-top:1rem">
-            <button id="btn-run-audit" class="btn btn-primary" disabled>Run Audit</button>
-            <span id="audit-status" class="status-badge"></span>
-          </div>
-        </div>
-
-        <!-- Audit reports -->
-        <div class="panel">
-          <h2>Audit Reports</h2>
-          <div id="audit-reports-list" class="audit-report-list">
-            <p class="text-muted" style="font-size:0.85rem">No reports yet.</p>
-          </div>
-          <div class="form-row" style="margin-top:0.75rem">
-            <button id="btn-refresh-reports" class="btn btn-sm btn-outline">Refresh</button>
-          </div>
-        </div>
-
-        <!-- Deep Dive reports -->
-        <div class="panel">
-          <h2>&#128269; Deep Dive Reports</h2>
-          <div id="dd-reports-list" class="audit-report-list">
-            <p class="text-muted" style="font-size:0.85rem">No deep dives yet.</p>
-          </div>
-          <div class="form-row" style="margin-top:0.75rem">
-            <button id="btn-refresh-dd-reports" class="btn btn-sm btn-outline">Refresh</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: progress + report viewer -->
-      <div class="audit-main">
-        <div class="panel" id="audit-panel-log" style="display:none">
-          <h2>Progress</h2>
-          <div id="audit-log-output" class="log-output"></div>
-        </div>
-        <div class="panel" id="audit-panel-done" style="display:none">
-          <h2>Audit Complete</h2>
-          <div id="audit-summary" class="audit-summary-grid"></div>
-          <div class="form-row" style="margin-top:1rem">
-            <a id="audit-link-report" href="#" target="_blank" class="btn btn-primary">Open Report</a>
-          </div>
-        </div>
-        <div id="audit-empty" class="empty-state" style="margin:3rem auto">
-          Load pages and run an audit to see results here.
-        </div>
-      </div>
-
     </div>
   </section>
 
