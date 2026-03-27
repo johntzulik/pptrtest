@@ -2,93 +2,103 @@
   {
     "config": {
       "PRODUCTION_URL": "https://salesianmissions.org",
-      "STAGING_URL": "https://salesiandev.wpengine.com",
+      "STAGING_URL": "https://salesians19.wpengine.com",
       "COOKIE_PRODUCTION": "salesianmissions.org",
-      "COOKIE_STAGING": "salesiandev.wpengine.com",
+      "COOKIE_STAGING": "salesians19.wpengine.com",
       "COOKIE_ONE": "lb_smi_251222_don_bosco",
-      "ISCOOKIESET": "true",
+      "ISCOOKIESET": "false",
       "COOKIEVALUE": "displayed"
     },
     "pages": [
       {
-        "id": "01",
-        "url": "/"
+        "id": "001",
+        "url": "/",
+        "screenshot": true,
+        "audit": true
       },
       {
-        "id": "02",
-        "url": "/year-end/"
+        "id": "002",
+        "url": "/about-us/letter-from-the-director/",
+        "screenshot": true,
+        "audit": true
       },
       {
-        "id": "03",
-        "url": "/christmasmessage/"
+        "id": "003",
+        "url": "/about-us/news-publications/",
+        "screenshot": true,
+        "audit": true
       },
       {
-        "id": "04",
-        "url": "/about-us/who-we-are/"
+        "id": "004",
+        "url": "/about-us/news-publications/annual-reports/",
+        "screenshot": true,
+        "audit": true
       },
       {
-        "id": "05",
-        "url": "/merry-christmas/"
+        "id": "005",
+        "url": "/about-us/news-publications/news-room/",
+        "screenshot": true,
+        "audit": true
       },
       {
-        "id": "06",
-        "url": "/inspirational/"
+        "id": "006",
+        "url": "/about-us/news-publications/news-room/mission-news/a-new-village-where-at-risk-kids-can-thrive/",
+        "screenshot": true,
+        "audit": true
       },
       {
-        "id": "07",
-        "url": "/prayer_poems/the-greatest-gift-of-all/"
+        "id": "007",
+        "url": "/about-us/news-publications/news-room/mission-news/computer-literacy-program-is-opening-new-doors/",
+        "screenshot": true,
+        "audit": true
       },
       {
-        "id": "08",
-        "url": "/prayer_poems/the-loving-hand-of-god/"
+        "id": "008",
+        "url": "/about-us/news-publications/news-room/mission-news/dozens-of-children-rescued-from-child-labor-abuse/",
+        "screenshot": true,
+        "audit": true
       },
       {
-        "id": "09",
-        "url": "/act-now/contact-us/"
+        "id": "009",
+        "url": "/about-us/news-publications/news-room/mission-news/from-hunger-to-hope-in-india/",
+        "screenshot": true,
+        "audit": true
       },
       {
-        "id": "10",
-        "url": "/prayer-intention/"
+        "id": "010",
+        "url": "/about-us/news-publications/news-room/mission-news/impoverished-community-in-nigeria-rejoices-clean-water/",
+        "screenshot": true,
+        "audit": true
       },
       {
-        "id": "11",
-        "url": "/about-us/who-we-are/about-st-john-bosco/sweepstakes-winners/"
+        "id": "011",
+        "url": "/about-us/news-publications/news-room/mission-news/our-partnerships-and-you-are-helping-to-end-hunger/",
+        "screenshot": true,
+        "audit": true
       },
       {
-        "id": "12",
-        "url": "/prayer-intention-thanks/"
+        "id": "012",
+        "url": "/about-us/news-publications/news-room/mission-news/pakistan-flood-victims-grateful-for-your-support/",
+        "screenshot": true,
+        "audit": true
       },
       {
-        "id": "13",
-        "url": "/lp/relief/"
+        "id": "013",
+        "url": "/about-us/news-publications/news-room/mission-news/responding-to-a-catastrophic-cyclone-in-sri-lanka/",
+        "screenshot": true,
+        "audit": true
       },
       {
-        "id": "14",
-        "url": "/act-now/give/current-projects-funding-opportunities-2/"
+        "id": "014",
+        "url": "/about-us/news-publications/news-room/mission-news/solar-panels-shed-light-on-education/",
+        "screenshot": true,
+        "audit": true
       },
       {
-        "id": "15",
-        "url": "/act-now/give/give-now/"
-      },
-      {
-        "id": "16",
-        "url": "/about-us/who-we-are/about-st-john-bosco/"
-      },
-      {
-        "id": "17",
-        "url": "/prayer-post/inspiration/"
-      },
-      {
-        "id": "18",
-        "url": "/lp/20times/"
-      },
-      {
-        "id": "19",
-        "url": "/advent/"
-      },
-      {
-        "id": "20",
-        "url": "/turkey-syria-earthquake/"
+        "id": "015",
+        "url": "/about-us/news-publications/news-room/mission-news/young-earthquake-victims-find-hope-at-don-bosco-youth-center/",
+        "screenshot": true,
+        "audit": true
       }
     ]
   }

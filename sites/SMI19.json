@@ -1,0 +1,153 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://salesians19.wpengine.com",
+      "STAGING_URL": "https://salesiandev.wpengine.com",
+      "COOKIE_PRODUCTION": "example.com",
+      "COOKIE_STAGING": "staging.example.com",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false",
+      "COOKIEVALUE": "displayed"
+    },
+    "pages": [
+      {
+        "id": "001",
+        "url": "/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "002",
+        "url": "/about-us/letter-from-the-director",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "003",
+        "url": "/about-us/news-publications",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "005",
+        "url": "/about-us/news-publications/news-room",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "006",
+        "url": "/about-us/news-publications/news-room/mission-news/a-new-village-where-at-risk-kids-can-thrive",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "011",
+        "url": "/about-us/news-publications/news-room/mission-news/our-partnerships-and-you-are-helping-to-end-hunger",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "015",
+        "url": "/about-us/news-publications/news-room/mission-news/young-earthquake-victims-find-hope-at-don-bosco-youth-center",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "016",
+        "url": "/about-us/news-publications/news-room/press-center",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "017",
+        "url": "/about-us/news-publications/salesian-magazine",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "021",
+        "url": "/about-us/who-we-are",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "022",
+        "url": "/about-us/who-we-are/about-st-john-bosco",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "023",
+        "url": "/about-us/who-we-are/about-st-john-bosco/our-history",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "024",
+        "url": "/about-us/who-we-are/about-st-john-bosco/pope-francis-and-the-salesians",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "025",
+        "url": "/about-us/who-we-are/about-st-john-bosco/sweepstakes-winners",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "026",
+        "url": "/about-us/who-we-are/mission-statement",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "027",
+        "url": "/about-us/who-we-are/the-mission-office",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "030",
+        "url": "/about-us/who-we-are/the-mission-office/the-office-for-international-programs",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "034",
+        "url": "/act-now/give/current-projects-funding-opportunities-2",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "039",
+        "url": "/act-now/volunteer",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "043",
+        "url": "/continents/central-america",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "044",
+        "url": "/continents/europe",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "052",
+        "url": "/mass",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "059",
+        "url": "/stay-connected",
+        "screenshot": true,
+        "audit": true
+      }
+    ]
+  }
+]

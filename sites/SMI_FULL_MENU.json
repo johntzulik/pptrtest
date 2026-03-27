@@ -1,0 +1,412 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://salesians19.wpengine.com",
+      "STAGING_URL": "https://salesiandev.wpengine.com",
+      "COOKIE_PRODUCTION": "example.com",
+      "COOKIE_STAGING": "staging.example.com",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false",
+      "COOKIEVALUE": "displayed",
+      "TIMEOUT": 200000,
+      "DESKTOP_WIDTH": 1440,
+      "DESKTOP_HEIGHT": 1080,
+      "MOBILE_WIDTH": 360,
+      "MOBILE_HEIGHT": 640,
+      "DESKTOP": true,
+      "MOBILE": false
+    },
+    "pages": [
+      {
+        "id": "001",
+        "url": "/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "002",
+        "url": "/about-us",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "003",
+        "url": "/about-us/history-of-the-salesians",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "004",
+        "url": "/about-us/letter-from-the-director",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "005",
+        "url": "/about-us/news-publications",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "006",
+        "url": "/about-us/news-publications/annual-reports",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "007",
+        "url": "/about-us/news-publications/news-room",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "008",
+        "url": "/about-us/news-publications/news-room/news-coverage",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "009",
+        "url": "/about-us/news-publications/news-room/press-center",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "010",
+        "url": "/about-us/news-publications/salesian-magazine",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "011",
+        "url": "/about-us/news-publications/world-bulletin",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "012",
+        "url": "/about-us/privacy-policy",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "013",
+        "url": "/about-us/take-the-salesian-missions-survey",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "014",
+        "url": "/about-us/the-salesian-family",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "015",
+        "url": "/about-us/who-we-are",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "016",
+        "url": "/about-us/who-we-are/about-st-john-bosco",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "017",
+        "url": "/about-us/who-we-are/about-st-john-bosco/our-history",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "018",
+        "url": "/about-us/who-we-are/about-st-john-bosco/our-history/history-of-the-salesians",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "019",
+        "url": "/about-us/who-we-are/about-st-john-bosco/pope-francis-and-the-salesians",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "020",
+        "url": "/about-us/who-we-are/about-st-john-bosco/sweepstakes-winners",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "021",
+        "url": "/about-us/who-we-are/mission-statement",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "022",
+        "url": "/about-us/who-we-are/the-mission-office",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "023",
+        "url": "/about-us/who-we-are/the-mission-office/salesian-lay-missioners",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "024",
+        "url": "/about-us/who-we-are/the-mission-office/salesians-at-the-un",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "025",
+        "url": "/about-us/who-we-are/the-mission-office/the-office-for-international-programs",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "026",
+        "url": "/act-now",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "027",
+        "url": "/act-now/contact-us",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "028",
+        "url": "/act-now/get-a-free-gift",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "029",
+        "url": "/act-now/give",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "030",
+        "url": "/act-now/give/build-a-chapel",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "031",
+        "url": "/act-now/give/clean-water-initiative",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "032",
+        "url": "/act-now/give/current-projects-funding-opportunities-2",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "033",
+        "url": "/act-now/give/donor-advised-funds",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "034",
+        "url": "/act-now/give/funded-projects",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "035",
+        "url": "/act-now/give/gift-matching",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "036",
+        "url": "/act-now/give/give-now",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "037",
+        "url": "/act-now/give/missionary-support-program",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "038",
+        "url": "/act-now/give/monthly-giving-programs",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "039",
+        "url": "/act-now/give/nlp",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "040",
+        "url": "/act-now/give/past-projects",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "041",
+        "url": "/act-now/give/salesian-mission-sponsors",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "042",
+        "url": "/act-now/give/ssp",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "043",
+        "url": "/act-now/stay-connected",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "044",
+        "url": "/act-now/volunteer",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "045",
+        "url": "/annual-reports",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "046",
+        "url": "/givenow",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "047",
+        "url": "/lent-sign-up",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "048",
+        "url": "/lp/content-hope",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "049",
+        "url": "/lp/hope",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "050",
+        "url": "/mass",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "051",
+        "url": "/mass-archive",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "052",
+        "url": "/mission-news",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "053",
+        "url": "/new-water-initiative",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "054",
+        "url": "/our-work",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "055",
+        "url": "/our-work/what-we-do",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "056",
+        "url": "/our-work/where-we-work",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "057",
+        "url": "/prayer-intention",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "058",
+        "url": "/prayer-post/inspiration",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "059",
+        "url": "/press-release",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "060",
+        "url": "/salesian-magazine",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "061",
+        "url": "/salesian_press_relea/intl-youth-day-salesian-missions-highlights-social-and-educational-programs-for-youth-in-need",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "062",
+        "url": "/stay-connected",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "063",
+        "url": "/testimonial",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "064",
+        "url": "/where-we-work",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "065",
+        "url": "/world-bulletin",
+        "screenshot": true,
+        "audit": true
+      }
+    ]
+  }
+]

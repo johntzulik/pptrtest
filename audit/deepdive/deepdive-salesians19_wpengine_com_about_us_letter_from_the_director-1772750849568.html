@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deep Dive — https://salesians19.wpengine.com/about-us/letter-from-the-director</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f1f5f9;--card:#fff;--border:#e2e8f0;--text:#1e293b;--muted:#64748b;--head:#0f172a;--blue:#3b82f6;--green:#16a34a;--yellow:#d97706;--red:#dc2626;--purple:#7c3aed}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;font-size:14px}
+a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+
+/* Header */
+.hdr{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 100%);color:#fff;padding:2rem 2.5rem}
+.hdr h1{font-size:1.5rem;font-weight:700;margin-bottom:.4rem}
+.hdr .url{color:#93c5fd;font-size:.9rem;word-break:break-all}
+.hdr .meta{color:#94a3b8;font-size:.8rem;margin-top:.3rem}
+.score-badge{display:inline-block;margin-top:1rem;padding:.4rem 1.2rem;border-radius:20px;font-weight:700;font-size:1rem;color:#fff;background:#dc2626}
+
+/* Layout */
+.page{max-width:1100px;margin:0 auto;padding:1.5rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+
+/* Cards */
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.25rem;margin-bottom:1rem}
+.card h2{font-size:.95rem;font-weight:700;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--border);color:var(--head);display:flex;align-items:center;gap:.5rem}
+.card h3{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:.8rem 0 .4rem}
+
+/* KPI grid */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:.6rem;margin-bottom:1rem}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.6rem .8rem;text-align:center}
+.kpi .val{font-size:1.3rem;font-weight:700}
+.kpi .lbl{font-size:.7rem;color:var(--muted);text-transform:uppercase}
+.good{color:var(--green)} .warn{color:var(--yellow)} .poor{color:var(--red)} .neutral{color:var(--blue)}
+
+/* Timing bars */
+.tbar-row{display:flex;align-items:center;gap:.5rem;margin:.3rem 0;font-size:.8rem}
+.tbar-label{width:130px;flex-shrink:0;color:var(--muted)}
+.tbar-track{flex:1;background:#e2e8f0;border-radius:3px;height:8px;overflow:hidden}
+.tbar-fill{height:100%;border-radius:3px}
+.tbar-good{background:var(--green)} .tbar-warn{background:var(--yellow)} .tbar-poor{background:var(--red)}
+.tbar-val{width:60px;text-align:right;font-weight:600;font-size:.78rem;flex-shrink:0}
+
+/* Recommendations */
+.rec-item{display:flex;gap:.75rem;padding:.6rem .75rem;border-radius:6px;margin-bottom:.4rem;background:var(--bg);border-left:3px solid}
+.rec-item.high{border-color:var(--red)}
+.rec-item.medium{border-color:var(--yellow)}
+.rec-item.low{border-color:#94a3b8}
+.rec-badge{font-size:.65rem;font-weight:700;padding:2px 7px;border-radius:10px;flex-shrink:0;align-self:flex-start;margin-top:2px;color:#fff}
+.rec-badge.high{background:var(--red)} .rec-badge.medium{background:var(--yellow)} .rec-badge.low{background:#94a3b8}
+.rec-cat{font-size:.65rem;font-weight:600;color:var(--muted);margin-right:.3rem}
+.rec-text{font-size:.82rem;line-height:1.4}
+
+/* Table */
+table.dt{width:100%;border-collapse:collapse;font-size:.8rem}
+table.dt th{background:var(--bg);padding:.4rem .6rem;text-align:left;color:var(--muted);font-weight:600;border-bottom:1px solid var(--border);font-size:.72rem;text-transform:uppercase}
+table.dt td{padding:.35rem .6rem;border-bottom:1px solid var(--border);word-break:break-all}
+table.dt tr:last-child td{border-bottom:none}
+table.dt tr:hover td{background:#f8fafc}
+.url-cell{max-width:360px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* Heading tree */
+.heading-row{font-size:.82rem;padding:.2rem 0;border-bottom:1px solid #f1f5f9}
+.heading-row:last-child{border-bottom:none}
+.h-tag{display:inline-block;width:26px;font-size:.65rem;font-weight:700;color:#fff;background:var(--blue);border-radius:3px;text-align:center;padding:1px 0;margin-right:.4rem}
+.h1 .h-tag{background:#7c3aed}
+.h-low .h-tag{background:#94a3b8}
+
+/* Check grid */
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:.3rem}
+.check-row{display:flex;align-items:center;gap:.4rem;font-size:.82rem;padding:.25rem 0}
+.check-icon{font-size:.85rem;flex-shrink:0}
+
+/* Badge */
+.badge{display:inline-block;padding:1px 7px;border-radius:10px;font-size:.65rem;font-weight:600}
+.badge-green{background:#dcfce7;color:#166534} .badge-red{background:#fee2e2;color:#991b1b}
+.badge-yellow{background:#fef9c3;color:#854d0e} .badge-gray{background:#f1f5f9;color:#64748b}
+.badge-blue{background:#dbeafe;color:#1e40af}
+
+/* Security header rows */
+.sec-row{display:flex;justify-content:space-between;align-items:center;padding:.35rem 0;border-bottom:1px solid var(--border);font-size:.82rem}
+.sec-row:last-child{border-bottom:none}
+.sec-name{color:var(--muted);font-family:monospace;font-size:.78rem}
+.sec-val{font-size:.75rem;color:var(--text);max-width:55%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:right}
+
+/* Section nav */
+.section-nav{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.section-nav a{padding:.3rem .8rem;background:var(--card);border:1px solid var(--border);border-radius:20px;font-size:.78rem;color:var(--muted);transition:all .15s}
+.section-nav a:hover{color:var(--blue);border-color:var(--blue);text-decoration:none}
+
+footer{text-align:center;padding:1.5rem;font-size:.72rem;color:var(--muted);border-top:1px solid var(--border);margin-top:1rem}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <h1>Deep Dive Analysis</h1>
+  <div class="url"><a href="https://salesians19.wpengine.com/about-us/letter-from-the-director" target="_blank" style="color:#93c5fd">https://salesians19.wpengine.com/about-us/letter-from-the-director</a></div>
+  <div class="meta">Generated March 5, 2026 at 04:47 PM &nbsp;|&nbsp; HTTP 200 &nbsp;|&nbsp; 4025 KB total &nbsp;|&nbsp; 98 requests</div>
+  <div class="score-badge">Estimated Score: 0/100</div>
+</div>
+
+<div class="page">
+
+  <!-- Section nav -->
+  <div class="section-nav">
+    <a href="#s-recs">Recommendations</a>
+    <a href="#s-perf">Performance</a>
+    <a href="#s-resources">Resources</a>
+    <a href="#s-js">JavaScript</a>
+    <a href="#s-css">CSS</a>
+    <a href="#s-images">Images</a>
+    <a href="#s-a11y">Accessibility</a>
+    <a href="#s-seo">SEO</a>
+    <a href="#s-sec">Security</a>
+    <a href="#s-console">Console</a>
+  </div>
+
+  <!-- Recommendations -->
+  <div class="card" id="s-recs">
+    <h2>&#9888; Recommendations <span style="font-size:.75rem;font-weight:400;color:var(--muted)">18 total — 5 high · 7 medium · 6 low</span></h2>
+    
+        <div class="rec-item high">
+          <span class="rec-badge high">High</span>
+          <div>
+            <span class="rec-cat">[Resources]</span>
+            <span class="rec-text">Page weight is 4025KB (&gt;3MB). Compress assets, remove unused dependencies.</span>
+          </div>
+        </div>
+        <div class="rec-item high">
+          <span class="rec-badge high">High</span>
+          <div>
+            <span class="rec-cat">[JavaScript]</span>
+            <span class="rec-text">56% of JavaScript is unused (2409KB total). Use code splitting and tree shaking.</span>
+          </div>
+        </div>
+        <div class="rec-item high">
+          <span class="rec-badge high">High</span>
+          <div>
+            <span class="rec-cat">[JavaScript]</span>
+            <span class="rec-text">18 render-blocking external script(s). Add defer or async attribute.</span>
+          </div>
+        </div>
+        <div class="rec-item high">
+          <span class="rec-badge high">High</span>
+          <div>
+            <span class="rec-cat">[Accessibility]</span>
+            <span class="rec-text">2 image(s) missing alt attribute. Add descriptive alt text for screen readers.</span>
+          </div>
+        </div>
+        <div class="rec-item high">
+          <span class="rec-badge high">High</span>
+          <div>
+            <span class="rec-cat">[Accessibility]</span>
+            <span class="rec-text">1 button(s) with no text or aria-label. Add descriptive labels.</span>
+          </div>
+        </div>
+        <div class="rec-item medium">
+          <span class="rec-badge medium">Medium</span>
+          <div>
+            <span class="rec-cat">[CSS]</span>
+            <span class="rec-text">93% of CSS is unused (1169KB total). Remove dead CSS or use PurgeCSS.</span>
+          </div>
+        </div>
+        <div class="rec-item medium">
+          <span class="rec-badge medium">Medium</span>
+          <div>
+            <span class="rec-cat">[Performance]</span>
+            <span class="rec-text">10 image(s) without explicit width/height. This causes layout shift (CLS).</span>
+          </div>
+        </div>
+        <div class="rec-item medium">
+          <span class="rec-badge medium">Medium</span>
+          <div>
+            <span class="rec-cat">[Resources]</span>
+            <span class="rec-text">9 oversized image(s) — rendered much smaller than natural size. Use responsive images or resize server-side.</span>
+          </div>
+        </div>
+        <div class="rec-item medium">
+          <span class="rec-badge medium">Medium</span>
+          <div>
+            <span class="rec-cat">[Accessibility]</span>
+            <span class="rec-text">No &lt;main&gt; landmark found. Wrap primary content in &lt;main&gt; for screen reader navigation.</span>
+          </div>
+        </div>
+        <div class="rec-item medium">
+          <span class="rec-badge medium">Medium</span>
+          <div>
+            <span class="rec-cat">[SEO]</span>
+            <span class="rec-text">Title is too short (26 chars). Aim for 30–60 characters.</span>
+          </div>
+        </div>
+        <div class="rec-item medium">
+          <span class="rec-badge medium">Medium</span>
+          <div>
+            <span class="rec-cat">[Security]</span>
+            <span class="rec-text">Missing Strict-Transport-Security (HSTS) header. Enforce HTTPS connections.</span>
+          </div>
+        </div>
+        <div class="rec-item medium">
+          <span class="rec-badge medium">Medium</span>
+          <div>
+            <span class="rec-cat">[Security]</span>
+            <span class="rec-text">No Content-Security-Policy header. Reduces risk of XSS attacks.</span>
+          </div>
+        </div>
+        <div class="rec-item low">
+          <span class="rec-badge low">Low</span>
+          <div>
+            <span class="rec-cat">[Resources]</span>
+            <span class="rec-text">11 image(s) in legacy format (JPEG/PNG/GIF). Convert to WebP or AVIF for 25–50% smaller files.</span>
+          </div>
+        </div>
+        <div class="rec-item low">
+          <span class="rec-badge low">Low</span>
+          <div>
+            <span class="rec-cat">[Performance]</span>
+            <span class="rec-text">11 below-fold image(s) not lazy-loaded. Add loading="lazy" to defer off-screen images.</span>
+          </div>
+        </div>
+        <div class="rec-item low">
+          <span class="rec-badge low">Low</span>
+          <div>
+            <span class="rec-cat">[SEO]</span>
+            <span class="rec-text">Meta description is short (26 chars). Aim for 120–160 characters.</span>
+          </div>
+        </div>
+        <div class="rec-item low">
+          <span class="rec-badge low">Low</span>
+          <div>
+            <span class="rec-cat">[Security]</span>
+            <span class="rec-text">Missing X-Frame-Options header. Consider adding DENY or SAMEORIGIN to prevent clickjacking.</span>
+          </div>
+        </div>
+        <div class="rec-item low">
+          <span class="rec-badge low">Low</span>
+          <div>
+            <span class="rec-cat">[Security]</span>
+            <span class="rec-text">Missing X-Content-Type-Options: nosniff header. Prevents MIME-type sniffing.</span>
+          </div>
+        </div>
+        <div class="rec-item low">
+          <span class="rec-badge low">Low</span>
+          <div>
+            <span class="rec-cat">[Security]</span>
+            <span class="rec-text">X-Powered-By header reveals technology (WP Engine). Remove it to reduce information disclosure.</span>
+          </div>
+        </div>
+  </div>
+
+  <!-- Performance -->
+  <div class="card" id="s-perf">
+    <h2>&#9201; Performance</h2>
+    <div class="kpi-grid">
+      <div class="kpi"><div class="val good">88ms</div><div class="lbl">TTFB</div></div>
+      <div class="kpi"><div class="val good">1112ms</div><div class="lbl">FCP</div></div>
+      <div class="kpi"><div class="val good">1312ms</div><div class="lbl">LCP</div></div>
+      <div class="kpi"><div class="val good">0.004</div><div class="lbl">CLS</div></div>
+      <div class="kpi"><div class="val good">1674ms</div><div class="lbl">Load</div></div>
+      <div class="kpi"><div class="val neutral">1350ms</div><div class="lbl">DOMContentLoaded</div></div>
+    </div>
+
+    <h3>Navigation Waterfall</h3>
+    <div class="tbar-row">
+    <span class="tbar-label">DNS Lookup</span>
+    <div class="tbar-track"><div class="tbar-fill tbar-good" style="width:0%"></div></div>
+    <span class="tbar-val tbar-good">0ms</span>
+  </div>
+    <div class="tbar-row">
+    <span class="tbar-label">TCP Connect</span>
+    <div class="tbar-track"><div class="tbar-fill tbar-good" style="width:0%"></div></div>
+    <span class="tbar-val tbar-good">0ms</span>
+  </div>
+    
+    <div class="tbar-row">
+    <span class="tbar-label">TTFB</span>
+    <div class="tbar-track"><div class="tbar-fill tbar-good" style="width:11%"></div></div>
+    <span class="tbar-val tbar-good">88ms</span>
+  </div>
+    <div class="tbar-row">
+    <span class="tbar-label">Download</span>
+    <div class="tbar-track"><div class="tbar-fill tbar-good" style="width:4%"></div></div>
+    <span class="tbar-val tbar-good">80ms</span>
+  </div>
+    <div class="tbar-row">
+    <span class="tbar-label">DOM Interactive</span>
+    <div class="tbar-track"><div class="tbar-fill tbar-warn" style="width:43.266666666666666%"></div></div>
+    <span class="tbar-val tbar-warn">1298ms</span>
+  </div>
+    <div class="tbar-row">
+    <span class="tbar-label">DOM Complete</span>
+    <div class="tbar-track"><div class="tbar-fill tbar-good" style="width:27.900000000000002%"></div></div>
+    <span class="tbar-val tbar-good">1674ms</span>
+  </div>
+    <div class="tbar-row">
+    <span class="tbar-label">Load Event</span>
+    <div class="tbar-track"><div class="tbar-fill tbar-good" style="width:20.925%"></div></div>
+    <span class="tbar-val tbar-good">1674ms</span>
+  </div>
+
+    <h3>DOM Statistics</h3>
+    <div class="check-grid">
+      <div class="check-row"><span class="check-icon good">&#9679;</span> DOM Elements: <strong>726</strong></div>
+      <div class="check-row"><span class="check-icon neutral">&#9679;</span> Max DOM Depth: <strong>21</strong></div>
+      <div class="check-row"><span class="check-icon neutral">&#9679;</span> Iframes: <strong>3</strong></div>
+      <div class="check-row"><span class="check-icon neutral">&#9679;</span> Scripts: <strong>47</strong> (31 ext · 16 inline)</div>
+      <div class="check-row"><span class="check-icon neutral">&#9679;</span> Stylesheets: <strong>21</strong></div>
+      <div class="check-row"><span class="check-icon neutral">&#9679;</span> Inline styles: <strong>19</strong></div>
+    </div>
+  </div>
+
+  <!-- Resources -->
+  <div class="card" id="s-resources">
+    <h2>&#128228; Resources &nbsp;<span style="font-size:.8rem;font-weight:400;color:var(--muted)">98 requests · 4025 KB</span></h2>
+    <h3>By Type</h3>
+    <table class="dt">
+      <thead><tr><th>Type</th><th>Count</th><th>Size</th></tr></thead>
+      <tbody>
+        <tr><td>css</td><td>9</td><td>3212.0 KB</td></tr><tr><td>img</td><td>27</td><td>464.8 KB</td></tr><tr><td>link</td><td>21</td><td>194.8 KB</td></tr><tr><td>script</td><td>31</td><td>141.6 KB</td></tr><tr><td>other</td><td>1</td><td>12.1 KB</td></tr><tr><td>fetch</td><td>4</td><td>0 B</td></tr><tr><td>iframe</td><td>1</td><td>0 B</td></tr><tr><td>xmlhttprequest</td><td>3</td><td>0 B</td></tr><tr><td>beacon</td><td>1</td><td>0 B</td></tr>
+      </tbody>
+    </table>
+    <h3>Largest Requests (top 15)</h3>
+    <table class="dt">
+      <thead><tr><th>URL</th><th>Type</th><th>Size</th><th>Duration</th><th>TTFB</th><th>Cached</th></tr></thead>
+      <tbody>
+        
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/fonts/FiraSans-SemiBoldItalic.ttf">fonts/FiraSans-SemiBoldItalic.ttf</td>
+            <td>css</td>
+            <td>479.5 KB</td>
+            <td>489ms</td>
+            <td>411ms</td>
+            <td><span class="badge badge-gray">no</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/fonts/FiraSans-Bold.ttf">fonts/FiraSans-Bold.ttf</td>
+            <td>css</td>
+            <td>463.1 KB</td>
+            <td>578ms</td>
+            <td>333ms</td>
+            <td><span class="badge badge-gray">no</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/fonts/FiraSans-SemiBold.ttf">fonts/FiraSans-SemiBold.ttf</td>
+            <td>css</td>
+            <td>462.4 KB</td>
+            <td>493ms</td>
+            <td>412ms</td>
+            <td><span class="badge badge-gray">no</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/fonts/FiraSans-LightItalic.ttf">fonts/FiraSans-LightItalic.ttf</td>
+            <td>css</td>
+            <td>437.2 KB</td>
+            <td>582ms</td>
+            <td>336ms</td>
+            <td><span class="badge badge-gray">no</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/fonts/FiraSans-Medium.ttf">fonts/FiraSans-Medium.ttf</td>
+            <td>css</td>
+            <td>431.3 KB</td>
+            <td>501ms</td>
+            <td>332ms</td>
+            <td><span class="badge badge-gray">no</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/fonts/FiraSans-Regular.ttf">fonts/FiraSans-Regular.ttf</td>
+            <td>css</td>
+            <td>430.9 KB</td>
+            <td>505ms</td>
+            <td>332ms</td>
+            <td><span class="badge badge-gray">no</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/fonts/FiraSans-Light.ttf">fonts/FiraSans-Light.ttf</td>
+            <td>css</td>
+            <td>423.9 KB</td>
+            <td>497ms</td>
+            <td>412ms</td>
+            <td><span class="badge badge-gray">no</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2019/02/190125-SMI-Dropdown-Image-A-v1.jpg">02/190125-SMI-Dropdown-Image-A-v1.jpg</td>
+            <td>img</td>
+            <td>120.7 KB</td>
+            <td>319ms</td>
+            <td>316ms</td>
+            <td><span class="badge badge-gray">no</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2019/02/190125-SMI-Dropdown-Image-B-v1.jpg">02/190125-SMI-Dropdown-Image-B-v1.jpg</td>
+            <td>img</td>
+            <td>116.2 KB</td>
+            <td>469ms</td>
+            <td>399ms</td>
+            <td><span class="badge badge-gray">no</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2025/10/our-history-banner-1.jpg">10/our-history-banner-1.jpg</td>
+            <td>css</td>
+            <td>82.4 KB</td>
+            <td>241ms</td>
+            <td>241ms</td>
+            <td><span class="badge badge-gray">no</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2017/07/about_us.jpg">07/about_us.jpg</td>
+            <td>img</td>
+            <td>78.2 KB</td>
+            <td>316ms</td>
+            <td>292ms</td>
+            <td><span class="badge badge-gray">no</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2017/07/act_now.jpg">07/act_now.jpg</td>
+            <td>img</td>
+            <td>46.5 KB</td>
+            <td>392ms</td>
+            <td>335ms</td>
+            <td><span class="badge badge-gray">no</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-includes/css/dashicons.min.css?ver=6.9.1">css/dashicons.min.css?ver=6.9.1</td>
+            <td>link</td>
+            <td>34.6 KB</td>
+            <td>173ms</td>
+            <td>162ms</td>
+            <td><span class="badge badge-gray">no</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1">jquery/jquery.min.js?ver=3.7.1</td>
+            <td>script</td>
+            <td>31.0 KB</td>
+            <td>249ms</td>
+            <td>175ms</td>
+            <td><span class="badge badge-gray">no</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/themes/twentytwentyfour-child-wh/css/style-original.css?ver=1.1.41">css/style-original.css?ver=1.1.41</td>
+            <td>link</td>
+            <td>30.8 KB</td>
+            <td>324ms</td>
+            <td>241ms</td>
+            <td><span class="badge badge-gray">no</span></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid2">
+
+  <!-- JavaScript -->
+  <div class="card" id="s-js">
+    <h2>&#128196; JavaScript</h2>
+    <div class="kpi-grid">
+      <div class="kpi"><div class="val neutral">2409 KB</div><div class="lbl">Total JS</div></div>
+      <div class="kpi"><div class="val warn">56%</div><div class="lbl">Unused</div></div>
+      <div class="kpi"><div class="val neutral">39</div><div class="lbl">Files</div></div>
+    </div>
+    <h3>Per-file Breakdown</h3>
+    <table class="dt">
+      <thead><tr><th>File</th><th>Size</th><th>Unused</th></tr></thead>
+      <tbody>
+        
+          <tr>
+            <td class="url-cell" title="https://www.googletagmanager.com/gtm.js?id=GTM-N58MN5">gtm.js?id=GTM-N58MN5</td>
+            <td>502.4 KB</td>
+            <td><span class="badge badge-yellow">49%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://www.googletagmanager.com/gtag/js?id=G-T8TETL4C29&amp;cx=c&amp;gtm=4e6340">js?id=G-T8TETL4C29&amp;cx=c&amp;gtm=4e6340</td>
+            <td>432.3 KB</td>
+            <td><span class="badge badge-yellow">51%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://www.googletagmanager.com/gtag/js?id=AW-1007389583&amp;cx=c&amp;gtm=4e6340">js?id=AW-1007389583&amp;cx=c&amp;gtm=4e6340</td>
+            <td>399.5 KB</td>
+            <td><span class="badge badge-yellow">51%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://www.googletagmanager.com/gtag/js?id=AW-10829450054&amp;cx=c&amp;gtm=4e6340">js?id=AW-10829450054&amp;cx=c&amp;gtm=4e6340</td>
+            <td>371.9 KB</td>
+            <td><span class="badge badge-yellow">52%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1">jquery.min.js?ver=3.7.1</td>
+            <td>85.5 KB</td>
+            <td><span class="badge badge-red">63%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/themes/twentytwentyfour-child-wh/js/owl.carousel.js?ver=1.1.41">owl.carousel.js?ver=1.1.41</td>
+            <td>83.4 KB</td>
+            <td><span class="badge badge-red">71%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://scripts.clarity.ms/0.8.56/clarity.js">clarity.js</td>
+            <td>79.6 KB</td>
+            <td><span class="badge badge-yellow">49%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://static.addtoany.com/menu/modules/core.ydpp7jcu.js">core.ydpp7jcu.js</td>
+            <td>70.9 KB</td>
+            <td><span class="badge badge-red">83%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/search-filter-pro/public/assets/js/search-filter-build.min.js?ver=2.5.17">search-filter-build.min.js?ver=2.5.17</td>
+            <td>64.1 KB</td>
+            <td><span class="badge badge-red">95%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://www.google-analytics.com/analytics.js">analytics.js</td>
+            <td>51.1 KB</td>
+            <td><span class="badge badge-yellow">58%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/themes/twentytwentyfour-child-wh/js/slick.min.js?ver=1.1.41">slick.min.js?ver=1.1.41</td>
+            <td>41.9 KB</td>
+            <td><span class="badge badge-red">94%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/megamenu/js/maxmegamenu.js?ver=3.6.2">maxmegamenu.js?ver=3.6.2</td>
+            <td>37.7 KB</td>
+            <td><span class="badge badge-red">77%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.13.3">datepicker.min.js?ver=1.13.3</td>
+            <td>35.9 KB</td>
+            <td><span class="badge badge-red">88%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/search-filter-pro/public/assets/js/chosen.jquery.min.js?ver=2.5.17">chosen.jquery.min.js?ver=2.5.17</td>
+            <td>28.4 KB</td>
+            <td><span class="badge badge-red">89%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/megamenu-pro/assets/public.js?ver=2.4.3">public.js?ver=2.4.3</td>
+            <td>25.9 KB</td>
+            <td><span class="badge badge-red">85%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-includes/js/wp-emoji-release.min.js?ver=6.9.1">wp-emoji-release.min.js?ver=6.9.1</td>
+            <td>22.2 KB</td>
+            <td><span class="badge badge-green">15%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3">core.min.js?ver=1.13.3</td>
+            <td>21.0 KB</td>
+            <td><span class="badge badge-red">75%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1">jquery-migrate.min.js?ver=3.4.1</td>
+            <td>13.3 KB</td>
+            <td><span class="badge badge-yellow">52%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/kadence-blocks/includes/assets/js/kb-navigation-block.min.js?ver=3.6.4">kb-navigation-block.min.js?ver=3.6.4</td>
+            <td>7.7 KB</td>
+            <td><span class="badge badge-red">85%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://cdn01.basis.net/assets/up.js?um=1">up.js?um=1</td>
+            <td>5.6 KB</td>
+            <td><span class="badge badge-red">62%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1007389583/?random=1772750844422&amp;cv=11&amp;fst=1772750844422&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;en=gtag.config&amp;gtm=45be6340v9213118731z86705153za20gzb6705153zd6705153xec&amp;gcd=13l3l3l3l1l1&amp;dma=0&amp;tag_exp=103116026~103200004~115938466~115938468~116024733~117484252~117625638~117625641&amp;u_w=800&amp;u_h=600&amp;url=https%3A%2F%2Fsalesians19.wpengine.com%2Fabout-us%2Fletter-from-the-director%2F&amp;frm=0&amp;tiba=Letter%20from%20the%20Director%20-&amp;hn=www.googleadservices.com&amp;npa=0&amp;pscdl=noapi&amp;auid=1444678389.1772750844&amp;uaa=arm&amp;uab=64&amp;uafvl=Not(A%253ABrand%3B8.0.0.0%7CChromium%3B144.0.7559.96&amp;uamb=0&amp;uam=&amp;uap=macOS&amp;uapv=15.6.1&amp;uaw=0&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4">?random=1772750844422&amp;cv=11&amp;fst=1772750844422&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;en=gtag.config&amp;gtm=45be6340v9213118731z86705153za20gzb6705153zd6705153xec&amp;gcd=13l3l3l3l1l1&amp;dma=0&amp;tag_exp=103116026~103200004~115938466~115938468~116024733~117484252~117625638~117625641&amp;u_w=800&amp;u_h=600&amp;url=https%3A%2F%2Fsalesians19.wpengine.com%2Fabout-us%2Fletter-from-the-director%2F&amp;frm=0&amp;tiba=Letter%20from%20the%20Director%20-&amp;hn=www.googleadservices.com&amp;npa=0&amp;pscdl=noapi&amp;auid=1444678389.1772750844&amp;uaa=arm&amp;uab=64&amp;uafvl=Not(A%253ABrand%3B8.0.0.0%7CChromium%3B144.0.7559.96&amp;uamb=0&amp;uam=&amp;uap=macOS&amp;uapv=15.6.1&amp;uaw=0&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4</td>
+            <td>5.1 KB</td>
+            <td><span class="badge badge-green">24%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/10829450054/?random=1772750844457&amp;cv=11&amp;fst=1772750844457&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;en=gtag.config&amp;gtm=45be6340z86705153za20gzb6705153zd6705153xec&amp;gcd=13l3l3l3l1l1&amp;dma=0&amp;tag_exp=103116026~103200004~115938466~115938468~116024733~117484252&amp;u_w=800&amp;u_h=600&amp;url=https%3A%2F%2Fsalesians19.wpengine.com%2Fabout-us%2Fletter-from-the-director%2F&amp;frm=0&amp;tiba=Letter%20from%20the%20Director%20-&amp;hn=www.googleadservices.com&amp;npa=0&amp;pscdl=noapi&amp;auid=1444678389.1772750844&amp;uaa=arm&amp;uab=64&amp;uafvl=Not(A%253ABrand%3B8.0.0.0%7CChromium%3B144.0.7559.96&amp;uamb=0&amp;uam=&amp;uap=macOS&amp;uapv=15.6.1&amp;uaw=0&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4">?random=1772750844457&amp;cv=11&amp;fst=1772750844457&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;en=gtag.config&amp;gtm=45be6340z86705153za20gzb6705153zd6705153xec&amp;gcd=13l3l3l3l1l1&amp;dma=0&amp;tag_exp=103116026~103200004~115938466~115938468~116024733~117484252&amp;u_w=800&amp;u_h=600&amp;url=https%3A%2F%2Fsalesians19.wpengine.com%2Fabout-us%2Fletter-from-the-director%2F&amp;frm=0&amp;tiba=Letter%20from%20the%20Director%20-&amp;hn=www.googleadservices.com&amp;npa=0&amp;pscdl=noapi&amp;auid=1444678389.1772750844&amp;uaa=arm&amp;uab=64&amp;uafvl=Not(A%253ABrand%3B8.0.0.0%7CChromium%3B144.0.7559.96&amp;uamb=0&amp;uam=&amp;uap=macOS&amp;uapv=15.6.1&amp;uaw=0&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4</td>
+            <td>5.1 KB</td>
+            <td><span class="badge badge-green">24%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://static.addtoany.com/menu/page.js">page.js</td>
+            <td>3.4 KB</td>
+            <td><span class="badge badge-green">30%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-includes/js/wp-emoji-loader.min.js">wp-emoji-loader.min.js</td>
+            <td>2.9 KB</td>
+            <td><span class="badge badge-yellow">50%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/themes/twentytwentyfour-child-wh/js/projects.js?ver=1.1.41">projects.js?ver=1.1.41</td>
+            <td>1.8 KB</td>
+            <td><span class="badge badge-red">79%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/kadence-blocks/includes/assets/js/kb-search.min.js?ver=3.6.4">kb-search.min.js?ver=3.6.4</td>
+            <td>1.7 KB</td>
+            <td><span class="badge badge-red">73%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-includes/js/hoverIntent.min.js?ver=1.10.2">hoverIntent.min.js?ver=1.10.2</td>
+            <td>1.5 KB</td>
+            <td><span class="badge badge-red">69%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/themes/twentytwentyfour-child-wh/js/sliders.js?ver=1.1.41">sliders.js?ver=1.1.41</td>
+            <td>1.4 KB</td>
+            <td><span class="badge badge-yellow">34%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="wp-block-template-skip-link-js-after">wp-block-template-skip-link-js-after</td>
+            <td>1.1 KB</td>
+            <td><span class="badge badge-red">75%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/themes/twentytwentyfour-child-wh/js/testimonials.js?ver=1.1.41">testimonials.js?ver=1.1.41</td>
+            <td>1.1 KB</td>
+            <td><span class="badge badge-red">89%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/themes/twentytwentyfour-child-wh/js/country.js?ver=1.1.41">country.js?ver=1.1.41</td>
+            <td>1.0 KB</td>
+            <td><span class="badge badge-yellow">46%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://www.clarity.ms/tag/k4kd5zkmkj">k4kd5zkmkj</td>
+            <td>0.7 KB</td>
+            <td><span class="badge badge-green">7%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="jquery-ui-datepicker-js-after">jquery-ui-datepicker-js-after</td>
+            <td>0.6 KB</td>
+            <td><span class="badge badge-green">0%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/about-us/letter-from-the-director/">https://salesians19.wpengine.com/about-us/letter-from-the-director/</td>
+            <td>0.5 KB</td>
+            <td><span class="badge badge-green">2%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="kadence-blocks-navigation-js-extra">kadence-blocks-navigation-js-extra</td>
+            <td>0.3 KB</td>
+            <td><span class="badge badge-green">0%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="search-filter-plugin-build-js-extra">search-filter-plugin-build-js-extra</td>
+            <td>0.2 KB</td>
+            <td><span class="badge badge-green">0%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="addtoany-core-js-before">addtoany-core-js-before</td>
+            <td>0.2 KB</td>
+            <td><span class="badge badge-green">0%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/add-to-any/addtoany.min.js?ver=1.1">addtoany.min.js?ver=1.1</td>
+            <td>0.1 KB</td>
+            <td><span class="badge badge-green">29%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/about-us/letter-from-the-director/">https://salesians19.wpengine.com/about-us/letter-from-the-director/</td>
+            <td>0.1 KB</td>
+            <td><span class="badge badge-green">0%</span></td>
+          </tr>
+      </tbody>
+    </table>
+    <h3>Script Loading</h3>
+    
+      <div class="check-row">
+        <span class="check-icon good">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">clarity.js
+          
+          <span class="badge badge-blue">async</span>
+          
+          
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon good">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">analytics.js
+          
+          <span class="badge badge-blue">async</span>
+          
+          
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon good">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">k4kd5zkmkj
+          
+          <span class="badge badge-blue">async</span>
+          
+          
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon good">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">js?id=G-T8TETL4C29&amp;cx=c&amp;gtm=4e6340
+          
+          <span class="badge badge-blue">async</span>
+          
+          
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon good">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">js?id=AW-10829450054&amp;cx=c&amp;gtm=4e6340
+          
+          <span class="badge badge-blue">async</span>
+          
+          
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon good">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">js?id=AW-1007389583&amp;cx=c&amp;gtm=4e6340
+          
+          <span class="badge badge-blue">async</span>
+          
+          
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon good">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">gtm.js?id=GTM-N58MN5
+          
+          <span class="badge badge-blue">async</span>
+          
+          
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon good">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">page.js
+          <span class="badge badge-green">defer</span>
+          
+          
+          
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">jquery.min.js?ver=3.7.1
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">jquery-migrate.min.js?ver=3.4.1
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon good">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">addtoany.min.js?ver=1.1
+          <span class="badge badge-green">defer</span>
+          
+          
+          
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">search-filter-build.min.js?ver=2.5.17
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">chosen.jquery.min.js?ver=2.5.17
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon good">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">core.ydpp7jcu.js
+          
+          <span class="badge badge-blue">async</span>
+          <span class="badge badge-blue">module</span>
+          
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon good">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">?random=1772750844422&amp;cv=11&amp;fst=1772750844422&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;en=gtag.config&amp;gtm=45be6340v9213118731z86705153za20gzb6705153zd6705153xec&amp;gcd=13l3l3l3l1l1&amp;dma=0&amp;tag_exp=103116026~103200004~115938466~115938468~116024733~117484252~117625638~117625641&amp;u_w=800&amp;u_h=600&amp;url=https%3A%2F%2Fsalesians19.wpengine.com%2Fabout-us%2Fletter-from-the-director%2F&amp;frm=0&amp;tiba=Letter%20from%20the%20Director%20-&amp;hn=www.googleadservices.com&amp;npa=0&amp;pscdl=noapi&amp;auid=1444678389.1772750844&amp;uaa=arm&amp;uab=64&amp;uafvl=Not(A%253ABrand%3B8.0.0.0%7CChromium%3B144.0.7559.96&amp;uamb=0&amp;uam=&amp;uap=macOS&amp;uapv=15.6.1&amp;uaw=0&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4
+          
+          <span class="badge badge-blue">async</span>
+          
+          
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon good">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">wp-emoji-release.min.js?ver=6.9.1
+          <span class="badge badge-green">defer</span>
+          <span class="badge badge-blue">async</span>
+          
+          
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon good">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">?random=1772750844457&amp;cv=11&amp;fst=1772750844457&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;en=gtag.config&amp;gtm=45be6340z86705153za20gzb6705153zd6705153xec&amp;gcd=13l3l3l3l1l1&amp;dma=0&amp;tag_exp=103116026~103200004~115938466~115938468~116024733~117484252&amp;u_w=800&amp;u_h=600&amp;url=https%3A%2F%2Fsalesians19.wpengine.com%2Fabout-us%2Fletter-from-the-director%2F&amp;frm=0&amp;tiba=Letter%20from%20the%20Director%20-&amp;hn=www.googleadservices.com&amp;npa=0&amp;pscdl=noapi&amp;auid=1444678389.1772750844&amp;uaa=arm&amp;uab=64&amp;uafvl=Not(A%253ABrand%3B8.0.0.0%7CChromium%3B144.0.7559.96&amp;uamb=0&amp;uam=&amp;uap=macOS&amp;uapv=15.6.1&amp;uaw=0&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4
+          
+          <span class="badge badge-blue">async</span>
+          
+          
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">kb-search.min.js?ver=3.6.4
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">kb-navigation-block.min.js?ver=3.6.4
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">up.js?um=1
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">core.min.js?ver=1.13.3
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">datepicker.min.js?ver=1.13.3
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">country.js?ver=1.1.41
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">owl.carousel.js?ver=1.1.41
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">slick.min.js?ver=1.1.41
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">sliders.js?ver=1.1.41
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">projects.js?ver=1.1.41
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">testimonials.js?ver=1.1.41
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">hoverIntent.min.js?ver=1.10.2
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">maxmegamenu.js?ver=3.6.2
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+      <div class="check-row">
+        <span class="check-icon poor">&#9679;</span>
+        <span style="font-size:.75rem;word-break:break-all">public.js?ver=2.4.3
+          
+          
+          
+          <span class="badge badge-red">render-blocking</span>
+        </span>
+      </div>
+  </div>
+
+  <!-- CSS -->
+  <div class="card" id="s-css">
+    <h2>&#127912; CSS</h2>
+    <div class="kpi-grid">
+      <div class="kpi"><div class="val neutral">1169 KB</div><div class="lbl">Total CSS</div></div>
+      <div class="kpi"><div class="val poor">93%</div><div class="lbl">Unused</div></div>
+      <div class="kpi"><div class="val neutral">40</div><div class="lbl">Files</div></div>
+    </div>
+    <h3>Per-file Breakdown</h3>
+    <table class="dt">
+      <thead><tr><th>File</th><th>Size</th><th>Unused</th></tr></thead>
+      <tbody>
+        
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/maxmegamenu/style.css?ver=7b001b">style.css?ver=7b001b</td>
+            <td>207.6 KB</td>
+            <td><span class="badge badge-red">96%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/themes/twentytwentyfour-child-wh/css/style-original.css?ver=1.1.41">style-original.css?ver=1.1.41</td>
+            <td>155.3 KB</td>
+            <td><span class="badge badge-red">96%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/themes/twentytwentyfour-child-wh/css/bootstrap.css?ver=1.1.41">bootstrap.css?ver=1.1.41</td>
+            <td>115.1 KB</td>
+            <td><span class="badge badge-red">98%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/kadence-blocks/dist/style-blocks-navigation.css?ver=3.6.4">style-blocks-navigation.css?ver=3.6.4</td>
+            <td>104.0 KB</td>
+            <td><span class="badge badge-red">91%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/megamenu-pro/icons/fontawesome6/css/all.min.css?ver=2.4.3">all.min.css?ver=2.4.3</td>
+            <td>99.8 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="kadence_blocks_css-inline-css">kadence_blocks_css-inline-css</td>
+            <td>97.9 KB</td>
+            <td><span class="badge badge-yellow">60%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/themes/twentytwentyfour-child-wh/css/formsmain.css?ver=1.1.41">formsmain.css?ver=1.1.41</td>
+            <td>87.6 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-includes/css/dashicons.min.css?ver=6.9.1">dashicons.min.css?ver=6.9.1</td>
+            <td>57.6 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/themes/twentytwentyfour-child-wh/style.css?ver=1.1.41">style.css?ver=1.1.41</td>
+            <td>37.4 KB</td>
+            <td><span class="badge badge-red">93%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/search-filter-pro/public/assets/css/search-filter.min.css?ver=2.5.17">search-filter.min.css?ver=2.5.17</td>
+            <td>36.5 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/themes/twentytwentyfour-child-wh/css/style-new.css?ver=1.1.41">style-new.css?ver=1.1.41</td>
+            <td>30.0 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/megamenu-pro/icons/genericons/genericons/genericons.css?ver=2.4.3">genericons.css?ver=2.4.3</td>
+            <td>26.9 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="global-styles-inline-css">global-styles-inline-css</td>
+            <td>24.4 KB</td>
+            <td><span class="badge badge-yellow">65%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/themes/twentytwentyfour-child-wh/css/projects.css?ver=1.1.41">projects.css?ver=1.1.41</td>
+            <td>20.4 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700,800">css?family=Fira+Sans:100,200,300,400,500,600,700,800</td>
+            <td>18.3 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/kadence-blocks/dist/style-blocks-rowlayout.css?ver=3.6.4">style-blocks-rowlayout.css?ver=3.6.4</td>
+            <td>10.0 KB</td>
+            <td><span class="badge badge-red">91%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-includes/blocks/image/style.min.css">style.min.css</td>
+            <td>6.7 KB</td>
+            <td><span class="badge badge-red">98%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/kadence-blocks/dist/style-blocks-image.css?ver=3.6.4">style-blocks-image.css?ver=3.6.4</td>
+            <td>4.5 KB</td>
+            <td><span class="badge badge-red">89%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/about-us/letter-from-the-director/">https://salesians19.wpengine.com/about-us/letter-from-the-director/</td>
+            <td>4.0 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="/wp-includes/css/dist/block-library/common.min.css">common.min.css</td>
+            <td>3.5 KB</td>
+            <td><span class="badge badge-red">82%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/kadence-blocks/includes/assets/css/kb-button-deprecated-style.min.css?ver=3.6.4">kb-button-deprecated-style.min.css?ver=3.6.4</td>
+            <td>3.4 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/kadence-blocks/dist/style-blocks-advancedbtn.css?ver=3.6.4">style-blocks-advancedbtn.css?ver=3.6.4</td>
+            <td>2.9 KB</td>
+            <td><span class="badge badge-yellow">67%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/themes/twentytwentyfour-child-wh/css/owl.carousel.min.css?ver=1.1.41">owl.carousel.min.css?ver=1.1.41</td>
+            <td>2.9 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/kadence-blocks/dist/style-blocks-search.css?ver=3.6.4">style-blocks-search.css?ver=3.6.4</td>
+            <td>1.6 KB</td>
+            <td><span class="badge badge-red">78%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/add-to-any/addtoany.min.css?ver=1.16">addtoany.min.css?ver=1.16</td>
+            <td>1.6 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/about-us/letter-from-the-director/">https://salesians19.wpengine.com/about-us/letter-from-the-director/</td>
+            <td>1.5 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/plugins/kadence-blocks/dist/style-blocks-column.css?ver=3.6.4">style-blocks-column.css?ver=3.6.4</td>
+            <td>1.4 KB</td>
+            <td><span class="badge badge-red">81%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/themes/twentytwentyfour-child-wh/css/owl.theme.default.min.css?ver=1.1.41">owl.theme.default.min.css?ver=1.1.41</td>
+            <td>0.9 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/about-us/letter-from-the-director/">https://salesians19.wpengine.com/about-us/letter-from-the-director/</td>
+            <td>0.8 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-includes/blocks/quote/style.min.css">style.min.css</td>
+            <td>0.8 KB</td>
+            <td><span class="badge badge-red">92%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-includes/blocks/paragraph/style.min.css">style.min.css</td>
+            <td>0.7 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="kadence-blocks-global-variables-inline-css">kadence-blocks-global-variables-inline-css</td>
+            <td>0.7 KB</td>
+            <td><span class="badge badge-green">9%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="wp-block-template-skip-link-inline-css">wp-block-template-skip-link-inline-css</td>
+            <td>0.6 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="kadence-blocks-advancedheading-inline-css">kadence-blocks-advancedheading-inline-css</td>
+            <td>0.6 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-includes/blocks/site-logo/style.min.css">style.min.css</td>
+            <td>0.5 KB</td>
+            <td><span class="badge badge-yellow">58%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="wp-emoji-styles-inline-css">wp-emoji-styles-inline-css</td>
+            <td>0.3 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-includes/blocks/group/style.min.css">style.min.css</td>
+            <td>0.2 KB</td>
+            <td><span class="badge badge-yellow">44%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-includes/blocks/post-content/style.min.css">style.min.css</td>
+            <td>0.1 KB</td>
+            <td><span class="badge badge-red">71%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="wp-img-auto-sizes-contain-inline-css">wp-img-auto-sizes-contain-inline-css</td>
+            <td>0.1 KB</td>
+            <td><span class="badge badge-yellow">41%</span></td>
+          </tr>
+          <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/about-us/letter-from-the-director/">https://salesians19.wpengine.com/about-us/letter-from-the-director/</td>
+            <td>0.0 KB</td>
+            <td><span class="badge badge-red">100%</span></td>
+          </tr>
+      </tbody>
+    </table>
+    <h3>Inline Styles</h3><p style="font-size:.8rem;color:var(--muted)">18 inline &lt;style&gt; block(s) — 143.5 KB total</p>
+  </div>
+
+  </div><!-- /grid2 -->
+
+  <!-- Images -->
+  <div class="card" id="s-images">
+    <h2>&#128247; Images &nbsp;<span style="font-size:.8rem;font-weight:400;color:var(--muted)">20 found</span></h2>
+    
+    <table class="dt">
+      <thead><tr><th>Source</th><th>Format</th><th>Natural</th><th>Rendered</th><th>Alt</th><th>Size attrs</th><th>Lazy</th><th>Issues</th></tr></thead>
+      <tbody>
+        <tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2020/04/header-logo.png">header-logo.png</td>
+            <td>png</td>
+            <td>196&times;60</td>
+            <td>196&times;60</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-gray">eager</span></td>
+            <td><span class="badge badge-gray">no lazy</span> <span class="badge badge-gray">legacy fmt</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2017/07/about_us.jpg">about_us.jpg</td>
+            <td>jpg</td>
+            <td>297&times;299</td>
+            <td>297&times;299</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-gray">eager</span></td>
+            <td><span class="badge badge-gray">no lazy</span> <span class="badge badge-gray">legacy fmt</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2019/02/190125-SMI-Dropdown-Image-A-v1.jpg">190125-SMI-Dropdown-Image-A-v1.jpg</td>
+            <td>jpg</td>
+            <td>297&times;299</td>
+            <td>297&times;299</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-gray">eager</span></td>
+            <td><span class="badge badge-gray">no lazy</span> <span class="badge badge-gray">legacy fmt</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2017/07/act_now.jpg">act_now.jpg</td>
+            <td>jpg</td>
+            <td>297&times;299</td>
+            <td>297&times;299</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-gray">eager</span></td>
+            <td><span class="badge badge-gray">no lazy</span> <span class="badge badge-gray">legacy fmt</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2019/02/190125-SMI-Dropdown-Image-B-v1.jpg">190125-SMI-Dropdown-Image-B-v1.jpg</td>
+            <td>jpg</td>
+            <td>297&times;299</td>
+            <td>297&times;299</td>
+            <td><span class="badge badge-red">no</span></td>
+            <td><span class="badge badge-yellow">no</span></td>
+            <td><span class="badge badge-gray">eager</span></td>
+            <td><span class="badge badge-red">no alt</span> <span class="badge badge-yellow">no size</span> <span class="badge badge-gray">no lazy</span> <span class="badge badge-gray">legacy fmt</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2025/06/square-x-twitter-brands-1.svg">square-x-twitter-brands-1.svg</td>
+            <td>svg</td>
+            <td>131&times;150</td>
+            <td>21&times;24</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-yellow">no</span></td>
+            <td><span class="badge badge-gray">eager</span></td>
+            <td><span class="badge badge-yellow">no size</span> <span class="badge badge-yellow">oversized</span> <span class="badge badge-gray">no lazy</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2025/06/square-facebook-brands-1.svg">square-facebook-brands-1.svg</td>
+            <td>svg</td>
+            <td>131&times;150</td>
+            <td>21&times;24</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-yellow">no</span></td>
+            <td><span class="badge badge-gray">eager</span></td>
+            <td><span class="badge badge-yellow">no size</span> <span class="badge badge-yellow">oversized</span> <span class="badge badge-gray">no lazy</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2025/06/instagram-brands-1.svg">instagram-brands-1.svg</td>
+            <td>svg</td>
+            <td>131&times;150</td>
+            <td>21&times;24</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-yellow">no</span></td>
+            <td><span class="badge badge-gray">eager</span></td>
+            <td><span class="badge badge-yellow">no size</span> <span class="badge badge-yellow">oversized</span> <span class="badge badge-gray">no lazy</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2025/06/youtube-brands-1.svg">youtube-brands-1.svg</td>
+            <td>svg</td>
+            <td>169&times;150</td>
+            <td>21&times;19</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-yellow">no</span></td>
+            <td><span class="badge badge-gray">eager</span></td>
+            <td><span class="badge badge-yellow">no size</span> <span class="badge badge-yellow">oversized</span> <span class="badge badge-gray">no lazy</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2024/01/Fr-Mike-266x300.jpg">Fr-Mike-266x300.jpg</td>
+            <td>jpg</td>
+            <td>214&times;241</td>
+            <td>214&times;242</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-green">lazy</span></td>
+            <td><span class="badge badge-gray">legacy fmt</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2024/01/conway-sm.jpg">conway-sm.jpg</td>
+            <td>jpg</td>
+            <td>231&times;45</td>
+            <td>231&times;45</td>
+            <td><span class="badge badge-red">no</span></td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-green">lazy</span></td>
+            <td><span class="badge badge-red">no alt</span> <span class="badge badge-gray">legacy fmt</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2017/05/logo.png">logo.png</td>
+            <td>png</td>
+            <td>205&times;63</td>
+            <td>160&times;49</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-green">lazy</span></td>
+            <td><span class="badge badge-gray">legacy fmt</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://widgets.guidestar.org/TransparencySeal/8932898">8932898</td>
+            <td>?</td>
+            <td>108&times;108</td>
+            <td>75&times;75</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-yellow">no</span></td>
+            <td><span class="badge badge-gray">eager</span></td>
+            <td><span class="badge badge-yellow">no size</span> <span class="badge badge-gray">no lazy</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2022/04/220331-SMI-Guidestar-Logo-2022-Email-Creative-Update-v2_2.png">220331-SMI-Guidestar-Logo-2022-Email-Creative-Update-v2_2.png</td>
+            <td>png</td>
+            <td>197&times;111</td>
+            <td>130&times;73</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-green">lazy</span></td>
+            <td><span class="badge badge-yellow">oversized</span> <span class="badge badge-gray">legacy fmt</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2017/05/CFC-logo.png">CFC-logo.png</td>
+            <td>png</td>
+            <td>84&times;46</td>
+            <td>84&times;46</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-green">lazy</span></td>
+            <td><span class="badge badge-gray">legacy fmt</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2024/11/Nonprofit_alliance_council_logo-300x157.png">Nonprofit_alliance_council_logo-300x157.png</td>
+            <td>png</td>
+            <td>130&times;68</td>
+            <td>130&times;68</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-green">lazy</span></td>
+            <td><span class="badge badge-gray">legacy fmt</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2025/06/square-x-twitter-brands-white.svg">square-x-twitter-brands-white.svg</td>
+            <td>svg</td>
+            <td>131&times;150</td>
+            <td>21&times;24</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-yellow">no</span></td>
+            <td><span class="badge badge-gray">eager</span></td>
+            <td><span class="badge badge-yellow">no size</span> <span class="badge badge-yellow">oversized</span> <span class="badge badge-gray">no lazy</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2025/06/square-facebook-brands-white.svg">square-facebook-brands-white.svg</td>
+            <td>svg</td>
+            <td>131&times;150</td>
+            <td>21&times;24</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-yellow">no</span></td>
+            <td><span class="badge badge-gray">eager</span></td>
+            <td><span class="badge badge-yellow">no size</span> <span class="badge badge-yellow">oversized</span> <span class="badge badge-gray">no lazy</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2025/06/instagram-brands-white.svg">instagram-brands-white.svg</td>
+            <td>svg</td>
+            <td>131&times;150</td>
+            <td>21&times;24</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-yellow">no</span></td>
+            <td><span class="badge badge-gray">eager</span></td>
+            <td><span class="badge badge-yellow">no size</span> <span class="badge badge-yellow">oversized</span> <span class="badge badge-gray">no lazy</span></td>
+          </tr><tr>
+            <td class="url-cell" title="https://salesians19.wpengine.com/wp-content/uploads/2025/06/youtube-brands-white.svg">youtube-brands-white.svg</td>
+            <td>svg</td>
+            <td>169&times;150</td>
+            <td>21&times;19</td>
+            <td><span class="badge badge-green">yes</span></td>
+            <td><span class="badge badge-yellow">no</span></td>
+            <td><span class="badge badge-gray">eager</span></td>
+            <td><span class="badge badge-yellow">no size</span> <span class="badge badge-yellow">oversized</span> <span class="badge badge-gray">no lazy</span></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid2">
+
+  <!-- Accessibility -->
+  <div class="card" id="s-a11y">
+    <h2>&#9855; Accessibility</h2>
+    <div class="check-grid">
+      <div class="check-row"><span class="check-icon good">&#9679;</span> HTML lang: <strong>en-US</strong></div>
+      <div class="check-row"><span class="check-icon good">&#9679;</span> Skip link: <strong>present</strong></div>
+      <div class="check-row"><span class="check-icon poor">&#9679;</span> &lt;main&gt;: <strong>missing</strong></div>
+      <div class="check-row"><span class="check-icon good">&#9679;</span> &lt;nav&gt;: <strong>present</strong></div>
+      <div class="check-row"><span class="check-icon good">&#9679;</span> &lt;header&gt;: <strong>present</strong></div>
+      <div class="check-row"><span class="check-icon good">&#9679;</span> &lt;footer&gt;: <strong>present</strong></div>
+      <div class="check-row"><span class="check-icon poor">&#9679;</span> Imgs missing alt: <strong>2/20</strong></div>
+      <div class="check-row"><span class="check-icon poor">&#9679;</span> Empty buttons: <strong>1</strong></div>
+      <div class="check-row"><span class="check-icon good">&#9679;</span> Links no text: <strong>0/148</strong></div>
+      <div class="check-row"><span class="check-icon good">&#9679;</span> _blank no opener: <strong>0</strong></div>
+      <div class="check-row"><span class="check-icon good">&#9679;</span> Positive tabindex: <strong>0</strong></div>
+    </div>
+    <h3>Heading Structure</h3>
+    <div style="max-height:200px;overflow-y:auto;border:1px solid var(--border);border-radius:6px;padding:.5rem">
+      <div class="heading-row h1" style="padding-left:0px">
+      <span class="h-tag">H1</span> Letter from the Director
+    </div><div class="heading-row h-mid" style="padding-left:32px">
+      <span class="h-tag">H3</span> Search this site:
+    </div><div class="heading-row h-mid" style="padding-left:32px">
+      <span class="h-tag">H3</span> Search this site:
+    </div><div class="heading-row h-mid" style="padding-left:16px">
+      <span class="h-tag">H2</span> ABOUT US
+    </div><div class="heading-row h-mid" style="padding-left:16px">
+      <span class="h-tag">H2</span> OUR WORK
+    </div><div class="heading-row h-mid" style="padding-left:16px">
+      <span class="h-tag">H2</span> ACT NOW
+    </div><div class="heading-row h-mid" style="padding-left:16px">
+      <span class="h-tag">H2</span> GIFT CATALOG
+    </div>
+    </div>
+    <h3>Forms (3)</h3>
+      
+        <div style="background:var(--bg);border-radius:6px;padding:.5rem .75rem;margin:.3rem 0;font-size:.8rem">
+          <strong>GET</strong> https://salesians19.wpengine.com/ &nbsp;
+          <span class="badge badge-green">all labeled</span>
+        </div>
+        <div style="background:var(--bg);border-radius:6px;padding:.5rem .75rem;margin:.3rem 0;font-size:.8rem">
+          <strong>GET</strong> https://salesians19.wpengine.com/ &nbsp;
+          <span class="badge badge-green">all labeled</span>
+        </div>
+        <div style="background:var(--bg);border-radius:6px;padding:.5rem .75rem;margin:.3rem 0;font-size:.8rem">
+          <strong>GET</strong> https://salesians19.wpengine.com/ &nbsp;
+          <span class="badge badge-green">all labeled</span>
+        </div>
+  </div>
+
+  <!-- SEO -->
+  <div class="card" id="s-seo">
+    <h2>&#128269; SEO</h2>
+    <div class="check-row"><span class="check-icon good">&#9679;</span>
+      Title: <strong style="margin-left:.3rem">Letter from the Director -</strong>
+      <span class="badge badge-yellow" style="margin-left:.3rem">26 chars</span></div>
+    <div class="check-row" style="margin-top:.4rem"><span class="check-icon good">&#9679;</span>
+      Meta desc: <span class="badge badge-yellow">26 chars</span>
+    </div>
+    <div class="check-grid" style="margin-top:.5rem">
+      <div class="check-row"><span class="check-icon good">&#9679;</span> H1 count: <strong>1</strong></div>
+      <div class="check-row"><span class="check-icon good">&#9679;</span> Canonical: <strong>present</strong></div>
+      <div class="check-row"><span class="check-icon good">&#9679;</span> HTTPS: <strong>yes</strong></div>
+      <div class="check-row"><span class="check-icon good">&#9679;</span> Lang attr: <strong>en-US</strong></div>
+      <div class="check-row"><span class="check-icon good">&#9679;</span> Open Graph: <strong>present</strong></div>
+      <div class="check-row"><span class="check-icon good">&#9679;</span> Twitter Card: <strong>summary_large_image</strong></div>
+    </div>
+    <h3>Structured Data (JSON-LD)</h3>
+      <div class="badge badge-blue" style="margin:.2rem .1rem;font-size:.72rem">Unknown</div>
+    <h3>Open Graph Tags</h3>
+      <div class="sec-row"><span class="sec-name">og:locale</span><span class="sec-val" title="en_US">en_US</span></div><div class="sec-row"><span class="sec-name">og:type</span><span class="sec-val" title="article">article</span></div><div class="sec-row"><span class="sec-name">og:title</span><span class="sec-val" title="Letter from the Director -">Letter from the Director -</span></div><div class="sec-row"><span class="sec-name">og:description</span><span class="sec-val" title="Letter from the Director -">Letter from the Director -</span></div><div class="sec-row"><span class="sec-name">og:url</span><span class="sec-val" title="https://salesians19.wpengine.com/about-us/letter-from-the-director/">https://salesians19.wpengine.com/about-us/letter-from-the-director/</span></div><div class="sec-row"><span class="sec-name">og:site_name</span><span class="sec-val" title="Salesian Missions">Salesian Missions</span></div><div class="sec-row"><span class="sec-name">og:image</span><span class="sec-val" title="https://salesians19.wpengine.com/wp-content/uploads/2025/10/our-history-banner-1.jpg">https://salesians19.wpengine.com/wp-content/uploads/2025/10/our-history-banner-1.jpg</span></div><div class="sec-row"><span class="sec-name">og:image:width</span><span class="sec-val" title="1270">1270</span></div><div class="sec-row"><span class="sec-name">og:image:height</span><span class="sec-val" title="510">510</span></div><div class="sec-row"><span class="sec-name">og:image:type</span><span class="sec-val" title="image/jpeg">image/jpeg</span></div>
+  </div>
+
+  </div><!-- /grid2 -->
+
+  <!-- Security Headers -->
+  <div class="card" id="s-sec">
+    <h2>&#128274; Security Headers</h2>
+    
+      <div class="sec-row">
+        <span class="sec-name">Strict-Transport-Security (HSTS)</span>
+        <span class="badge badge-red">missing</span>
+      </div>
+      <div class="sec-row">
+        <span class="sec-name">Content-Security-Policy</span>
+        <span class="badge badge-red">missing</span>
+      </div>
+      <div class="sec-row">
+        <span class="sec-name">X-Frame-Options</span>
+        <span class="badge badge-red">missing</span>
+      </div>
+      <div class="sec-row">
+        <span class="sec-name">X-Content-Type-Options</span>
+        <span class="badge badge-red">missing</span>
+      </div>
+      <div class="sec-row">
+        <span class="sec-name">Referrer-Policy</span>
+        <span class="badge badge-red">missing</span>
+      </div>
+      <div class="sec-row">
+        <span class="sec-name">Permissions-Policy</span>
+        <span class="badge badge-red">missing</span>
+      </div>
+      <div class="sec-row">
+        <span class="sec-name">X-XSS-Protection</span>
+        <span class="badge badge-red">missing</span>
+      </div>
+      <div class="sec-row">
+        <span class="sec-name">Cache-Control</span>
+        <span class="sec-val good" title="max-age=600, must-revalidate">max-age=600, must-revalidate</span>
+      </div>
+      <div class="sec-row">
+        <span class="sec-name">Server</span>
+        <span class="sec-val warn" title="nginx">nginx</span>
+      </div>
+      <div class="sec-row">
+        <span class="sec-name">X-Powered-By</span>
+        <span class="sec-val warn" title="WP Engine">WP Engine</span>
+      </div>
+  </div>
+
+  <!-- Console Messages -->
+  <div class="card" id="s-console">
+    <h2>&#128187; Console Messages &nbsp;<span style="font-size:.75rem;font-weight:400;color:var(--muted)">8 total</span></h2>
+    <table class="dt">
+          <thead><tr><th>Type</th><th>Message</th></tr></thead>
+          <tbody>
+            
+              <tr>
+                <td><span class="badge badge-gray">log</span></td>
+                <td style="font-size:.78rem;word-break:break-all">JQMIGRATE: Migrate is installed, version 3.4.1</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-gray">startGroup</span></td>
+                <td style="font-size:.78rem;word-break:break-all">LB: Build</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-gray">log</span></td>
+                <td style="font-size:.78rem;word-break:break-all">LB ID:  241016</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-gray">log</span></td>
+                <td style="font-size:.78rem;word-break:break-all">LB Name:  smi_lb_241115_builder_test</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-gray">log</span></td>
+                <td style="font-size:.78rem;word-break:break-all">Render Mode:  Preview</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-gray">log</span></td>
+                <td style="font-size:.78rem;word-break:break-all">Session Type:  cookie</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-gray">endGroup</span></td>
+                <td style="font-size:.78rem;word-break:break-all">console.groupEnd</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-gray">log</span></td>
+                <td style="font-size:.78rem;word-break:break-all">LB Debug (241016): Preview parameter not found or did not match</td>
+              </tr>
+          </tbody>
+        </table>
+  </div>
+
+</div><!-- /page -->
+
+<footer>Generated by <strong>BrowserCompare Deep Dive</strong> &nbsp;|&nbsp; March 5, 2026 at 04:47 PM</footer>
+
+</body></html>

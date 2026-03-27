@@ -1,0 +1,418 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://salesians19.wpengine.com",
+      "STAGING_URL": "https://salesiandev.wpengine.com",
+      "COOKIE_PRODUCTION": "example.com",
+      "COOKIE_STAGING": "staging.example.com",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false",
+      "COOKIEVALUE": "displayed",
+      "TIMEOUT": 200000,
+      "DESKTOP_WIDTH": 1440,
+      "DESKTOP_HEIGHT": 1080,
+      "MOBILE_WIDTH": 360,
+      "MOBILE_HEIGHT": 640,
+      "DESKTOP": true,
+      "MOBILE": false
+    },
+    "pages": [
+      {
+        "id": "001",
+        "url": "/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "002",
+        "url": "/salesian-country/angola",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "003",
+        "url": "/salesian-country/argentina",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "004",
+        "url": "/salesian-country/benin",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "005",
+        "url": "/salesian-country/bolivia",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "006",
+        "url": "/salesian-country/brazil",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "007",
+        "url": "/salesian-country/burkina-faso",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "008",
+        "url": "/salesian-country/burundi",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "009",
+        "url": "/salesian-country/cambodia",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "010",
+        "url": "/salesian-country/central-african-republic",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "011",
+        "url": "/salesian-country/chad",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "012",
+        "url": "/salesian-country/chile",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "013",
+        "url": "/salesian-country/colombia",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "014",
+        "url": "/salesian-country/dominican-republic",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "015",
+        "url": "/salesian-country/dr-congo",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "016",
+        "url": "/salesian-country/ecuador",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "017",
+        "url": "/salesian-country/egypt",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "018",
+        "url": "/salesian-country/el-salvador",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "019",
+        "url": "/salesian-country/eswatini",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "020",
+        "url": "/salesian-country/ethiopia",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "021",
+        "url": "/salesian-country/ghana",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "022",
+        "url": "/salesian-country/guatemala",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "023",
+        "url": "/salesian-country/haiti",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "024",
+        "url": "/salesian-country/honduras",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "025",
+        "url": "/salesian-country/india",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "026",
+        "url": "/salesian-country/italy",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "027",
+        "url": "/salesian-country/ivory-coast",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "028",
+        "url": "/salesian-country/kenya",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "029",
+        "url": "/salesian-country/liberia",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "030",
+        "url": "/salesian-country/madagascar",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "031",
+        "url": "/salesian-country/malawi",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "032",
+        "url": "/salesian-country/mali",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "033",
+        "url": "/salesian-country/mexico",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "034",
+        "url": "/salesian-country/mongolia",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "035",
+        "url": "/salesian-country/mozambique",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "036",
+        "url": "/salesian-country/myanmar",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "037",
+        "url": "/salesian-country/namibia",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "038",
+        "url": "/salesian-country/nepal",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "039",
+        "url": "/salesian-country/nicaragua",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "040",
+        "url": "/salesian-country/nigeria",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "041",
+        "url": "/salesian-country/papua-new-guinea",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "042",
+        "url": "/salesian-country/paraguay",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "043",
+        "url": "/salesian-country/peru",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "044",
+        "url": "/salesian-country/philippines",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "045",
+        "url": "/salesian-country/rwanda",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "046",
+        "url": "/salesian-country/samoa",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "047",
+        "url": "/salesian-country/senegal",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "048",
+        "url": "/salesian-country/sierra-leone",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "049",
+        "url": "/salesian-country/solomon-islands",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "050",
+        "url": "/salesian-country/south-africa",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "051",
+        "url": "/salesian-country/south-sudan",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "052",
+        "url": "/salesian-country/spain",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "053",
+        "url": "/salesian-country/sri-lanka",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "054",
+        "url": "/salesian-country/sudan",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "055",
+        "url": "/salesian-country/syria",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "056",
+        "url": "/salesian-country/tanzania",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "057",
+        "url": "/salesian-country/thailand",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "058",
+        "url": "/salesian-country/timor-leste",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "059",
+        "url": "/salesian-country/togo",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "060",
+        "url": "/salesian-country/turkey",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "061",
+        "url": "/salesian-country/uganda",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "062",
+        "url": "/salesian-country/united-states",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "063",
+        "url": "/salesian-country/uruguay-2",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "064",
+        "url": "/salesian-country/venezuela",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "065",
+        "url": "/salesian-country/vietnam",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "066",
+        "url": "/salesian-country/zambia",
+        "screenshot": true,
+        "audit": true
+      }
+    ]
+  }
+]

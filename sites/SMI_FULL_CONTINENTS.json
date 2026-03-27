@@ -1,0 +1,82 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://salesianmissions.org/",
+      "STAGING_URL": "https://salesians19.wpengine.com",
+      "COOKIE_PRODUCTION": "example.com",
+      "COOKIE_STAGING": "staging.example.com",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false",
+      "COOKIEVALUE": "displayed",
+      "TIMEOUT": 200000,
+      "DESKTOP_WIDTH": 1440,
+      "DESKTOP_HEIGHT": 1080,
+      "MOBILE_WIDTH": 360,
+      "MOBILE_HEIGHT": 640,
+      "DESKTOP": true,
+      "MOBILE": false
+    },
+    "pages": [
+      {
+        "id": "001",
+        "url": "/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "002",
+        "url": "/continents/africa",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "003",
+        "url": "/continents/asia",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "004",
+        "url": "/continents/caribbean",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "005",
+        "url": "/continents/central-america",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "006",
+        "url": "/continents/europe",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "007",
+        "url": "/continents/middle-east",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "008",
+        "url": "/continents/north-america",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "009",
+        "url": "/continents/oceania",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "010",
+        "url": "/continents/south-america",
+        "screenshot": true,
+        "audit": true
+      }
+    ]
+  }
+]

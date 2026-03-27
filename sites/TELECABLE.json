@@ -1,0 +1,285 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://env-telecablev2-staging.kinsta.cloud/",
+      "STAGING_URL": "https://env-telecablev2-staging.kinsta.cloudy",
+      "COOKIE_PRODUCTION": "telecablecr.com",
+      "COOKIE_STAGING": "env-telecablev2-staging.kinsta.cloud",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false",
+      "COOKIEVALUE": ""
+    },
+    "pages": [
+      {
+        "id": "01",
+        "url": "/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "02",
+        "url": "/hogar",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "03",
+        "url": "/sostenibilidad",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "04",
+        "url": "/soy-cliente/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "05",
+        "url": "/hogar",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "06",
+        "url": "/inspirational/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "07",
+        "url": "/noticias",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "08",
+        "url": "/quienes-somos/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "09",
+        "url": "/sostenibilidad/sostenibilidad-gobierno-corporativo/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "10",
+        "url": "/sostenibilidad/sostenibilidad-social/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "11",
+        "url": "/sostenibilidad/sostenibilidad-medio-ambiente/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "12",
+        "url": "/blogs",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "13",
+        "url": "/glosario/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "14",
+        "url": "/noticias/vuelta-costa-rica-telecable-en-su-edicion-57/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "15",
+        "url": "/reglamentos-de-promos/reglamentos-de-promos-vigentes/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "16",
+        "url": "/sostenibilidad/reglamentos-de-promos/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "17",
+        "url": "/reglamentos-de-promos/reglamentos-de-promos-no-vigentes/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "18",
+        "url": "/mapa-de-cobertura/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "19",
+        "url": "/catalogo/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "20",
+        "url": "/paquete/internet-75mbps-tv/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "021",
+        "url": "/catalogo",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "022",
+        "url": "/contactanos",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "023",
+        "url": "/etica-y-cumplimiento",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "024",
+        "url": "/etica-y-cumplimiento/codigos-de-etica",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "025",
+        "url": "/etica-y-cumplimiento/politicas",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "026",
+        "url": "/etica-y-cumplimiento/umbrales-de-servicio",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "027",
+        "url": "/mapa-de-cobertura",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "028",
+        "url": "/paquete/internet-200mbps-tv",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "029",
+        "url": "/paquete/internet-200mbps-tv-t-play-pro",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "030",
+        "url": "/paquete/internet-400mbps-tv",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "031",
+        "url": "/paquete/internet-400mbps-tv-t-play-pro",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "032",
+        "url": "/paquete/internet-75-mbps-tv-con-t-play-pro",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "033",
+        "url": "/paquete/internet-75mbps-tv",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "034",
+        "url": "/paquete/plus",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "035",
+        "url": "/paquete/ultra",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "036",
+        "url": "/paquete/ultra-2",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "037",
+        "url": "/puntos-de-pago",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "038",
+        "url": "/pymes",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "039",
+        "url": "/quienes-somos",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "040",
+        "url": "/reglamentos-de-promos/reglamentos-de-promos-no-vigentes",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "041",
+        "url": "/reglamentos-de-promos/reglamentos-de-promos-vigentes",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "042",
+        "url": "/servicios-activos",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "043",
+        "url": "/solicita-tu-servicio",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "044",
+        "url": "/soy-cliente",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "045",
+        "url": "/sucursales",
+        "screenshot": true,
+        "audit": true
+      }
+    ]
+  }
+]

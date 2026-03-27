@@ -120,7 +120,7 @@ tr:hover td { background: rgba(255,255,255,0.03); }
 }
 .modal-overlay.active { display: block; }
 .modal {
-  max-width: 95vw; margin: 2rem auto; background: var(--surface);
+  max-width: 100vw; margin: 0rem auto; background: var(--surface);
   border-radius: 12px; border: 1px solid var(--border); overflow: hidden;
 }
 .modal-header {
@@ -133,6 +133,12 @@ tr:hover td { background: rgba(255,255,255,0.03); }
   font-size: 1.5rem; cursor: pointer; line-height: 1;
 }
 .modal-close:hover { color: var(--text); }
+.modal-nav {
+  background: none; border: 1px solid var(--border); color: var(--text);
+  font-size: 1.1rem; padding: 0.25rem 0.6rem; border-radius: 4px;
+  cursor: pointer; line-height: 1; flex-shrink: 0;
+}
+.modal-nav:hover { background: var(--surface-hover); }
 
 .modal-tabs {
   display: flex; align-items: center;
@@ -222,7 +228,7 @@ const REPORT_JS = `/* Visual Regression Report Logic */
   var activeFilter = 'all';
   var sortCol = null;
   var sortAsc = true;
-  var currentView = 'diff';
+  var currentView = 'side';
   var currentIdx = -1;
 
   // Use inlined data if available (file:// mode), otherwise fetch
@@ -362,9 +368,9 @@ const REPORT_JS = `/* Visual Regression Report Logic */
 
   function openModal(idx) {
     currentIdx = idx;
-    currentView = 'diff';
+    currentView = 'side';
     document.querySelectorAll('.modal-tab').forEach(function(t) {
-      t.classList.toggle('active', t.dataset.view === 'diff');
+      t.classList.toggle('active', t.dataset.view === 'side');
     });
     renderModal();
     document.getElementById('modal').classList.add('active');
@@ -390,12 +396,30 @@ const REPORT_JS = `/* Visual Regression Report Logic */
     });
   }
 
+  function navigateModal(dir) {
+    var visibleRows = Array.from(document.querySelectorAll('.comparison-row:not(.hidden)'));
+    var visibleIdxs = visibleRows.map(function(r) { return parseInt(r.dataset.idx); });
+    var pos = visibleIdxs.indexOf(currentIdx);
+    if (pos === -1) return;
+    var newPos = pos + dir;
+    if (newPos < 0 || newPos >= visibleIdxs.length) return;
+    currentIdx = visibleIdxs[newPos];
+    document.querySelectorAll('.modal-tab').forEach(function(t) {
+      t.classList.toggle('active', t.dataset.view === currentView);
+    });
+    renderModal();
+  }
+  window.navigateModal = navigateModal;
+
   function bindModalClose() {
     document.getElementById('modal').addEventListener('click', function(ev) {
       if (ev.target === document.getElementById('modal')) closeModal();
     });
     document.addEventListener('keydown', function(ev) {
-      if (ev.key === 'Escape') closeModal();
+      if (!document.getElementById('modal').classList.contains('active')) return;
+      if (ev.key === 'Escape')     closeModal();
+      if (ev.key === 'ArrowLeft')  navigateModal(-1);
+      if (ev.key === 'ArrowRight') navigateModal(1);
     });
   }
 
@@ -530,13 +554,15 @@ const REPORT_HTML_BODY = `
   <div class="modal-overlay" id="modal">
     <div class="modal">
       <div class="modal-header">
+        <button class="modal-nav" onclick="navigateModal(-1)" title="Previous (&#8592;)">&#8592;</button>
         <h2 id="modal-title">&mdash;</h2>
+        <button class="modal-nav" onclick="navigateModal(1)" title="Next (&#8594;)">&#8594;</button>
         <button class="modal-close" onclick="closeModal()">&times;</button>
       </div>
       <div class="modal-tabs">
-        <button class="modal-tab active" data-view="diff">Difference</button>
+        <button class="modal-tab active" data-view="side">Side by Side</button>
+        <button class="modal-tab" data-view="diff">Difference</button>
         <button class="modal-tab" data-view="slider">Slider</button>
-        <button class="modal-tab" data-view="side">Side by Side</button>
         <button class="modal-tab" data-view="prod">Production</button>
         <button class="modal-tab" data-view="staging">Staging</button>
         <div class="modal-links" id="modal-links"></div>

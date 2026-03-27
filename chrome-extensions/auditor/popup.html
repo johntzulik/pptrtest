@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Page Auditor</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+  <header>
+    <h1>Page <span>Auditor</span></h1>
+    <div class="current-url" id="current-url">—</div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="audit">Audit</button>
+    <button class="tab-btn" data-tab="reports">Reports</button>
+    <button class="tab-btn" data-tab="sites">Sites</button>
+  </div>
+
+  <div class="content">
+
+    <!-- ===== AUDIT TAB ===== -->
+    <div class="tab-panel active" id="tab-audit">
+      <div class="audit-controls">
+        <button class="btn btn-primary" id="btn-audit">▶ Audit This Page</button>
+        <button class="btn btn-ghost" id="btn-save" disabled>Save Report</button>
+        <span id="audit-status" style="font-size:11px;color:var(--muted);"></span>
+      </div>
+
+      <!-- Placeholder / loading / results -->
+      <div id="audit-placeholder" class="placeholder">
+        <div class="placeholder-icon">🔍</div>
+        Click "Audit This Page" to analyze performance, SEO &amp; accessibility
+      </div>
+
+      <div id="audit-loading" class="loading" style="display:none;">
+        <div class="spinner"></div>
+        Collecting metrics...
+      </div>
+
+      <div id="audit-results" style="display:none;">
+
+        <!-- Score cards -->
+        <div class="scores-grid">
+          <div class="score-card">
+            <div class="score-value" id="score-perf">—</div>
+            <div class="score-label">Performance</div>
+          </div>
+          <div class="score-card">
+            <div class="score-value" id="score-seo">—</div>
+            <div class="score-label">SEO</div>
+          </div>
+          <div class="score-card">
+            <div class="score-value" id="score-bp">—</div>
+            <div class="score-label">Best Practices</div>
+          </div>
+          <div class="score-card">
+            <div class="score-value" id="score-res">—</div>
+            <div class="score-label">Resources</div>
+          </div>
+        </div>
+
+        <!-- Performance Timing -->
+        <div class="section" id="section-timing">
+          <div class="section-header" data-section="timing">
+            ⏱ Performance Timing <span>▾</span>
+          </div>
+          <div class="section-body" id="body-timing"></div>
+        </div>
+
+        <!-- SEO -->
+        <div class="section" id="section-seo">
+          <div class="section-header" data-section="seo">
+            🔎 SEO <span>▾</span>
+          </div>
+          <div class="section-body" id="body-seo"></div>
+        </div>
+
+        <!-- Resources -->
+        <div class="section" id="section-resources">
+          <div class="section-header" data-section="resources">
+            📦 Resources <span>▾</span>
+          </div>
+          <div class="section-body" id="body-resources"></div>
+        </div>
+
+        <!-- Accessibility -->
+        <div class="section" id="section-a11y">
+          <div class="section-header" data-section="a11y">
+            ♿ Accessibility <span>▾</span>
+          </div>
+          <div class="section-body" id="body-a11y"></div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="section" id="section-recos">
+          <div class="section-header" data-section="recos">
+            💡 Recommendations <span>▾</span>
+          </div>
+          <div class="section-body">
+            <div class="reco-list" id="reco-list"></div>
+          </div>
+        </div>
+
+      </div><!-- /audit-results -->
+    </div><!-- /audit tab -->
+
+    <!-- ===== REPORTS TAB ===== -->
+    <div class="tab-panel" id="tab-reports">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <span style="font-size:13px;font-weight:700;">Saved Reports</span>
+        <button class="btn btn-ghost" id="btn-clear-reports" style="padding:4px 10px;font-size:11px;">Clear All</button>
+      </div>
+      <div class="report-list" id="report-list">
+        <div class="placeholder">
+          <div class="placeholder-icon">📋</div>
+          No reports yet
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SITES TAB ===== -->
+    <div class="tab-panel" id="tab-sites">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <span style="font-size:13px;font-weight:700;">Saved Sites</span>
+        <button class="btn btn-primary" id="btn-add-site" style="padding:5px 12px;font-size:11px;">+ Add Site</button>
+      </div>
+      <div id="sites-list">
+        <div class="placeholder">
+          <div class="placeholder-icon">🏗</div>
+          No sites yet
+        </div>
+      </div>
+
+      <!-- Inline add/edit form -->
+      <div id="site-form" style="display:none;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;margin-top:10px;">
+        <div style="font-size:12px;font-weight:700;margin-bottom:10px;" id="site-form-title">Add Site</div>
+        <input type="hidden" id="edit-site-index" value="">
+        <div style="margin-bottom:8px;">
+          <label style="font-size:11px;color:var(--muted);display:block;margin-bottom:4px;">Site Name</label>
+          <input type="text" id="site-name" placeholder="MY_SITE" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:12px;padding:6px 10px;">
+        </div>
+        <div style="margin-bottom:8px;">
+          <label style="font-size:11px;color:var(--muted);display:block;margin-bottom:4px;">Production URL</label>
+          <input type="url" id="site-url" placeholder="https://example.com" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:12px;padding:6px 10px;">
+        </div>
+        <div style="display:flex;gap:8px;margin-top:10px;">
+          <button class="btn btn-ghost" id="site-form-cancel" style="flex:1;">Cancel</button>
+          <button class="btn btn-primary" id="site-form-save" style="flex:1;">Save</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <div class="toast-container" id="toasts"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

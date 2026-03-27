@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page Comparator</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+  <header>
+    <h1>Page <span>Comparator</span></h1>
+    <span id="header-device" class="badge badge-blue">Desktop 1440×900</span>
+  </header>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="compare">Compare</button>
+    <button class="tab-btn" data-tab="sites">Sites</button>
+    <button class="tab-btn" data-tab="reports">Reports</button>
+  </div>
+
+  <main>
+
+    <!-- ===== COMPARE TAB ===== -->
+    <div class="tab-panel active" id="tab-compare">
+
+      <!-- Site + Page selector -->
+      <div class="card">
+        <div class="card-title">Select Target</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Site</label>
+            <select id="site-select">
+              <option value="">— choose a site —</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Device</label>
+            <select id="device-select">
+              <option value="desktop">Desktop (1440×900)</option>
+              <option value="mobile">Mobile (375×812)</option>
+            </select>
+          </div>
+          <button class="btn btn-ghost" id="btn-settings" title="Settings">⚙ Settings</button>
+        </div>
+
+        <!-- Manual URL override -->
+        <details>
+          <summary style="font-size:12px;color:var(--muted);cursor:pointer;margin-bottom:8px;">
+            Or enter URLs manually
+          </summary>
+          <div class="form-row" style="margin-top:8px;">
+            <div class="form-group">
+              <label>Production URL</label>
+              <input type="url" id="manual-prod" placeholder="https://example.com">
+            </div>
+            <div class="form-group">
+              <label>Staging URL</label>
+              <input type="url" id="manual-staging" placeholder="https://staging.example.com">
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Capture section -->
+      <div class="card">
+        <div class="card-title">Capture Screenshots</div>
+        <div class="capture-grid">
+          <div class="capture-box" id="box-prod">
+            <div class="capture-label">Production</div>
+            <div class="capture-url" id="prod-url-display">No URL selected</div>
+            <button class="btn btn-primary" id="btn-capture-prod">
+              <span class="spinner" id="spinner-prod" style="display:none"></span>
+              Capture Prod
+            </button>
+          </div>
+          <div class="capture-box" id="box-staging">
+            <div class="capture-label">Staging</div>
+            <div class="capture-url" id="staging-url-display">No URL selected</div>
+            <button class="btn btn-primary" id="btn-capture-staging">
+              <span class="spinner" id="spinner-staging" style="display:none"></span>
+              Capture Staging
+            </button>
+          </div>
+        </div>
+
+        <div class="form-row" style="justify-content:center;">
+          <button class="btn btn-success" id="btn-compare" disabled>
+            ▶ Compare Pages
+          </button>
+          <button class="btn btn-ghost" id="btn-clear">Clear</button>
+        </div>
+
+        <div class="log-panel" id="log-panel">
+          <div class="log-line muted">Ready. Select a site and capture screenshots.</div>
+        </div>
+      </div>
+
+      <!-- Diff result -->
+      <div class="diff-viewer" id="diff-viewer">
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-value" id="stat-status" style="font-size:18px;">—</div>
+            <div class="stat-label">Status</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-diff">—</div>
+            <div class="stat-label">Diff %</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-pixels">—</div>
+            <div class="stat-label">Different Pixels</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-total">—</div>
+            <div class="stat-label">Total Pixels</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="diff-tabs">
+            <button class="diff-tab active" data-view="slider">Slider</button>
+            <button class="diff-tab" data-view="diff">Diff Map</button>
+            <button class="diff-tab" data-view="side">Side by Side</button>
+            <button class="diff-tab" data-view="prod">Production</button>
+            <button class="diff-tab" data-view="staging">Staging</button>
+          </div>
+
+          <!-- Slider view -->
+          <div class="diff-content active" id="view-slider">
+            <div class="slider-wrap" id="slider-wrap">
+              <img id="slider-base" src="" alt="Staging">
+              <div class="slider-overlay" id="slider-overlay">
+                <img id="slider-top" src="" alt="Production">
+              </div>
+              <div class="slider-handle" id="slider-handle" style="left:50%"></div>
+            </div>
+          </div>
+
+          <!-- Diff map view -->
+          <div class="diff-content" id="view-diff">
+            <canvas id="diff-canvas" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;"></canvas>
+          </div>
+
+          <!-- Side by side -->
+          <div class="diff-content" id="view-side">
+            <div class="side-by-side">
+              <div>
+                <div style="font-size:11px;color:var(--muted);margin-bottom:6px;font-weight:600;">PRODUCTION</div>
+                <img id="sbs-prod" src="" alt="Production">
+              </div>
+              <div>
+                <div style="font-size:11px;color:var(--muted);margin-bottom:6px;font-weight:600;">STAGING</div>
+                <img id="sbs-staging" src="" alt="Staging">
+              </div>
+            </div>
+          </div>
+
+          <!-- Prod only -->
+          <div class="diff-content" id="view-prod">
+            <img id="solo-prod" src="" alt="Production" style="width:100%;border-radius:8px;">
+          </div>
+
+          <!-- Staging only -->
+          <div class="diff-content" id="view-staging">
+            <img id="solo-staging" src="" alt="Staging" style="width:100%;border-radius:8px;">
+          </div>
+        </div>
+
+        <div style="text-align:right;margin-top:8px;">
+          <button class="btn btn-ghost" id="btn-save-report">Save Report</button>
+        </div>
+      </div>
+
+    </div><!-- /compare -->
+
+    <!-- ===== SITES TAB ===== -->
+    <div class="tab-panel" id="tab-sites">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <h2 style="font-size:16px;font-weight:700;">Saved Sites</h2>
+        <button class="btn btn-primary" id="btn-add-site">+ Add Site</button>
+      </div>
+      <div class="sites-list" id="sites-list">
+        <div class="empty-state">
+          <div class="empty-icon">🏗</div>
+          <div class="empty-text">No sites yet. Add your first site to get started.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== REPORTS TAB ===== -->
+    <div class="tab-panel" id="tab-reports">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <h2 style="font-size:16px;font-weight:700;">Recent Reports</h2>
+        <button class="btn btn-ghost btn-sm" id="btn-clear-reports">Clear All</button>
+      </div>
+      <div class="report-list" id="report-list">
+        <div class="empty-state">
+          <div class="empty-icon">📋</div>
+          <div class="empty-text">No reports yet. Run a comparison to get started.</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Site Modal -->
+  <div class="modal-backdrop" id="modal-site">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-site-title">Add Site</div>
+        <button class="modal-close" id="modal-site-close">✕</button>
+      </div>
+
+      <input type="hidden" id="edit-site-index" value="">
+
+      <div class="form-group" style="margin-bottom:12px;">
+        <label>Site Name (e.g. MFNMS)</label>
+        <input type="text" id="site-name" placeholder="MY_SITE">
+      </div>
+      <div class="form-group" style="margin-bottom:12px;">
+        <label>Production URL</label>
+        <input type="url" id="site-prod-url" placeholder="https://www.example.com">
+      </div>
+      <div class="form-group" style="margin-bottom:16px;">
+        <label>Staging URL</label>
+        <input type="url" id="site-staging-url" placeholder="https://staging.example.com">
+      </div>
+
+      <div style="margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;">
+        <label style="font-size:13px;font-weight:600;">Pages</label>
+        <button class="btn btn-ghost" style="padding:4px 10px;font-size:12px;" id="btn-add-page">+ Add Page</button>
+      </div>
+      <div class="pages-list" id="pages-list"></div>
+
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:20px;">
+        <button class="btn btn-ghost" id="modal-site-cancel">Cancel</button>
+        <button class="btn btn-primary" id="modal-site-save">Save Site</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Report Detail Modal -->
+  <div class="modal-backdrop" id="modal-report">
+    <div class="modal" style="width:900px;max-width:95vw;">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-report-title">Report</div>
+        <button class="modal-close" id="modal-report-close">✕</button>
+      </div>
+      <div id="modal-report-body"></div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toasts"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -192,19 +192,23 @@ function buildRuntimeConfig(siteName) {
     pages,
     outputDir,
     imagesDir: env.IMAGES_FOLDER || path.join(outputDir, "images"),
-    timeout: parseInt(env.TIMEOUT) || 60000,
+    timeout: parseInt(siteConfig.TIMEOUT) || parseInt(env.TIMEOUT) || 60000,
     viewports: {
       desktop: {
-        width: parseInt(env.DESKTOP_WIDTH) || 1440,
-        height: parseInt(env.DESKTOP_HEIGHT) || 1080,
+        width:  parseInt(siteConfig.DESKTOP_WIDTH)  || parseInt(env.DESKTOP_WIDTH)  || 1440,
+        height: parseInt(siteConfig.DESKTOP_HEIGHT) || parseInt(env.DESKTOP_HEIGHT) || 1080,
       },
       mobile: {
-        width: parseInt(env.MOBILE_WIDTH) || 360,
-        height: parseInt(env.MOBILE_HEIGHT) || 640,
+        width:  parseInt(siteConfig.MOBILE_WIDTH)   || parseInt(env.MOBILE_WIDTH)   || 360,
+        height: parseInt(siteConfig.MOBILE_HEIGHT)  || parseInt(env.MOBILE_HEIGHT)  || 640,
       },
     },
-    enableDesktop: env.DESKTOP === "true",
-    enableMobile: env.MOBILE === "true",
+    enableDesktop: siteConfig.DESKTOP !== undefined
+      ? siteConfig.DESKTOP === true || siteConfig.DESKTOP === "true"
+      : env.DESKTOP === "true",
+    enableMobile: siteConfig.MOBILE !== undefined
+      ? siteConfig.MOBILE === true || siteConfig.MOBILE === "true"
+      : env.MOBILE === "true",
     pixelmatchThreshold: 0.1,
   };
 }

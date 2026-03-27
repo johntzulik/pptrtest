@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Page Comparator",
+  "version": "1.0.0",
+  "description": "Compare production vs staging pages pixel by pixel",
+  "permissions": ["tabs", "storage", "scripting", "windows"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Open Page Comparator"
+  },
+  "options_page": "options.html",
+  "web_accessible_resources": [
+    {
+      "resources": ["app.html", "app.js", "app.css", "lib/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "BrowserCompare",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Visual regression testing tool. Compare production vs staging sites with screenshots, diff images, and interactive reports.",
   "main": "server.js",
   "scripts": {

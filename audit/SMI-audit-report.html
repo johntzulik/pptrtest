@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Report — SMI</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:  #0cce6b; --yellow: #ffa400; --red: #ff4e42;
+      --bg: #f0f2f5; --card: #ffffff; --border: #e0e4ea;
+      --text: #1a1a2e; --muted: #6b7280; --heading: #111827;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+           background: var(--bg); color: var(--text); line-height: 1.5; }
+    .report-header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+                     color: #fff; padding: 36px 40px; }
+    .report-header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 6px; }
+    .report-header p  { color: #a0aec0; font-size: 0.9rem; margin-top: 4px; }
+    .report-header a  { color: #63b3ed; text-decoration: none; }
+    .overall-badge { display: inline-block; margin-top: 14px; padding: 6px 18px;
+                     border-radius: 20px; font-size: 1rem; font-weight: 700; color: #fff;
+                     background: #ffa400; }
+    .dashboard { display: flex; gap: 20px; padding: 30px 40px; flex-wrap: wrap; }
+    .score-card { background: var(--card); border-radius: 12px; padding: 24px;
+                  text-align: center; flex: 1; min-width: 160px;
+                  box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .score-circle { width: 80px; height: 80px; border-radius: 50%; display: flex;
+                    align-items: center; justify-content: center; font-size: 1.6rem;
+                    font-weight: 800; color: #fff; margin: 0 auto 10px; }
+    .score-label { font-weight: 600; font-size: 0.9rem; color: var(--heading); margin-bottom: 4px; }
+    .score-sub { font-size: 0.75rem; font-weight: 500; }
+    .score-sub.good { color: var(--green); } .score-sub.warn { color: var(--yellow); } .score-sub.poor { color: var(--red); }
+    .section { padding: 0 40px 30px; }
+    .section h2 { font-size: 1.1rem; font-weight: 700; color: var(--heading);
+                  margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; background: var(--card);
+            border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    th { background: #1a1a2e; color: #fff; padding: 12px 14px; text-align: left; font-size: 0.8rem; font-weight: 600; }
+    td { padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+    td a { color: #2563eb; text-decoration: none; } td a:hover { text-decoration: underline; }
+    tr:last-child td { border-bottom: none; } tr:hover td { background: #f9fafb; }
+    .page-detail { background: var(--card); border-radius: 10px; margin-bottom: 10px;
+                   box-shadow: 0 2px 6px rgba(0,0,0,0.06); overflow: hidden; }
+    .page-detail-header { display: flex; align-items: center; gap: 10px; padding: 14px 18px;
+                           cursor: pointer; user-select: none; }
+    .page-detail-header:hover { background: #f9fafb; }
+    .page-detail-body { padding: 20px 18px; border-top: 1px solid var(--border); }
+    .page-id { background: #1a1a2e; color: #fff; padding: 2px 8px; border-radius: 4px;
+               font-size: 0.75rem; font-weight: 600; flex-shrink: 0; }
+    .page-detail-header a { color: #2563eb; font-size: 0.9rem; flex: 1; text-decoration: none; }
+    .http-badge { font-size: 0.75rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; }
+    .score-mini { display: inline-flex; align-items: center; justify-content: center;
+                  width: 32px; height: 24px; border-radius: 4px; color: #fff; font-size: 0.72rem; font-weight: 700; }
+    .toggle-icon { margin-left: auto; color: var(--muted); font-size: 0.8rem; transition: transform 0.2s; }
+    .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                    gap: 20px; margin-bottom: 20px; }
+    .metrics-section h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+                           letter-spacing: 0.05em; color: var(--muted); margin-bottom: 10px; }
+    .metric-row { display: flex; justify-content: space-between; align-items: center;
+                  padding: 6px 0; border-bottom: 1px solid #f3f4f6; font-size: 0.83rem; }
+    .metric-row:last-child { border-bottom: none; }
+    .metric-value { font-weight: 600; font-size: 0.83rem; }
+    .val-good { color: #059669; } .val-warn { color: #d97706; } .val-poor { color: #dc2626; }
+    .img-list, .error-list { padding-left: 16px; margin-top: 6px; }
+    .img-list li, .error-list li { font-size: 0.78rem; color: var(--muted); margin-bottom: 3px; word-break: break-all; }
+    .recommendations { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 16px; margin-top: 4px; }
+    .recommendations h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+                           letter-spacing: 0.05em; color: #92400e; margin-bottom: 10px; }
+    .recommendations ul { padding-left: 18px; }
+    .recommendations li { font-size: 0.83rem; color: #78350f; margin-bottom: 6px; }
+    .recommendations.good-bg { background: #ecfdf5; border-color: #6ee7b7; }
+    .recommendations.good-bg p { color: #065f46; font-size: 0.85rem; font-weight: 500; }
+    footer { text-align: center; padding: 24px; font-size: 0.75rem; color: var(--muted);
+             border-top: 1px solid var(--border); margin-top: 10px; }
+    /* Deep Dive button */
+    .deepdive-btn { background: #1e3a5f; color: #93c5fd; border: 1px solid #3b82f6;
+                    border-radius: 5px; padding: 3px 10px; font-size: 0.72rem; font-weight: 600;
+                    cursor: pointer; white-space: nowrap; transition: background 0.15s; }
+    .deepdive-btn:hover { background: #1d4ed8; color: #fff; }
+    .deepdive-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+    /* Deep Dive overlay */
+    .dd-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 1000;
+                  display: flex; align-items: center; justify-content: center; }
+    .dd-modal { background: #fff; border-radius: 12px; width: 540px; max-width: 92vw;
+                max-height: 80vh; display: flex; flex-direction: column;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.35); overflow: hidden; }
+    .dd-modal-head { background: #1a1a2e; color: #fff; padding: 14px 18px;
+                     display: flex; align-items: center; justify-content: space-between; }
+    .dd-modal-head h3 { font-size: 0.95rem; font-weight: 700; }
+    .dd-modal-head span { color: #94a3b8; font-size: 0.78rem; white-space: nowrap;
+                          overflow: hidden; text-overflow: ellipsis; max-width: 300px; }
+    .dd-modal-body { flex: 1; overflow-y: auto; padding: 14px; }
+    .dd-log { background: #0f172a; color: #94a3b8; border-radius: 6px; padding: 10px;
+              font-family: monospace; font-size: 0.75rem; line-height: 1.55;
+              max-height: 240px; overflow-y: auto; margin-bottom: 10px; }
+    .dd-log .l-success { color: #22c55e; } .dd-log .l-error { color: #ef4444; }
+    .dd-log .l-info { color: #94a3b8; } .dd-log .l-warn { color: #eab308; }
+    .dd-done { background: #ecfdf5; border: 1px solid #6ee7b7; border-radius: 8px;
+               padding: 14px 16px; text-align: center; }
+    .dd-done p { color: #065f46; font-weight: 600; margin-bottom: 10px; }
+    .dd-open-btn { display: inline-block; background: #1d4ed8; color: #fff;
+                   border-radius: 6px; padding: 8px 20px; font-size: 0.85rem;
+                   font-weight: 600; text-decoration: none; }
+    .dd-open-btn:hover { background: #1e40af; }
+    .dd-close { background: none; border: none; color: #94a3b8; cursor: pointer;
+                font-size: 1.1rem; line-height: 1; padding: 0 2px; }
+    .dd-close:hover { color: #fff; }
+    .dd-spinner { display: inline-block; width: 12px; height: 12px; border: 2px solid #3b82f6;
+                  border-top-color: transparent; border-radius: 50%;
+                  animation: spin .7s linear infinite; vertical-align: middle; margin-right: 6px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="report-header">
+    <h1>Performance Audit Report</h1>
+    <p><a href="https://salesianmissions.org" target="_blank">https://salesianmissions.org</a></p>
+    <p>Template: <strong>SMI</strong> &nbsp;|&nbsp; Date: March 13, 2026 at 12:29 PM &nbsp;|&nbsp; Pages audited: 3 of 15</p>
+    <div class="overall-badge">Overall Score: 77</div>
+  </div>
+  <div class="dashboard">
+    <div class="score-card">
+    <div class="score-circle" style="background:#ffa400">88</div>
+    <div class="score-label">Performance</div>
+    <div class="score-sub warn">Needs Improvement</div>
+  </div>
+    <div class="score-card">
+    <div class="score-circle" style="background:#ffa400">83</div>
+    <div class="score-label">SEO</div>
+    <div class="score-sub warn">Needs Improvement</div>
+  </div>
+    <div class="score-card">
+    <div class="score-circle" style="background:#ffa400">85</div>
+    <div class="score-label">Best Practices</div>
+    <div class="score-sub warn">Needs Improvement</div>
+  </div>
+    <div class="score-card">
+    <div class="score-circle" style="background:#ffa400">50</div>
+    <div class="score-label">Resources</div>
+    <div class="score-sub warn">Needs Improvement</div>
+  </div>
+  </div>
+  <div class="section">
+    <h2>Per-Page Scores</h2>
+    <table>
+      <thead>
+        <tr><th>ID</th><th>URL</th><th>Performance</th><th>SEO</th><th>Best Practices</th><th>Resources</th><th>Average</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+    <td>001</td>
+    <td><a href="https://salesianmissions.org/" target="_blank">/</a></td>
+    <td style="background:#ffa400;color:#fff;font-weight:700">85</td>
+    <td style="background:#0cce6b;color:#fff;font-weight:700">97</td>
+    <td style="background:#ffa400;color:#fff;font-weight:700">80</td>
+    <td style="background:#ff4e42;color:#fff;font-weight:700">30</td>
+    <td style="background:#ffa400;color:#fff;font-weight:700">73</td>
+  </tr>
+<tr>
+    <td>002</td>
+    <td><a href="https://salesianmissions.org/about-us/letter-from-the-director/" target="_blank">/about-us/letter-from-the-director/</a></td>
+    <td style="background:#ffa400;color:#fff;font-weight:700">85</td>
+    <td style="background:#ffa400;color:#fff;font-weight:700">74</td>
+    <td style="background:#0cce6b;color:#fff;font-weight:700">95</td>
+    <td style="background:#ffa400;color:#fff;font-weight:700">63</td>
+    <td style="background:#ffa400;color:#fff;font-weight:700">79</td>
+  </tr>
+<tr>
+    <td>003</td>
+    <td><a href="https://salesianmissions.org/about-us/news-publications/" target="_blank">/about-us/news-publications/</a></td>
+    <td style="background:#0cce6b;color:#fff;font-weight:700">95</td>
+    <td style="background:#ffa400;color:#fff;font-weight:700">77</td>
+    <td style="background:#ffa400;color:#fff;font-weight:700">80</td>
+    <td style="background:#ffa400;color:#fff;font-weight:700">58</td>
+    <td style="background:#ffa400;color:#fff;font-weight:700">78</td>
+  </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="section">
+    <h2>Detailed Findings</h2>
+    <div class="page-detail">
+    <div class="page-detail-header" onclick="toggleDetail(0)">
+      <span class="page-id">[001]</span>
+      <a href="https://salesianmissions.org/" target="_blank" onclick="event.stopPropagation()">/</a>
+      <span class="http-badge val-good">200</span>
+      <span class="score-mini" style="background:#ffa400">85</span>
+      <span class="score-mini" style="background:#0cce6b">97</span>
+      <span class="score-mini" style="background:#ffa400">80</span>
+      <span class="score-mini" style="background:#ff4e42">30</span>
+      <button class="deepdive-btn" onclick="event.stopPropagation();startDeepDive(this,'https://salesianmissions.org/',0)" data-url="https://salesianmissions.org/">&#128269; Deep Dive</button>
+      <span class="toggle-icon" id="icon-0">&#9654;</span>
+    </div>
+    <div class="page-detail-body" id="detail-0" style="display:none">
+      <div class="metrics-grid">
+
+        <div class="metrics-section">
+          <h4>Performance</h4>
+          <div class="metric-row">
+    <span class="metric-name">TTFB</span>
+    <span class="metric-value val-warn">201ms</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">FCP</span>
+    <span class="metric-value val-good">1104ms</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">LCP</span>
+    <span class="metric-value val-good">1424ms</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">CLS</span>
+    <span class="metric-value val-good">0.025</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">DOM Load</span>
+    <span class="metric-value val-good">1120ms</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Page Load</span>
+    <span class="metric-value val-good">2379ms</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">DOM Elements</span>
+    <span class="metric-value val-good">1148</span>
+  </div>
+        </div>
+
+        <div class="metrics-section">
+          <h4>Resources</h4>
+          <div class="metric-row">
+    <span class="metric-name">Total Requests</span>
+    <span class="metric-value val-poor">120</span>
+  </div>
+          <div class="metric-row">
+            <span class="metric-name">Page Weight</span>
+            <span class="metric-value val-poor">
+              3497.3 KB
+            </span>
+          </div>
+          <div class="metric-row">
+    <span class="metric-name">Unused JS</span>
+    <span class="metric-value val-warn">54%</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Unused CSS</span>
+    <span class="metric-value val-poor">91%</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Images w/o size</span>
+    <span class="metric-value val-poor">15</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Large imgs (>100KB)</span>
+    <span class="metric-value val-poor">7</span>
+  </div>
+          <ul class="img-list"><li>2026-March-desktop-1.jpg — 393.4KB</li><li>SMI99095_Feb_Lent_Homepage_Image_DSK_v01.jpg — 379.2KB</li><li>190308-SMI-2019-Homepage-Banner-3-Desktop-v2.jpg — 633.3KB</li><li>180216-SMI-Homepage-Image-Quote-v1B.jpg — 127.3KB</li><li>March-2026-story-3-Chad.jpg — 459.6KB</li><li>190125-SMI-Dropdown-Image-A-v1.jpg — 114.5KB</li><li>190125-SMI-Dropdown-Image-B-v1.jpg — 109.4KB</li></ul>
+        </div>
+
+        <div class="metrics-section">
+          <h4>SEO</h4>
+          <div class="metric-row">
+            <span class="metric-name">Title</span>
+            <span class="metric-value val-good">
+              "Salesian Missions - International Relief for Child..." (53)
+            </span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-name">Meta Description</span>
+            <span class="metric-value val-good">
+              140 chars
+            </span>
+          </div>
+          <div class="metric-row">
+    <span class="metric-name">H1 Count = 1</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Canonical URL</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Viewport meta</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">HTTPS</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+            <span class="metric-name">Images missing alt</span>
+            <span class="metric-value val-poor">1 / 44</span>
+          </div>
+        </div>
+
+        <div class="metrics-section">
+          <h4>Best Practices</h4>
+          <div class="metric-row">
+    <span class="metric-name">Viewport meta</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">HTTPS</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">No mixed content</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">No console errors</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          
+        </div>
+
+      </div>
+
+      <div class="recommendations">
+             <h4>Recommendations</h4>
+             <ul><li>54% of JavaScript is unused. Consider code splitting or deferred loading.</li><li>91% of CSS is unused. Audit and purge unused styles.</li><li>7 image(s) exceed 100KB. Compress images and use modern formats (WebP/AVIF).</li><li>15 image(s) missing width/height attributes. Add them to prevent layout shift.</li><li>1 image(s) missing alt attribute. Add descriptive alt text.</li><li>120 network requests. Reduce requests through bundling or lazy loading.</li></ul>
+           </div>
+
+    </div>
+  </div>
+<div class="page-detail">
+    <div class="page-detail-header" onclick="toggleDetail(1)">
+      <span class="page-id">[002]</span>
+      <a href="https://salesianmissions.org/about-us/letter-from-the-director/" target="_blank" onclick="event.stopPropagation()">/about-us/letter-from-the-director/</a>
+      <span class="http-badge val-good">200</span>
+      <span class="score-mini" style="background:#ffa400">85</span>
+      <span class="score-mini" style="background:#ffa400">74</span>
+      <span class="score-mini" style="background:#0cce6b">95</span>
+      <span class="score-mini" style="background:#ffa400">63</span>
+      <button class="deepdive-btn" onclick="event.stopPropagation();startDeepDive(this,'https://salesianmissions.org/about-us/letter-from-the-director/',1)" data-url="https://salesianmissions.org/about-us/letter-from-the-director/">&#128269; Deep Dive</button>
+      <span class="toggle-icon" id="icon-1">&#9654;</span>
+    </div>
+    <div class="page-detail-body" id="detail-1" style="display:none">
+      <div class="metrics-grid">
+
+        <div class="metrics-section">
+          <h4>Performance</h4>
+          <div class="metric-row">
+    <span class="metric-name">TTFB</span>
+    <span class="metric-value val-warn">487ms</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">FCP</span>
+    <span class="metric-value val-good">684ms</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">LCP</span>
+    <span class="metric-value val-good">724ms</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">CLS</span>
+    <span class="metric-value val-good">0.005</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">DOM Load</span>
+    <span class="metric-value val-good">712ms</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Page Load</span>
+    <span class="metric-value val-good">959ms</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">DOM Elements</span>
+    <span class="metric-value val-good">752</span>
+  </div>
+        </div>
+
+        <div class="metrics-section">
+          <h4>Resources</h4>
+          <div class="metric-row">
+    <span class="metric-name">Total Requests</span>
+    <span class="metric-value val-warn">87</span>
+  </div>
+          <div class="metric-row">
+            <span class="metric-name">Page Weight</span>
+            <span class="metric-value val-good">
+              227.5 KB
+            </span>
+          </div>
+          <div class="metric-row">
+    <span class="metric-name">Unused JS</span>
+    <span class="metric-value val-warn">55%</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Unused CSS</span>
+    <span class="metric-value val-poor">93%</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Images w/o size</span>
+    <span class="metric-value val-poor">10</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Large imgs (>100KB)</span>
+    <span class="metric-value val-poor">1</span>
+  </div>
+          <ul class="img-list"><li>Fr-Mike-906x1024.jpg — 127.7KB</li></ul>
+        </div>
+
+        <div class="metrics-section">
+          <h4>SEO</h4>
+          <div class="metric-row">
+            <span class="metric-name">Title</span>
+            <span class="metric-value val-warn">
+              "Letter from the Director -" (26)
+            </span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-name">Meta Description</span>
+            <span class="metric-value val-warn">
+              26 chars
+            </span>
+          </div>
+          <div class="metric-row">
+    <span class="metric-name">H1 Count = 1</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Canonical URL</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Viewport meta</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">HTTPS</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+            <span class="metric-name">Images missing alt</span>
+            <span class="metric-value val-poor">2 / 21</span>
+          </div>
+        </div>
+
+        <div class="metrics-section">
+          <h4>Best Practices</h4>
+          <div class="metric-row">
+    <span class="metric-name">Viewport meta</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">HTTPS</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">No mixed content</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">No console errors</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          
+        </div>
+
+      </div>
+
+      <div class="recommendations">
+             <h4>Recommendations</h4>
+             <ul><li>55% of JavaScript is unused. Consider code splitting or deferred loading.</li><li>93% of CSS is unused. Audit and purge unused styles.</li><li>1 image(s) exceed 100KB. Compress images and use modern formats (WebP/AVIF).</li><li>10 image(s) missing width/height attributes. Add them to prevent layout shift.</li><li>Title length (26 chars) is outside the 30–60 character ideal range.</li><li>2 image(s) missing alt attribute. Add descriptive alt text.</li></ul>
+           </div>
+
+    </div>
+  </div>
+<div class="page-detail">
+    <div class="page-detail-header" onclick="toggleDetail(2)">
+      <span class="page-id">[003]</span>
+      <a href="https://salesianmissions.org/about-us/news-publications/" target="_blank" onclick="event.stopPropagation()">/about-us/news-publications/</a>
+      <span class="http-badge val-good">200</span>
+      <span class="score-mini" style="background:#0cce6b">95</span>
+      <span class="score-mini" style="background:#ffa400">77</span>
+      <span class="score-mini" style="background:#ffa400">80</span>
+      <span class="score-mini" style="background:#ffa400">58</span>
+      <button class="deepdive-btn" onclick="event.stopPropagation();startDeepDive(this,'https://salesianmissions.org/about-us/news-publications/',2)" data-url="https://salesianmissions.org/about-us/news-publications/">&#128269; Deep Dive</button>
+      <span class="toggle-icon" id="icon-2">&#9654;</span>
+    </div>
+    <div class="page-detail-body" id="detail-2" style="display:none">
+      <div class="metrics-grid">
+
+        <div class="metrics-section">
+          <h4>Performance</h4>
+          <div class="metric-row">
+    <span class="metric-name">TTFB</span>
+    <span class="metric-value val-good">135ms</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">FCP</span>
+    <span class="metric-value val-good">332ms</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">LCP</span>
+    <span class="metric-value val-good">348ms</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">CLS</span>
+    <span class="metric-value val-good">0.001</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">DOM Load</span>
+    <span class="metric-value val-good">334ms</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Page Load</span>
+    <span class="metric-value val-good">561ms</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">DOM Elements</span>
+    <span class="metric-value val-good">789</span>
+  </div>
+        </div>
+
+        <div class="metrics-section">
+          <h4>Resources</h4>
+          <div class="metric-row">
+    <span class="metric-name">Total Requests</span>
+    <span class="metric-value val-warn">88</span>
+  </div>
+          <div class="metric-row">
+            <span class="metric-name">Page Weight</span>
+            <span class="metric-value val-good">
+              904.5 KB
+            </span>
+          </div>
+          <div class="metric-row">
+    <span class="metric-name">Unused JS</span>
+    <span class="metric-value val-warn">47%</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Unused CSS</span>
+    <span class="metric-value val-poor">92%</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Images w/o size</span>
+    <span class="metric-value val-poor">10</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Large imgs (>100KB)</span>
+    <span class="metric-value val-poor">4</span>
+  </div>
+          <ul class="img-list"><li>2010-christmas-030.jpg — 106.2KB</li><li>news-publications-salesian-magazine.jpg — 186.0KB</li><li>news-publications-world-bulletin.jpg — 300.7KB</li><li>news-publications-annual-reports.jpg — 223.1KB</li></ul>
+        </div>
+
+        <div class="metrics-section">
+          <h4>SEO</h4>
+          <div class="metric-row">
+            <span class="metric-name">Title</span>
+            <span class="metric-value val-warn">
+              "News & Publications -" (21)
+            </span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-name">Meta Description</span>
+            <span class="metric-value val-warn">
+              21 chars
+            </span>
+          </div>
+          <div class="metric-row">
+    <span class="metric-name">H1 Count = 1</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Canonical URL</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">Viewport meta</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">HTTPS</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+            <span class="metric-name">Images missing alt</span>
+            <span class="metric-value val-poor">1 / 19</span>
+          </div>
+        </div>
+
+        <div class="metrics-section">
+          <h4>Best Practices</h4>
+          <div class="metric-row">
+    <span class="metric-name">Viewport meta</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">HTTPS</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">No mixed content</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          <div class="metric-row">
+    <span class="metric-name">No console errors</span>
+    <span class="metric-value val-good">&#10003; Pass</span>
+  </div>
+          
+        </div>
+
+      </div>
+
+      <div class="recommendations">
+             <h4>Recommendations</h4>
+             <ul><li>92% of CSS is unused. Audit and purge unused styles.</li><li>4 image(s) exceed 100KB. Compress images and use modern formats (WebP/AVIF).</li><li>10 image(s) missing width/height attributes. Add them to prevent layout shift.</li><li>Title length (21 chars) is outside the 30–60 character ideal range.</li><li>1 image(s) missing alt attribute. Add descriptive alt text.</li></ul>
+           </div>
+
+    </div>
+  </div>
+  </div>
+  <footer>Generated by <strong>BrowserCompare</strong> &nbsp;|&nbsp; Puppeteer &nbsp;|&nbsp; March 13, 2026 at 12:29 PM</footer>
+  <script>
+    // ── Accordion ──────────────────────────────────────────────────────────
+    function toggleDetail(idx) {
+      var body = document.getElementById("detail-" + idx);
+      var icon = document.getElementById("icon-" + idx);
+      if (body.style.display === "none") {
+        body.style.display = "block"; icon.style.transform = "rotate(90deg)";
+      } else {
+        body.style.display = "none"; icon.style.transform = "";
+      }
+    }
+
+    // ── Deep Dive ──────────────────────────────────────────────────────────
+    function startDeepDive(btn, url, idx) {
+      btn.disabled = true;
+
+      // Build modal
+      var overlay = document.createElement("div");
+      overlay.className = "dd-overlay";
+      overlay.innerHTML =
+        '<div class="dd-modal">' +
+          '<div class="dd-modal-head">' +
+            '<h3><span class="dd-spinner"></span> Deep Dive Running</h3>' +
+            '<span>' + url + '</span>' +
+          '</div>' +
+          '<div class="dd-modal-body">' +
+            '<div class="dd-log" id="dd-log-' + idx + '"></div>' +
+            '<div id="dd-result-' + idx + '"></div>' +
+          '</div>' +
+        '</div>';
+
+      document.body.appendChild(overlay);
+
+      // Close overlay on background click (only after job done)
+      overlay.addEventListener("click", function(e) {
+        if (e.target === overlay && overlay.dataset.done) {
+          overlay.remove();
+          btn.disabled = false;
+        }
+      });
+
+      // Start job
+      fetch("/api/deepdive", {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify({ url: url }),
+      })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.error) {
+            finishDD(overlay, btn, idx, null, data.error);
+            return;
+          }
+
+          var es = new EventSource("/api/deepdive/" + data.jobId + "/stream");
+          es.onmessage = function(ev) {
+            var msg = JSON.parse(ev.data);
+            if (msg.type === "done") {
+              es.close();
+              finishDD(overlay, btn, idx, msg.status === "done" ? msg.summary : null,
+                        msg.status !== "done" ? "Job failed" : null);
+              return;
+            }
+            appendDDLog(idx, msg);
+          };
+          es.onerror = function() {
+            es.close();
+            finishDD(overlay, btn, idx, null, "Connection lost");
+          };
+        })
+        .catch(function(err) {
+          finishDD(overlay, btn, idx, null, err.message);
+        });
+    }
+
+    function appendDDLog(idx, msg) {
+      var log = document.getElementById("dd-log-" + idx);
+      if (!log) return;
+      var line = document.createElement("div");
+      line.className = "l-" + (msg.level || "info");
+      line.textContent = msg.message;
+      log.appendChild(line);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    function finishDD(overlay, btn, idx, summary, errMsg) {
+      var head = overlay.querySelector(".dd-modal-head");
+      var result = document.getElementById("dd-result-" + idx);
+      overlay.dataset.done = "1";
+
+      // Build close button via DOM to avoid escaping issues
+      function makeCloseBtn() {
+        var cb = document.createElement("button");
+        cb.className = "dd-close";
+        cb.textContent = "×";
+        cb.addEventListener("click", function() {
+          overlay.remove();
+          btn.disabled = false;
+        });
+        return cb;
+      }
+
+      if (errMsg) {
+        var h3e = document.createElement("h3");
+        h3e.style.color = "#ef4444";
+        h3e.textContent = "✗ Deep Dive Failed";
+        head.innerHTML = "";
+        head.appendChild(h3e);
+        head.appendChild(makeCloseBtn());
+        result.innerHTML = '<p style="color:#dc2626;font-size:.85rem">Error: ' + errMsg + '</p>';
+        btn.disabled = false;
+      } else {
+        var h3s = document.createElement("h3");
+        h3s.textContent = "✓ Deep Dive Complete";
+        head.innerHTML = "";
+        head.appendChild(h3s);
+        head.appendChild(makeCloseBtn());
+        result.innerHTML =
+          '<div class="dd-done">' +
+            '<p>Analysis complete in ' + summary.elapsed + 's</p>' +
+            '<a href="/audit/' + summary.reportPath + '" target="_blank" class="dd-open-btn">Open Deep Dive Report</a>' +
+          '</div>';
+        btn.textContent = "View Report";
+        btn.disabled = false;
+        btn.onclick = function(e) {
+          e.stopPropagation();
+          window.open("/audit/" + summary.reportPath, "_blank");
+        };
+      }
+    }
+  </script>
+</body>
+</html>

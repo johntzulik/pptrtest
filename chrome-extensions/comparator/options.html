@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Page Comparator — Settings</title>
+  <style>
+    :root {
+      --bg: #0f172a; --surface: #1e293b; --border: #334155;
+      --text: #e2e8f0; --muted: #94a3b8; --accent: #3b82f6;
+      --green: #22c55e; --red: #ef4444; --radius: 8px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background: var(--bg); color: var(--text); padding: 32px; max-width: 560px; }
+    h1 { font-size: 18px; margin-bottom: 24px; }
+    h2 { font-size: 14px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 12px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 16px; }
+    .form-row { display: flex; gap: 12px; align-items: flex-end; margin-bottom: 12px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    label { font-size: 12px; color: var(--muted); }
+    input { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 13px; padding: 8px 12px; outline: none; width: 100%; }
+    input:focus { border-color: var(--accent); }
+    .btn { padding: 8px 16px; border-radius: 6px; border: none; font-size: 13px; font-weight: 600; cursor: pointer; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #2563eb; }
+    .status { font-size: 13px; color: var(--green); margin-top: 8px; display: none; }
+  </style>
+</head>
+<body>
+  <h1>⚙ Page Comparator Settings</h1>
+
+  <div class="card">
+    <h2>Desktop Viewport</h2>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Width (px)</label>
+        <input type="number" id="desktop-w" value="1440">
+      </div>
+      <div class="form-group">
+        <label>Height (px)</label>
+        <input type="number" id="desktop-h" value="900">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Mobile Viewport</h2>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Width (px)</label>
+        <input type="number" id="mobile-w" value="375">
+      </div>
+      <div class="form-group">
+        <label>Height (px)</label>
+        <input type="number" id="mobile-h" value="812">
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" id="btn-save">Save Settings</button>
+  <div class="status" id="status">✓ Settings saved</div>
+
+  <script>
+    async function load() {
+      const data = await chrome.storage.local.get('devices');
+      const d = data.devices || { desktop: { width: 1440, height: 900 }, mobile: { width: 375, height: 812 } };
+      document.getElementById('desktop-w').value = d.desktop.width;
+      document.getElementById('desktop-h').value = d.desktop.height;
+      document.getElementById('mobile-w').value  = d.mobile.width;
+      document.getElementById('mobile-h').value  = d.mobile.height;
+    }
+
+    document.getElementById('btn-save').addEventListener('click', async () => {
+      const devices = {
+        desktop: { width: +document.getElementById('desktop-w').value, height: +document.getElementById('desktop-h').value },
+        mobile:  { width: +document.getElementById('mobile-w').value,  height: +document.getElementById('mobile-h').value }
+      };
+      await chrome.storage.local.set({ devices });
+      const s = document.getElementById('status');
+      s.style.display = 'block';
+      setTimeout(() => s.style.display = 'none', 2000);
+    });
+
+    load();
+  </script>
+</body>
+</html>

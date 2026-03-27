@@ -1,0 +1,64 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://salesians19.wpengine.com",
+      "STAGING_URL": "https://web.archive.org/web/20250804220329/https://salesianmissions.org",
+      "COOKIE_PRODUCTION": "example.com",
+      "COOKIE_STAGING": "staging.example.com",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false",
+      "COOKIEVALUE": "displayed",
+      "TIMEOUT": 200000,
+      "DESKTOP_WIDTH": 1440,
+      "DESKTOP_HEIGHT": 1080,
+      "MOBILE_WIDTH": 360,
+      "MOBILE_HEIGHT": 640,
+      "DESKTOP": true,
+      "MOBILE": true
+    },
+    "pages": [
+      {
+        "id": "001",
+        "url": "/lp/content-relief/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "002",
+        "url": "/lp/content-hope/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "003",
+        "url": "/lp/content-faith/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "004",
+        "url": "/lp/content-multiply/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "005",
+        "url": "/lp/multiply/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "006",
+        "url": "/lp/content-food/",
+        "screenshot": true,
+        "audit": true
+      },
+      {
+        "id": "007",
+        "url": "/lp/food/",
+        "screenshot": true,
+        "audit": true
+      }
+    ]
+  }
+]

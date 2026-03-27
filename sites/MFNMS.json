@@ -5,8 +5,9 @@
       "STAGING_URL": "https://msfoodnet19.wpengine.com",
       "COOKIE_PRODUCTION": "www.msfoodnet.org",
       "COOKIE_STAGING": "msfoodnet19.wpengine.com",
-      "COOKIE_ONE": "",
-      "ISCOOKIESET": "false"
+      "COOKIE_ONE": "lb_mfnms_260114_sustainer_invite",
+      "ISCOOKIESET": "true",
+      "COOKIEVALUE": "displayed"
     },
     "pages": [
       {

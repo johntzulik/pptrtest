@@ -30,9 +30,15 @@ app.use(express.static(path.join(__dirname, "ui")));
 app.use("/output", express.static(path.join(__dirname, process.env.COMPFILE || "html_cmp")));
 
 // API routes
-app.use("/api/config", require("./routes/config"));
-app.use("/api/sites", require("./routes/sites"));
-app.use("/api/jobs", require("./routes/jobs"));
+app.use("/api/config",  require("./routes/config"));
+app.use("/api/sites",   require("./routes/sites"));
+app.use("/api/jobs",    require("./routes/jobs"));
+app.use("/api/audit",    require("./routes/audit"));
+app.use("/api/crawler",  require("./routes/crawler"));
+app.use("/api/deepdive", require("./routes/deepdive"));
+
+// Serve audit reports
+app.use("/audit", express.static(path.join(__dirname, "audit")));
 
 // Start server
 app.listen(PORT, () => {

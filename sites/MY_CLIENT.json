@@ -1,0 +1,19 @@
+[
+  {
+    "config": {
+      "PRODUCTION_URL": "https://example.com",
+      "STAGING_URL": "https://staging.example.com",
+      "COOKIE_PRODUCTION": "example.com",
+      "COOKIE_STAGING": "staging.example.com",
+      "COOKIE_ONE": "",
+      "ISCOOKIESET": "false",
+      "COOKIEVALUE": "displayed"
+    },
+    "pages": [
+      {
+        "id": "01",
+        "url": "/"
+      }
+    ]
+  }
+]

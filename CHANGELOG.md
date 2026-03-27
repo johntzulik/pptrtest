@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.0] - 2026-03-26
+
+### Added
+
+- **Per-site Capture Settings** — Viewport sizes (desktop/mobile), timeout, and device toggles (DESKTOP/MOBILE) can now be set individually in each site's JSON config. `.env` values are used as fallback for backward compatibility.
+- **Header checkboxes** — Checkbox in the Screenshot and Audit column headers to select/deselect all rows at once in the pages table.
+- **Drag & drop row reordering** — Pages can be reordered by dragging rows in the site editor.
+- **Bulk URL import** — Paste a list of URLs (one per line) and they are auto-added as pages with sequential IDs, skipping duplicates.
+- **Top header action buttons** — Save, Export JSON, and Import JSON buttons added to the site editor header, so they are always visible regardless of how many pages are listed.
+- **Comparison modal navigation** — Previous (←) and Next (→) arrow buttons in the modal header to navigate between screenshot comparisons without closing and reopening. Arrow keys (ArrowLeft / ArrowRight) also supported.
+- **Modal defaults to Side by Side** — The comparison popup now opens on the "Side by Side" tab instead of "Difference".
+
+### Changed
+
+- **Tab order** — "Sites" is now the first tab; "Comparison" (renamed from "Dashboard") is second.
+- **Settings tab removed** — Per-site settings replace the global Settings tab entirely.
+- **Fix ID auto-increment** — Adding a new page now correctly uses `max(existing IDs) + 1` instead of `pages.length + 1`, so IDs stay correct after rows are deleted.
+- **Modal tab order** — "Side by Side" appears first; "Difference" second.
+
 ## [2.0.0] - 2026-01-29
 
 ### Added

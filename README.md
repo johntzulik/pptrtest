@@ -38,13 +38,15 @@ TEMPLATE=CLIENT
 | `TEMPLATE` | — | Name of the site config file (without `.json`) |
 | `COMPFILE` | `html_cmp` | Output folder name |
 | `IMAGES_FOLDER` | `html_cmp/images` | Where screenshots are stored |
-| `TIMEOUT` | `100000` | Navigation timeout in milliseconds |
-| `DESKTOP_WIDTH` | `1440` | Desktop viewport width |
-| `DESKTOP_HEIGHT` | `1080` | Desktop viewport height |
-| `MOBILE_WIDTH` | `360` | Mobile viewport width |
-| `MOBILE_HEIGHT` | `640` | Mobile viewport height |
-| `DESKTOP` | `true` | Enable desktop captures |
-| `MOBILE` | `true` | Enable mobile captures |
+| `TIMEOUT` | `100000` | Navigation timeout in milliseconds (fallback) |
+| `DESKTOP_WIDTH` | `1440` | Desktop viewport width (fallback) |
+| `DESKTOP_HEIGHT` | `1080` | Desktop viewport height (fallback) |
+| `MOBILE_WIDTH` | `360` | Mobile viewport width (fallback) |
+| `MOBILE_HEIGHT` | `640` | Mobile viewport height (fallback) |
+| `DESKTOP` | `true` | Enable desktop captures (fallback) |
+| `MOBILE` | `true` | Enable mobile captures (fallback) |
+
+> Capture settings (TIMEOUT, viewport sizes, DESKTOP/MOBILE) can also be set per-site inside the site's JSON `config` block. Site-level values take priority over `.env`.
 
 ### 3. Create a site config file
 
@@ -96,9 +98,8 @@ npm start
 
 This launches a web server at `http://localhost:3000` and opens the GUI in your default browser. From the GUI you can:
 
-- **Dashboard** — Select a site and run comparisons with real-time progress logs
-- **Sites** — Create, edit, delete, import, and export site configurations
-- **Settings** — Edit viewport sizes, timeout, device toggles, and active template
+- **Sites** — Create, edit, delete, import, and export site configurations. Per-site capture settings (viewports, timeout, device toggles). Drag & drop page reordering. Bulk URL import.
+- **Comparison** — Select a site and run comparisons with real-time progress logs
 - **Reports** — Open the latest generated report
 
 ### CLI mode
@@ -157,11 +158,12 @@ No server, no dependencies, no command line needed.
 - **Filters** — Filter by device (desktop/mobile) or status (identical/changed/failed)
 - **Sortable columns** — Click any column header to sort
 - **Modal viewer** — Click "View" to open a detailed comparison with tabs:
+  - **Side by Side** — Both screenshots next to each other (default view)
   - **Difference** — Diff image with changed pixels highlighted in red
   - **Slider** — Drag to compare production and staging side by side
-  - **Side by Side** — Both screenshots next to each other
   - **Production** — Full production screenshot
   - **Staging** — Full staging screenshot
+- **Navigation arrows** — ← → buttons (and keyboard ArrowLeft/ArrowRight) navigate between comparisons without closing the modal
 - **Direct links** — Links to live production and staging pages in the modal tab bar
 
 ## Project structure

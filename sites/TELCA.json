@@ -1,20 +1,13 @@
 [
   {
     "config": {
-      "PRODUCTION_URL": "https://denverrescuemission.org",
-      "STAGING_URL": "http://denverrescustg.wpengine.com",
-      "COOKIE_PRODUCTION": "denverrescuemission.org",
-      "COOKIE_STAGING": "denverrescustg.wpengine.com",
+      "PRODUCTION_URL": "https://nuevotelca2026.kinsta.cloud/",
+      "STAGING_URL": "https://nuevotelca2026.kinsta.cloud/",
+      "COOKIE_PRODUCTION": "example.com",
+      "COOKIE_STAGING": "staging.example.com",
       "COOKIE_ONE": "",
       "ISCOOKIESET": "false",
-      "COOKIEVALUE": "",
-      "TIMEOUT": 200000,
-      "DESKTOP_WIDTH": 1440,
-      "DESKTOP_HEIGHT": 1080,
-      "MOBILE_WIDTH": 360,
-      "MOBILE_HEIGHT": 640,
-      "DESKTOP": true,
-      "MOBILE": false
+      "COOKIEVALUE": "displayed"
     },
     "pages": [
       {
@@ -25,169 +18,139 @@
       },
       {
         "id": "002",
-        "url": "/what-we-do/our-impact/",
+        "url": "/catalogo",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "003",
-        "url": "/volunteer/",
+        "url": "/contactanos",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "004",
-        "url": "/volunteers/s/meals",
+        "url": "/etica-y-cumplimiento",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "005",
-        "url": "/ways-to-give/give-items/",
+        "url": "/grilla-de-canales",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "006",
-        "url": "/get-help/",
+        "url": "/hogar",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "007",
-        "url": "/who-we-are/locations/donation-drop-off/",
+        "url": "/mapa-de-cobertura",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "008",
-        "url": "/who-we-are/locations/the-crossing/",
+        "url": "/paquete/internet-1000-mbps-telefonia-fija",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "009",
-        "url": "/who-we-are/locations/ministry-outreach-center/",
+        "url": "/paquete/internet-1000-mbps-tv",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "010",
-        "url": "/what-we-do/how-we-help/",
+        "url": "/paquete/internet-1000mbps",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "011",
-        "url": "/who-we-are/locations/lawrence-street-shelter/",
+        "url": "/paquete/internet-400mbps",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "012",
-        "url": "/volunteers/s/kiosk",
+        "url": "/paquete/internet-400mbps-tv",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "013",
-        "url": "/careers/",
+        "url": "/paquete/internet-400mbps-tv-t-play-pro",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "014",
-        "url": "/who-we-are/locations/",
+        "url": "/paquete/internet-600-mbps-telefonia-fija",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "015",
-        "url": "/who-we-are/contact-us/",
+        "url": "/paquete/internet-600-mbps-tv",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "016",
-        "url": "/volunteers/s/shiftregistration",
+        "url": "/paquete/internet-600-mbps-tv-telefonia-fija",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "017",
-        "url": "/what-we-do/homelessness-in-denver/",
+        "url": "/paquete/internet-75mbps-tv",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "018",
-        "url": "/who-we-are/our-mission/",
+        "url": "/politicas/codigos",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "019",
-        "url": "/homelessness-and-substance-abuse/",
+        "url": "/politicas/reglamentos-y-promociones",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "020",
-        "url": "/volunteers/s/warehouse-support",
+        "url": "/puntos-de-pago",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "021",
-        "url": "/who-we-are/locations/48th-avenue-center/",
+        "url": "/quienes-somos",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "022",
-        "url": "/who-we-are/leadership-team/",
+        "url": "/solicita-tu-servicio",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "023",
-        "url": "/Volunteer/",
+        "url": "/soy-cliente",
         "screenshot": true,
         "audit": true
       },
       {
         "id": "024",
-        "url": "/volunteers/s/fcrm-meals",
-        "screenshot": true,
-        "audit": true
-      },
-      {
-        "id": "025",
-        "url": "/get-help/inquiry/",
-        "screenshot": true,
-        "audit": true
-      },
-      {
-        "id": "026",
-        "url": "/ways-to-give/",
-        "screenshot": true,
-        "audit": true
-      },
-      {
-        "id": "027",
-        "url": "/who-we-are/locations/lawrence-street-community-center/",
-        "screenshot": true,
-        "audit": true
-      },
-      {
-        "id": "028",
-        "url": "/volunteers/s/groups",
-        "screenshot": true,
-        "audit": true
-      },
-      {
-        "id": "029",
-        "url": "/asdasdasdasd",
+        "url": "/sucursales",
         "screenshot": true,
         "audit": true
       }
